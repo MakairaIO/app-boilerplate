@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Error!{% endblock %}
+
+{% block body %}
+    <div class="error-screen__wrapper">
+        <img src="{{  asset('images/makaira-logo.svg') }}" height="130px" alt="Makaira Logo" />
+
+        <h2>The provided credentials are not correct.</h2>
+    </div>
+{% endblock %}

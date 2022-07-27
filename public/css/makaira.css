@@ -1,0 +1,150 @@
+:root {
+    --aubergine: #61304d;
+    --misty: #ecf2f3;
+    --sunny: #F5BF33;
+    --fire: #eb6e68;
+    --teal: #63b6c8;
+
+    --neutral-00: #FFFFFF;
+    --neutral-10: #ECF2F3;
+    --neutral-20: #DEE7E8;
+    --neutral-40: #BDD2D6;
+    --neutral-50: #A2BABE;
+    --neutral-60: #84A4A9;
+    --neutral-70: #537074;
+    --neutral-80: #334548;
+    --neutral-90: #192224;
+    --neutral-100: #000000;
+}
+
+
+@font-face {
+    font-display: fallback;
+    font-family: 'FuturaBT';
+    font-weight: 100;
+    src: url('../fonts/FuturaBT-Light/font.woff2') format('woff2'),
+    url('../fonts/FuturaBT-Light/font.woff') format('woff');
+}
+
+@font-face {
+    font-display: fallback;
+    font-family: 'FuturaBT';
+    font-weight: 300;
+    src: url('../fonts/FuturaBT-Book/font.woff2') format('woff2'),
+    url('../fonts/FuturaBT-Book/font.woff') format('woff');
+}
+
+
+@font-face {
+    font-display: fallback;
+    font-family: 'FuturaBT';
+    font-weight: 400;
+    src: url('../fonts/FuturaBT-Medium/font.woff2') format('woff2'),
+    url('../fonts/FuturaBT-Medium/font.woff') format('woff');
+}
+
+@font-face {
+    font-display: fallback;
+    font-family: 'FuturaBT';
+    font-weight: 900;
+    src: url('../fonts/FuturaBT-Heavy/font.woff2') format('woff2'),
+    url('../fonts/FuturaBT-Heavy/font.woff') format('woff');
+}
+
+body,
+html {
+    font-size: 10px;
+    margin: 0;
+    font-family: FuturaBT, sans-serif;
+    background-color: var(--neutral-10);
+}
+
+.text--alpha {
+    font-size: 1rem;
+    letter-spacing: 0.03rem;
+    line-height: 1.2rem;
+}
+
+p,
+.text--bravo {
+    font-size: 1.3rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.8rem;
+}
+
+h3,
+.text--delta {
+    font-size: 1.8rem;
+    letter-spacing: 0;
+    line-height: 2.6rem;
+}
+
+h2,
+.text--echo {
+    font-size: 2.4rem;
+    letter-spacing: -0.02rem;
+    line-height: 3.4rem;
+}
+
+h1,
+.text--golf {
+    font-size: 3.8rem;
+    letter-spacing: -.05rem;
+    line-height: 4.3rem;
+}
+
+h2, h3 {
+    font-weight: 500;
+}
+
+p,
+h1, h2, h3 {
+    color: var(--aubergine);
+}
+
+p {
+    font-weight: 400;
+}
+
+.error-screen__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--neutral-20);
+}
+
+.makaira-app__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.container--level-1 {
+    background-color: var(--neutral-20);
+}
+
+.makaira-app__information-container {
+    color: var(--neutral-70);
+}
+
+.makaira-app__information-container code {
+    font-size: 1.3rem;
+}
+
+.makaira-app__information-container span {
+    display: inline-block;
+    width: 11rem;
+}
+
+.makaira-app__information-container div:not(:last-child) {
+    padding-bottom: 0.4rem;
+}
