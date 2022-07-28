@@ -1,16 +1,28 @@
+/**
+ * Send a "request" to the makaira backend with the
+ * <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">postMessage function</a>
+ * to get the JWT-Token of the current user.
+ *
+ * Registers also a listener for message events to process the response of the makaira backend.
+ */
 function requestUserFromMakairaBackend() {
     window.parent.postMessage({ "source": "makaira-boilerplate-app", "action": "requestUser" }, document.referrer)
 
     window.addEventListener("message", handleOnMessage)
 }
 
+/**
+ * Handler for the message listener.
+ *
+ * @param event{MessageEvent}
+ */
 function handleOnMessage(event) {
     const { source, action, data } = event.data
 
-    console.log(event)
-
+    // Check that the message came from the makaira backend
     if (source !== "makaira-app-bridge") return
-    if (!event.origin.includes("http://localhost")) return
+    // Check that the response came from a makaira domain. https://*.makaira.io
+    // if (event.origin.match("https:\\/\\/([a-zA-Z])+\\.makaira\\.io")?.index !== 0) return
 
     if (action === "responseUserRequest") {
         const parsedToken = parseJWT(data.token)
@@ -19,6 +31,11 @@ function handleOnMessage(event) {
     }
 }
 
+/**
+ * Decodes a JWT token into an object.
+ * @param token{string} JWT-token
+ * @returns {object} Decoded token.
+ */
 function parseJWT(token) {
     const base64Url = token.split('.')[1];
     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');

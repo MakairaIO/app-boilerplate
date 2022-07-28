@@ -26,11 +26,25 @@ class SignedRequestAuthenticator extends AbstractAuthenticator {
         $this->clientSecret = $clientSecret;
     }
 
-    public function supports(Request $request): ?bool
+    /**
+     * All requests should be handled by this Authenticator.
+     *
+     * @param Request $request
+     * @return bool
+     */
+    public function supports(Request $request): bool
     {
         return true;
     }
 
+    /**
+     * Check if all required query parameters are set and calculate
+     * out of the value "nonce:domain:instance" together with the clientSecret
+     * the expected HMAC. This hash is than compared to the provided one.
+     *
+     * @param Request $request
+     * @return Passport
+     */
     public function authenticate(Request $request): Passport
     {
         $nonce = $request->query->get("nonce");
@@ -56,12 +70,23 @@ class SignedRequestAuthenticator extends AbstractAuthenticator {
         ));
     }
 
+    /**
+     * On a successful authentication we want to do nothing so that the request is
+     * simply handled by the corresponding controller.
+     *
+     * @param Request $request
+     * @param TokenInterface $token
+     * @param string $firewallName
+     * @return Response|null
+     */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
         return null;
     }
 
     /**
+     * On a failed authentication we want to return a rendered error page.
+     *
      * @throws SyntaxError
      * @throws RuntimeError
      * @throws LoaderError
