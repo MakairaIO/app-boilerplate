@@ -1,5 +1,6 @@
 :root {
     --aubergine: #61304d;
+    --aubergine-hovered: #4e273e;
     --misty: #ecf2f3;
     --sunny: #F5BF33;
     --fire: #eb6e68;
@@ -147,4 +148,45 @@ p {
 
 .makaira-app__information-container div:not(:last-child) {
     padding-bottom: 0.4rem;
+}
+
+.makaira-app__links {
+    margin-top: 2.4rem;
+}
+
+.makaira-app__links .button:not(:last-child) {
+    margin-right: 0.4rem;
+}
+
+.button {
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 3rem;
+    display: inline-block;
+    position: relative;
+    border: 1px solid var(--neutral-40);
+    border-radius: 100vh;
+    height: 3.2rem;
+    padding: 0 16px;
+    transition: background 200ms ease-out,padding .2s cubic-bezier(.175,.885,.32,1.275);
+    color: var(--neutral-50);
+    background: var(--neutral-10);
+    font-family: FuturaBT, sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button:focus {
+    outline: solid 2px var(--sunny);
+}
+
+.button--primary {
+    background: var(--aubergine);
+    border-color: var(--neutral-40);
+    color: var(--neutral-00);
+}
+
+.button--primary:hover {
+    background: var(--aubergine-hovered);
 }

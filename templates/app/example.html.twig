@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Makaira App Boilerplate{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/makaira.js') }}" type="text/javascript"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="makaira-app__wrapper">
+        <img src="{{ asset('images/makaira-logo.svg') }}" height="130px" alt="Makaira Logo"/>
+
+        <h1>example page</h1>
+    </div>
+{% endblock %}

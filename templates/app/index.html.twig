@@ -24,5 +24,20 @@
                 <code id="user-mail">Requesting data from Makaira-Backend...</code>
             </div>
         </div>
+
+        <div class="makaira-app__links">
+            <a href="https://docs.makaira.io/docs" target="_blank" rel="noreferrer" class="button button--primary">
+                <span>Checkout Documentation</span>
+            </a>
+            {#
+                To link inside of the application you need to keep the query-string so that authentication
+                will still work after the redirect.
+                To do this you can simply pass "app.request.query.all" to the path-function as second parameter
+                with the name of the route as first parameter.
+            #}
+            <a href="{{ path('app_example', app.request.query.all) }}" class="button button--primary">
+                <span>Go to example page</span>
+            </a>
+        </div>
     </div>
 {% endblock %}

@@ -70,7 +70,7 @@ class SignedRequestAuthenticator extends AbstractAuthenticator {
     {
         $response = new Response();
         $response->setStatusCode(401);
-        $response->setContent($this->twig->render('401.twig'));
+        $response->setContent($this->twig->render('error.twig'));
 
         return $response;
     }

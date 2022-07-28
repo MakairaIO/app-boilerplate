@@ -20,4 +20,16 @@ class AppController extends AbstractController
             'instance' => $instance
         ]);
     }
+
+    #[Route('/example', name: 'app_example')]
+    public function example(Request $request): Response
+    {
+        $domain = $request->query->get("domain");
+        $instance = $request->query->get("instance");
+
+        return $this->render('app/example.html.twig', [
+            'domain' => $domain,
+            'instance' => $instance
+        ]);
+    }
 }
