@@ -15,7 +15,8 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
-class SignedRequestAuthenticator extends AbstractAuthenticator {
+class SignedRequestAuthenticator extends AbstractAuthenticator
+{
 
     private Environment $twig;
     private string $clientSecret;
@@ -52,7 +53,7 @@ class SignedRequestAuthenticator extends AbstractAuthenticator {
         $instance = $request->query->get("instance");
         $hmac = $request->query->get("hmac");
 
-        if (null === $nonce || null == $domain || null == $instance || null === $hmac) {
+        if (null === $nonce || null === $domain || null === $instance || null === $hmac) {
             throw new AuthenticationException();
         }
 
