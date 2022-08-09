@@ -20,6 +20,10 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    App\Service\CommunicationService:
+        arguments:
+            $userSecret: '%env(resolve:USER_SECRET)%'
+
     App\Security\SignedRequestAuthenticator:
         arguments:
             $clientSecret: '%env(resolve:CLIENT_SECRET)%'

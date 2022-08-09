@@ -6,7 +6,14 @@
  * Registers also a listener for message events to process the response of the makaira backend.
  */
 function requestUserFromMakairaBackend() {
-    window.parent.postMessage({ "source": "makaira-boilerplate-app", "action": "requestUser" }, document.referrer)
+    const message = {
+        "source": "makaira-boilerplate-app",
+        "action": "requestUser",
+        "hmac": HMAC,
+        "nonce": NONCE
+    }
+
+    window.parent.postMessage(message, document.referrer)
 
     window.addEventListener("message", handleOnMessage)
 }
@@ -17,7 +24,7 @@ function requestUserFromMakairaBackend() {
  * @param event{MessageEvent}
  */
 function handleOnMessage(event) {
-    const { source, action, data } = event.data
+    const { source, action, data, message } = event.data
 
     // Check that the message came from the makaira backend
     if (source !== "makaira-app-bridge") return
@@ -28,6 +35,10 @@ function handleOnMessage(event) {
         const parsedToken = parseJWT(data.token)
 
         document.getElementById("user-mail").innerText = parsedToken.email
+    }
+
+    if (action === "responseUserRequestError") {
+        alert(message)
     }
 }
 
