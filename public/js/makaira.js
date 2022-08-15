@@ -7,15 +7,14 @@
  */
 function requestUserFromMakairaBackend() {
     const message = {
-        "source": "makaira-boilerplate-app",
+        "source": "makaira-app-boilerplate", // replace with makaira-app-{YOU_APP_SLUG}
         "action": "requestUser",
         "hmac": HMAC,
-        "nonce": NONCE
+        "nonce": NONCE,
+        "makairaHmac": MAKAIRA_HMAC
     }
 
     window.parent.postMessage(message, document.referrer)
-
-    window.addEventListener("message", handleOnMessage)
 }
 
 /**
@@ -57,4 +56,8 @@ function parseJWT(token) {
     return JSON.parse(jsonPayload);
 }
 
-requestUserFromMakairaBackend()
+document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("message", handleOnMessage)
+
+    requestUserFromMakairaBackend()
+})

@@ -4,8 +4,9 @@
 
 {% block javascripts %}
     <script type="text/javascript">
-        const HMAC = "{{ hmac }}";
-        const NONCE = "{{ nonce }}";
+        const HMAC = {{ hmac|json_encode|raw }};
+        const NONCE = {{ nonce|json_encode|raw }};
+        const MAKAIRA_HMAC = {{ makairaHmac|json_encode|raw }};
     </script>
     <script src="{{ asset('js/makaira.js') }}" type="text/javascript"></script>
 {% endblock %}
@@ -27,7 +28,6 @@
                 <span class="text--bravo">User-Mail:</span>
                 <code id="user-mail">Requesting data from Makaira-Backend...</code>
             </div>
-            {{ secret }}
         </div>
 
         <div class="makaira-app__links">

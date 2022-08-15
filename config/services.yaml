@@ -22,7 +22,7 @@ services:
 
     App\Service\CommunicationService:
         arguments:
-            $userSecret: '%env(resolve:USER_SECRET)%'
+            $clientSecret: '%env(resolve:CLIENT_SECRET)%'
 
     App\Security\SignedRequestAuthenticator:
         arguments:
