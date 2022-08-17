@@ -33,7 +33,8 @@ function handleOnMessage(event) {
     if (action === "responseUserRequest") {
         const parsedToken = parseJWT(data.token)
 
-        document.getElementById("user-mail").innerText = parsedToken.email
+        document.getElementById("makaira-user").innerText = parsedToken.email
+        document.getElementById("makaira-role").innerText = parsedToken["https://makaira.io/roles"]
     }
 
     if (action === "responseUserRequestError") {
