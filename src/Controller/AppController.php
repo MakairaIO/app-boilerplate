@@ -51,4 +51,30 @@ class AppController extends AbstractController
             'instance'    => $instance,
         ]);
     }
+
+    #[Route('/content-widget', name: 'content_widget')]
+    public function contentWidget(Request $request): Response
+    {
+        $domain      = $request->query->get("domain");
+        $instance    = $request->query->get("instance");
+        $makairaHmac = $request->query->get("hmac");
+
+        $pageId = $request->query->get("pageId");
+        $pageType = $request->query->get("pageType");
+        $pageTitle = $request->query->all()['pageTitle'];
+
+        $nonce = $this->communicationService->getNonce();
+        $hmac  = $this->communicationService->getHMAC($instance, $domain, $makairaHmac);
+
+        return $this->render('app/content_widget.html.twig', [
+            'hmac'        => $hmac,
+            'makairaHmac' => $makairaHmac,
+            'nonce'       => $nonce,
+            'domain'      => $domain,
+            'instance'    => $instance,
+            'pageId'      => $pageId,
+            'pageType'    => $pageType,
+            'pageTitle'   => $pageTitle
+        ]);
+    }
 }

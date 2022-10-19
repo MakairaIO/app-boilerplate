@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Makaira App Boilerplate{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/makaira.js') }}" type="text/javascript"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="makaira-app__wrapper">
+        <img src="{{ asset('images/makaira-logo.svg') }}" height="130px" alt="Makaira Logo"/>
+
+        <h1>Content Widget</h1>
+
+        <div class="container container--level-1 makaira-app__information-container">
+            <div>
+                <span class="text--bravo">Instance:</span><code>{{ instance }}</code>
+            </div>
+            <div>
+                <span class="text--bravo">Domain:</span><code>{{ domain }}</code>
+            </div>
+            <div>
+                <span class="text--bravo">Page Type:</span>
+                <code>{{ pageType }}</code>
+            </div>
+            <div>
+                <span class="text--bravo">Page ID:</span>
+                <code>{{ pageId }}</code>
+            </div>
+            {% for language, title in pageTitle %}
+                <div>
+                    <span class="text--bravo">Page Title ({{ language }}):</span>
+                    <code>{{ title }}</code>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
