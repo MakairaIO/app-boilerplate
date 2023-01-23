@@ -3,7 +3,6 @@
  * <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">postMessage function</a>
  * to get the JWT-Token of the current user.
  *
- * Registers also a listener for message events to process the response of the makaira backend.
  */
 function requestUserFromMakairaBackend() {
     const message = {
