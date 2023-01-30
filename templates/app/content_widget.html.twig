@@ -3,6 +3,12 @@
 {% block title %}Makaira App Boilerplate{% endblock %}
 
 {% block javascripts %}
+    <script type="text/javascript">
+        const HMAC = {{ hmac|json_encode|raw }};
+        const NONCE = {{ nonce|json_encode|raw }};
+        const MAKAIRA_HMAC = {{ makairaHmac|json_encode|raw }};
+    </script>
+
     <script src="{{ asset('js/makairaContentWidget.js') }}" type="text/javascript"></script>
 {% endblock %}
 
@@ -18,6 +24,14 @@
             </div>
             <div>
                 <span class="text--bravo">Domain:</span><code>{{ domain }}</code>
+            </div>
+            <div>
+                <span class="text--bravo">Makaira User:</span>
+                <code id="makaira-user">Requesting data from Makaira-Backend...</code>
+            </div>
+            <div>
+                <span class="text--bravo">Makaira Role:</span>
+                <code id="makaira-role">Requesting data from Makaira-Backend...</code>
             </div>
             <div>
                 <span class="text--bravo">Page Type:</span>
