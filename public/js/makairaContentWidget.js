@@ -87,8 +87,10 @@ function sendExampleDataToPageEditor() {
 
     const metaData = {...PAGE_DATA.metadata}
 
-    metaData.de.description = 'Dies ist eine zufällige Beschreibung, welche von einem Content-Widget geschickt wurde.'
-    metaData.en.description = 'This is a random description that was sent from a content widget.'
+    if (metaData.de)
+        metaData.de.description = 'Dies ist eine zufällige Beschreibung, welche von einem Content-Widget geschickt wurde.'
+    if (metaData.en)
+        metaData.en.description = 'This is a random description that was sent from a content widget.'
 
     sendUpdatedDataToMakaira(metaData, 'metadata')
 }
