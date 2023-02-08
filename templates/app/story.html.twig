@@ -7,22 +7,34 @@
 {% endblock %}
 
 {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/story.css') }}">
     <link rel="stylesheet" href="{{ asset('css/textarea.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/checkbox.css') }}">
 {% endblock %}
 
 {% block body %}
-    <div class="makaira-app__wrapper">
-
-        {{  component('textarea', {
-                placeholder: 'placeholder',
-                title: 'title',
-                maxlength: 20,
-                disabled: false,
-                value: 'value',
-                description: 'description',
-                error: 'error'
-            }) 
-        }}
-        
+    <div class="makaira-app__story">
+        <div class="story-item">
+            {{  
+                component('textarea', {
+                    name: 'area_demo',
+                    placeholder: 'placeholder',
+                    title: 'title',
+                    maxlength: 20,
+                    disabled: false,
+                    value: 'value',
+                    description: 'description',
+                    error: 'error'
+                }) 
+            }}
+        </div>
+        <div class="story-item">
+            {{
+                component('checkbox', {
+                    name: "chk_demo",
+                    label: 'This is checkbox'
+                })
+            }}
+        </div >
     </div>
 {% endblock %}

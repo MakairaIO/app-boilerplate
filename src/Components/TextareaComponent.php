@@ -6,6 +6,8 @@
     #[AsTwigComponent('textarea')]
     class TextareaComponent
     {
+        public string $name = '';
+
         public string $placeholder = '';
 
         public string $title = '';
