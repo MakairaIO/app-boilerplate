@@ -56,9 +56,17 @@
             variant: 'primary',
             children: 'Primary',
             loading: true,
-            onClick: '',
             disabled: false,
             icon: 'star',
+        }) }}
+        <div><hr></div> 
+        {{ component('button', {
+            variant: 'primary',
+            children: 'Primary Link',
+            loading: false,
+            disabled: false,
+            icon: 'star',
+            href: '/example'
         }) }}
         <div><hr></div> 
         {{ component('button', {
