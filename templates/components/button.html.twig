@@ -1,0 +1,34 @@
+{% if this.children != '' %}
+    <button class="{{buttonClasses}}" type="button" {{this.disabled ? 'disabled' : ''}}>
+
+    {% if this.loading %}
+    <span class="spinner spinner--small icon icon--spinner">
+        <svg role="img">
+            <use xlink:href="#spinner"></use>
+        </svg>
+    </span>
+    {% endif %} 
+
+    {% if this.icon and this.iconPosition == 'left' %}
+    <span class="icon icon--{{this.icon}}">
+        <svg
+            role="img">
+            <use xlink:href="#{{this.icon}}"></use>
+        </svg>
+    </span>
+    {% endif %} 
+
+    <span class="button__text">{{ this.children }}</span>
+    
+    {% if this.icon and this.iconPosition == 'right' %}
+    <span class="icon icon--{{this.icon}}">
+        <svg
+            role="img">
+            <use xlink:href="#{{this.icon}}"></use>
+        </svg>
+    </span>
+    {% endif %} 
+    </button>
+{% endif %}
+
+
