@@ -1,5 +1,5 @@
 {# templates/components/select.html.twig #}
-<div class="select-input">
+<div class="select-input" tabindex="1">
    <div class="select-input__label">Selection</div>
    <div class="rc-select">
       <input autocomplete="off" type="text" placeholder="Select ..." class="rc-select__input" role="combobox" />
@@ -11,11 +11,11 @@
          </span>
       </span>
    </div>
-   <div class="rc-select-panel">
-      <span class="rc-select-panel__item">Banana</span>
-      <span class="rc-select-panel__item">Pineapple</span>
-      <span class="rc-select-panel__item">Avocado</span>
-      <span class="rc-select-panel__item">Potato</span>
-      <span class="rc-select-panel__item">Tomato</span>
+   <div class="rc-select-dropdown">
+      <span class="rc-select-dropdown__item" data-value="Banana">Banana</span>
+      <span class="rc-select-dropdown__item" data-value="Pineapple">Pineapple</span>
+      <span class="rc-select-dropdown__item" data-value="Avocado">Avocado</span>
+      <span class="rc-select-dropdown__item" data-value="Potato">Potato</span>
+      <span class="rc-select-dropdown__item" data-value="Tomato">Tomato</span>
    </div>
 </div>
