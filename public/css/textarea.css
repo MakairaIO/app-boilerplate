@@ -3,8 +3,19 @@
   min-width: 15rem;
   line-height: 1;
 }
-.textarea-input__has-error .textarea-input__description--error,
-.textarea-input__has-error .textarea-input__label label {
+.textarea-input__disabled {
+  pointer-events: none;
+}
+.textarea-input__disabled .textarea-input__label{
+  color: var(--neutral-60)
+}
+.textarea-input__disabled textarea {
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: #fafafa !important;
+}
+.textarea-input__has-error .textarea-input__description,
+.textarea-input__has-error .textarea-input__label {
   color: var(--brand-coral);
 }
 .textarea-input__has-error textarea {

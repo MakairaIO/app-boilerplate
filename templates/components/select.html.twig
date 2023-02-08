@@ -2,7 +2,7 @@
 <div class="select-input {% if disabled == true %} select-input__disabled {% endif %} {% if borderless == true %} select-input__borderless {% endif %}" tabindex="1">
    <div class="select-input__label">{{title}}</div>
    <div class="rc-select">
-      <input autocomplete="off" type="text" name="{{name}}" placeholder="{{placeholder}}" class="rc-select__input" role="combobox" />
+      <input autocomplete="off" type="text" name="{{name}}" placeholder="{{placeholder}}" class="rc-select__input" {% if disabled == true %} disabled {% endif %} />
       <span class="rc-select-arrow" unselectable="on" aria-hidden="true" style="user-select: none;">
          <span class="icon icon--angle-down">
             <svg role="img">

@@ -14,35 +14,47 @@
     <link rel="stylesheet" href="{{ asset('css/checkbox.css') }}">
     <link rel="stylesheet" href="{{ asset('css/select.css') }}">
     <link rel="stylesheet" href="{{ asset('css/radio.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/textinput.css') }}">
 {% endblock %}
 
 {% block body %}
     <div class="makaira-app__story">
         <div class="story-item">
             {{  
-                component('textarea', {
-                    name: 'area_demo',
-                    placeholder: 'placeholder',
-                    title: 'title',
-                    maxlength: 20,
-                    disabled: false,
-                    value: 'value',
-                    description: 'description',
-                    error: 'error'
-                }) 
+                component('textarea', {}) 
+            }}
+        </div>
+         <div class="story-item">
+            {{  
+                component('textarea', { disabled: true, title: 'Title disabled' }) 
+            }}
+        </div>
+            <div class="story-item">
+            {{  
+                component('textarea', { error: 'Textarea error now' }) 
             }}
         </div>
         <div class="story-item">
             {{
+                component('checkbox', {})
+            }}
+        </div >
+        <div class="story-item">
+            {{
                 component('checkbox', {
-                    name: "chk_demo",
-                    label: 'This is checkbox'
+                    name: 'chk_2',
+                    disabled: true
                 })
             }}
         </div >
         <div class="story-item">
             {{
                 component('select', {})
+            }}
+        </div >
+          <div class="story-item">
+            {{
+                component('select', {title: "Select disabled",disabled: true})
             }}
         </div >
         <div class="story-item">
@@ -120,6 +132,16 @@
         <div class="story-item">
             {{
                 component('radio', {})
+            }}
+        </div>
+        <div class="story-item">
+            {{
+                component('textinput', {})
+            }}
+        </div>
+        <div class="story-item">
+            {{
+                component('textinput', { title: "Input disabled", disabled: true })
             }}
         </div>
     </div>

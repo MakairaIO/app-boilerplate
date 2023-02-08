@@ -12,6 +12,7 @@
 .checkbox__disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  pointer-events: none;
 }
 .checkbox__disabled .text {
   color: var(--neutral-40);
@@ -19,6 +20,7 @@
 .checkbox .text {
   white-space: nowrap;
   margin-left: 0.8rem;
+  color: var(--brand-aubergine);
 }
 .checkbox input {
   position: absolute;

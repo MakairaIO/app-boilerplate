@@ -119,3 +119,9 @@
   background-color: #fafafa !important;
 }
 
+.select-input__disabled .select-input__label{
+  color: var(--neutral-60)
+}
+
+
+

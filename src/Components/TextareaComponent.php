@@ -6,11 +6,11 @@
     #[AsTwigComponent('textarea')]
     class TextareaComponent
     {
-        public string $name = '';
+        public string $name = 'area_demo';
 
-        public string $placeholder = '';
+        public string $placeholder = 'placeholder...';
 
-        public string $title = '';
+        public string $title = 'Title';
 
         public bool $disabled = false;
 
@@ -18,7 +18,7 @@
 
         public string $value = '';
 
-        public string $description = '';
+        public string $description = 'Textarea description';
 
         public string $error = '';
 

@@ -6,6 +6,7 @@
     #[AsTwigComponent('checkbox')]
     class CheckboxComponent
     {
-        public string $name = '';
-        public string $label = '';
+        public string $name = 'chk_name';
+        public string $label = 'This is checkbox';
+        public bool $disabled = false;
     }
