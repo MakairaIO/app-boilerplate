@@ -24,6 +24,7 @@ class AppController extends AbstractController
         $nonce = $this->communicationService->getNonce();
         $hmac  = $this->communicationService->getHMAC($instance, $domain, $makairaHmac);
 
+
         return $this->render('app/index.html.twig', [
             'hmac'        => $hmac,
             'makairaHmac' => $makairaHmac,
@@ -49,6 +50,16 @@ class AppController extends AbstractController
             'nonce'       => $nonce,
             'domain'      => $domain,
             'instance'    => $instance,
+        ]);
+    }
+
+    #[Route('/component-list', name: 'component_list')]
+    public function componentList(Request $request): Response
+    {
+        $components = $this->communicationService->fetchComponents();
+
+        return $this->render('app/component-list.html.twig', [
+            'components'  => $components,
         ]);
     }
 

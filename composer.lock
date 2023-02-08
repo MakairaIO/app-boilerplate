@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "33c1d4abccef088f835e6f355f2395ed",
+    "content-hash": "d1b099fca5a5d285e66d319db576422b",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1527,6 +1527,44 @@
             "time": "2022-05-05T09:31:05+00:00"
         },
         {
+            "name": "kore/data-object",
+            "version": "1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kore/DataObject.git",
+                "reference": "ea2d6cd1c91d81131d7e537e8d8b038321b26e67"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kore/DataObject/zipball/ea2d6cd1c91d81131d7e537e8d8b038321b26e67",
+                "reference": "ea2d6cd1c91d81131d7e537e8d8b038321b26e67",
+                "shasum": ""
+            },
+            "require-dev": {
+                "pdepend/pdepend": "@stable",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "@stable",
+                "sebastian/phpcpd": "@stable",
+                "squizlabs/php_codesniffer": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kore": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Simple base class for data objects.",
+            "support": {
+                "issues": "https://github.com/kore/DataObject/issues",
+                "source": "https://github.com/kore/DataObject/tree/1.3"
+            },
+            "time": "2019-09-27T09:41:36+00:00"
+        },
+        {
             "name": "laminas/laminas-code",
             "version": "4.5.2",
             "source": {
@@ -1591,6 +1629,42 @@
                 }
             ],
             "time": "2022-06-06T11:26:02+00:00"
+        },
+        {
+            "name": "makaira/shared-libs",
+            "version": "2022.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MakairaIO/shared-libs.git",
+                "reference": "c4f07b8c919919b0070134a2d1e653f51269bf80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MakairaIO/shared-libs/zipball/c4f07b8c919919b0070134a2d1e653f51269bf80",
+                "reference": "c4f07b8c919919b0070134a2d1e653f51269bf80",
+                "shasum": ""
+            },
+            "require": {
+                "kore/data-object": "1.3"
+            },
+            "require-dev": {
+                "pdepend/pdepend": "@stable",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "^4.0",
+                "squizlabs/php_codesniffer": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Makaira\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "support": {
+                "issues": "https://github.com/MakairaIO/shared-libs/issues",
+                "source": "https://github.com/MakairaIO/shared-libs/tree/2022.1.2"
+            },
+            "time": "2022-12-02T04:19:43+00:00"
         },
         {
             "name": "monolog/monolog",
