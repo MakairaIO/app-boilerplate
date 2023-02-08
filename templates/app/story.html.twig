@@ -8,8 +8,10 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/story.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/buttons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/textarea.css') }}">
     <link rel="stylesheet" href="{{ asset('css/checkbox.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/select.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -36,7 +38,13 @@
                 })
             }}
         </div >
-
+        <div class="story-item">
+            {{
+                component('select', {
+                    name: "select_demo",
+                })
+            }}
+        </div >
         <div class="story-item">
             {{ 
                 component('button', {

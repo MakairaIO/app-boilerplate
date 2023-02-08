@@ -1,0 +1,21 @@
+{# templates/components/select.html.twig #}
+<div class="select-input">
+   <div class="select-input__label">Selection</div>
+   <div class="rc-select">
+      <input autocomplete="off" type="text" placeholder="Select ..." class="rc-select__input" role="combobox" />
+      <span class="rc-select-arrow" unselectable="on" aria-hidden="true" style="user-select: none;">
+         <span class="icon icon--angle-down">
+            <svg role="img">
+               <use xlink:href="#angle-down"></use>
+            </svg>
+         </span>
+      </span>
+   </div>
+   <div class="rc-select-panel">
+      <span class="rc-select-panel__item">Banana</span>
+      <span class="rc-select-panel__item">Pineapple</span>
+      <span class="rc-select-panel__item">Avocado</span>
+      <span class="rc-select-panel__item">Potato</span>
+      <span class="rc-select-panel__item">Tomato</span>
+   </div>
+</div>
