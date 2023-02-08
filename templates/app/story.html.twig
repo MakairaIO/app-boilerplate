@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Makaira Story{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/textarea.js') }}" type="text/javascript"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/textarea.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="makaira-app__wrapper">
+
+        {{  component('textarea', {
+                placeholder: 'placeholder',
+                title: 'title',
+                maxlength: 20,
+                disabled: false,
+                value: 'value',
+                description: 'description',
+                error: 'error'
+            }) 
+        }}
+        
+    </div>
+{% endblock %}

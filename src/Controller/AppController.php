@@ -52,6 +52,12 @@ class AppController extends AbstractController
         ]);
     }
 
+    #[Route('/story', name: 'app_story')]
+    public function story(Request $request): Response
+    {
+        return $this->render('app/story.html.twig');
+    }
+
     #[Route('/content-widget', name: 'content_widget')]
     public function contentWidget(Request $request): Response
     {

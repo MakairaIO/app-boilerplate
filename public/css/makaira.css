@@ -107,6 +107,10 @@ p {
     font-weight: 400;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .error-screen__wrapper {
     display: flex;
     flex-direction: column;

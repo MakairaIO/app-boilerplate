@@ -1,0 +1,15 @@
+{# templates/components/textarea.html.twig #}
+<div class="textarea-input">
+    <div class="textarea-input__label">
+        <label>{{title}}</label>
+        {% if maxlength %}
+            <span class="textarea-input__count">
+                <span>0</span>/{{maxlength}} Character 
+            </span>
+        {% endif %}
+    </div>
+    <textarea {% if disabled == true %} disabled {% endif %} placeholder="{{placeholder}}" maxlength="{{maxlength}}">{{value}}</textarea>
+    <div class="textarea-input__description {% if error %} textarea-input__description--error {% endif %}">
+        {% if error == '' %} {{ description }} {% else %} {{error}} {% endif %}
+    </div>
+</div>
