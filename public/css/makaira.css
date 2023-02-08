@@ -47,17 +47,16 @@
     --font-weight-heavy: 900;
     --transition-regular: .3s ease;
     --outline: 2px solid #f5bf33;
-    --elevation-00: 0 1px 5px -3px rgba(0,0,0,0.3);
-    --elevation-02: 0 1px 7px -3px rgba(0,0,0,0.2);
-    --elevation-05: 0 2px 5px -3px rgba(0,0,0,0.5),0 1px 7px -3px rgba(0,0,0,0.2);
-    --elevation-10: 0 3px 10px -5px rgba(0,0,0,0.3);
-    --elevation-15: 0 2px 4px -1px rgba(0,0,0,0.15),0 3px 10px -5px rgba(0,0,0,0.3);
-    --elevation-30: 0 4px 8px -1px rgba(0,0,0,0.05),0 8px 10px -3px rgba(0,0,0,0.05),0 8px 30px -4px rgba(0,0,0,0.08);
-    --elevation-50: 0 4px 8px -1px rgba(0,0,0,0.05),0 13px 21px -3px rgba(0,0,0,0.05),0 18px 50px 4px rgba(0,0,0,0.08);
+    --elevation-00: 0 1px 5px -3px rgba(0, 0, 0, 0.3);
+    --elevation-02: 0 1px 7px -3px rgba(0, 0, 0, 0.2);
+    --elevation-05: 0 2px 5px -3px rgba(0, 0, 0, 0.5), 0 1px 7px -3px rgba(0, 0, 0, 0.2);
+    --elevation-10: 0 3px 10px -5px rgba(0, 0, 0, 0.3);
+    --elevation-15: 0 2px 4px -1px rgba(0, 0, 0, 0.15), 0 3px 10px -5px rgba(0, 0, 0, 0.3);
+    --elevation-30: 0 4px 8px -1px rgba(0, 0, 0, 0.05), 0 8px 10px -3px rgba(0, 0, 0, 0.05), 0 8px 30px -4px rgba(0, 0, 0, 0.08);
+    --elevation-50: 0 4px 8px -1px rgba(0, 0, 0, 0.05), 0 13px 21px -3px rgba(0, 0, 0, 0.05), 0 18px 50px 4px rgba(0, 0, 0, 0.08);
     --rounded: 4px;
     --rounded-full: 100vh;
 }
-
 
 @font-face {
     font-display: fallback;
@@ -237,4 +236,93 @@ p {
 
 #example-button {
     margin-top: 25px;
+}
+
+
+
+/* common CSS */
+.icon {
+    display: inline-block
+}
+
+.icon:focus {
+    outline: var(--outline)
+}
+
+.icon svg {
+    display: block;
+    fill: currentColor;
+    max-height: 100%;
+    max-width: 100%
+}
+
+
+.spinner {
+    -webkit-animation: fade-in .3s cubic-bezier(.25, .46, .45, .94) both;
+    animation: fade-in .3s cubic-bezier(.25, .46, .45, .94) both;
+    color: var(--brand-aubergine)
+}
+
+.spinner--small {
+    width: 1.6rem;
+    height: 1.6rem
+}
+
+.spinner--normal {
+    width: 2.4rem;
+    height: 2.4rem
+}
+
+.spinner--large {
+    width: 5rem;
+    height: 5rem
+}
+
+.spinner svg {
+    -webkit-animation: rotate-center 1.3s infinite ease-in-out;
+    animation: rotate-center 1.3s infinite ease-in-out
+}
+
+@-webkit-keyframes fade-in {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes rotate-center {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes rotate-center {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
 }
