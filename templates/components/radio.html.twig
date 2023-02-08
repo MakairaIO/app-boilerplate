@@ -1,0 +1,9 @@
+{# templates/components/radio.html.twig #}
+<div class="radio-group">
+    {% for option in options %}
+        <label class="radio-button {% if size == 'large' %} radio-button--large {% else %} radio-button--medium {% endif %} {% if disabled %} radio-button--disabled {% endif %} radio-button--horizontal">
+            <input type="radio" value="{{option.value}}" checked="" name={{name}}>
+            <span class="radio-button__checkmark"></span>{{option.label}}
+        </label>
+    {% endfor %}
+</div>

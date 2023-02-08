@@ -7,6 +7,5 @@
     class CheckboxComponent
     {
         public string $name = '';
-        
         public string $label = '';
     }

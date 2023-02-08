@@ -58,25 +58,16 @@
   font-weight: var(--font-weight-bold);
 }
 
-.select-input .rc-select .rc-select__input::placeholder,
-.select-input .rc-select .rc-select__input::-moz-placeholder {
-  color: var(--neutral-80);
+.select-input .rc-select .rc-select__input::placeholder {
+  color: var(--neutral-60);
   font-weight: normal !important;
+
 }
 
 .rc-select-arrow,
 .rc-select-arrow .icon {
   width: 1.6rem;
   height: 1.8rem;
-}
-
-.rc-select-allow-clear .rc-select-clear .icon {
-  width: 1.6rem;
-  height: 1.8rem;
-}
-
-.rc-select-disabled{
-  opacity: 1;
 }
 
 .rc-select-dropdown {
@@ -117,8 +108,14 @@
   color: var(--white);
 }
 
-.select-input__borderless{
+.select-input__borderless .rc-select {
   background: transparent !important;
   border-color: transparent !important;
+}
+
+.select-input__disabled .rc-select {
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: #fafafa !important;
 }
 

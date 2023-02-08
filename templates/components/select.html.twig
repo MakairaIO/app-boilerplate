@@ -1,8 +1,8 @@
 {# templates/components/select.html.twig #}
-<div class="select-input" tabindex="1">
-   <div class="select-input__label">Selection</div>
+<div class="select-input {% if disabled == true %} select-input__disabled {% endif %} {% if borderless == true %} select-input__borderless {% endif %}" tabindex="1">
+   <div class="select-input__label">{{title}}</div>
    <div class="rc-select">
-      <input autocomplete="off" type="text" placeholder="Select ..." class="rc-select__input" role="combobox" />
+      <input autocomplete="off" type="text" name="{{name}}" placeholder="{{placeholder}}" class="rc-select__input" role="combobox" />
       <span class="rc-select-arrow" unselectable="on" aria-hidden="true" style="user-select: none;">
          <span class="icon icon--angle-down">
             <svg role="img">
@@ -12,10 +12,8 @@
       </span>
    </div>
    <div class="rc-select-dropdown">
-      <span class="rc-select-dropdown__item" data-value="Banana">Banana</span>
-      <span class="rc-select-dropdown__item" data-value="Pineapple">Pineapple</span>
-      <span class="rc-select-dropdown__item" data-value="Avocado">Avocado</span>
-      <span class="rc-select-dropdown__item" data-value="Potato">Potato</span>
-      <span class="rc-select-dropdown__item" data-value="Tomato">Tomato</span>
+      {% for option in options %}
+         <span class="rc-select-dropdown__item" data-value="{{option.value}}">{{option.label}}</span>
+      {% endfor %}
    </div>
 </div>

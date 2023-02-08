@@ -3,14 +3,13 @@
 
     use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-    #[AsTwigComponent('select')]
-    class SelectComponent
+    #[AsTwigComponent('radio')]
+    class RadioComponent
     {
-        public string $name = 'select_name';
-        public string $title = 'title';
-        public string $placeholder = 'placeholder';
+        public string $name = 'radio_name';
+        public string $size = 'medium'; // medium, large
         public bool $disabled = false;
-        public bool $borderless = false;
+
         public array $options = array(
             array('label' => 'Banana', 'value' => 'Banana'),
             array('label' => 'Pineapple', 'value' => 'Pineapple'),

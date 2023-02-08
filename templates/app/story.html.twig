@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/textarea.css') }}">
     <link rel="stylesheet" href="{{ asset('css/checkbox.css') }}">
     <link rel="stylesheet" href="{{ asset('css/select.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/radio.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -41,9 +42,7 @@
         </div >
         <div class="story-item">
             {{
-                component('select', {
-                    name: "select_demo",
-                })
+                component('select', {})
             }}
         </div >
         <div class="story-item">
@@ -116,6 +115,11 @@
                     disabled: false,
                     icon: 'xmark',
                 })
+            }}
+        </div>
+        <div class="story-item">
+            {{
+                component('radio', {})
             }}
         </div>
     </div>
