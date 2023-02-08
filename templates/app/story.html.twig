@@ -36,5 +36,78 @@
                 })
             }}
         </div >
+
+        <div class="story-item">
+            {{ 
+                component('button', {
+                    variant: 'primary',
+                    children: 'Primary',
+                    loading: true,
+                    disabled: false,
+                    icon: 'star',
+                }) 
+            }}
+        </div>
+        <div class="story-item">
+            {{
+                component('button', {
+                    variant: 'primary',
+                    children: 'Primary Link',
+                    loading: false,
+                    disabled: false,
+                    icon: 'star',
+                    href: '/example'
+                })
+            }}
+        </div>
+        <div class="story-item">
+            {{
+                component('button', {
+                    variant: 'primary',
+                    children: 'Primary disable',
+                    loading: true,
+                    onClick: '',
+                    disabled: true,
+                    icon: 'star',
+                }) 
+            }}
+        </div>
+        <div class="story-item">
+            {{
+                component('button', {
+                    variant: 'secondary',
+                    children: 'Secondary',
+                    loading: true,
+                    onClick: '',
+                    disabled: false,
+                    iconPosition: 'left',
+                    icon: 'star',
+                }) 
+            }}
+        </div>
+        <div class="story-item">
+            {{
+                component('button', {
+                    variant: 'primary-blocker',
+                    children: 'Primary blocker',
+                    loading: true,
+                    onClick: '',
+                    disabled: true,
+                    icon: 'xmark',
+                }) 
+            }}
+        </div>
+        <div class="story-item">
+            {{
+                component('button', {
+                    variant: 'secondary-blocker',
+                    children: 'Secondary Blocker',
+                    loading: true,
+                    onClick: '',
+                    disabled: false,
+                    icon: 'xmark',
+                })
+            }}
+        </div>
     </div>
 {% endblock %}
