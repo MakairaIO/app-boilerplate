@@ -2,19 +2,8 @@
 
 {% block title %}Makaira Story{% endblock %}
 
-{% block javascripts %}
-    <script src="{{ asset('js/textarea.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('js/select.js') }}" type="text/javascript"></script>
-{% endblock %}
-
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/story.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/buttons.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/textarea.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/checkbox.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/select.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/radio.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/textinput.css') }}">
 {% endblock %}
 
 {% block body %}
@@ -142,6 +131,48 @@
         <div class="story-item">
             {{
                 component('textinput', { title: "Input disabled", disabled: true })
+            }}
+        </div>
+        <div class="story-item">
+            <h3 style="color: blue;">Data table with component</h3>
+            {{
+                component('table', {
+                    columns: [
+                        {'title' : 'Column 1', 'component' : ''},
+                        {'title' : 'Column 2', 'component' : ''},
+                        {'title' : 'Column 3', 'component' : ''},
+                        {'title' : 'Column 4', 'component' : 'component'},
+                    ],
+                    rows: [
+                        ['row1 - col1', 'row1 - col2', 'row1 - col3', {'component': 'button', 'variant': 'primary', 'children': 'Primary', 'loading': true, 'disabled': false, 'icon': 'star'}],
+                        ['row2 - col1', 'row2 - col2', 'row2 - col3', {'component': 'button', 'variant': 'primary', 'children': 'Primary', 'loading': true, 'disabled': false, 'icon': 'star'}],
+                        ['row3 - col1', 'row3 - col2', 'row3 - col3', {'component': 'button', 'variant': 'secondary', 'children': 'Click me', 'loading': false, 'disabled': false, 'icon': ''}],
+                        ['row4 - col1', 'row4 - col2', 'row4 - col3', {'component': 'textarea', 'name': 'area_demo', 'placeholder': 'placeholder', 'title': 'title',}],
+                        ['row5 - col1', 'row5 - col2', ]
+                    ],
+                    loading: false
+                })
+            }}
+        </div>
+        <div class="story-item">
+            <h3 style="color: blue;">Data table</h3>
+            {{
+                component('table', {
+                    columns: [
+                        {'title' : 'Column 1', 'component' : ''},
+                        {'title' : 'Column 2', 'component' : ''},
+                        {'title' : 'Column 3', 'component' : ''},
+                        {'title' : 'Column 4', 'component' : ''},
+                    ],
+                    rows: [
+                        ['row1 - col1', 'row1 - col2', 'row1 - col3', 'row1 - col4'],
+                        ['row2 - col1', 'row2 - col2', 'row2 - col3', 'row2 - col4'],
+                        ['row3 - col1', 'row3 - col2', 'row3 - col3', 'row3 - col4'],
+                        ['row4 - col1', 'row4 - col2', 'row4 - col3', ],
+                        ['row5 - col1', 'row5 - col2', ]
+                    ],
+                    loading: true
+                })
             }}
         </div>
     </div>

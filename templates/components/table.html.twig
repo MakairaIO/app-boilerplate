@@ -1,0 +1,53 @@
+{# table.html.twig #}
+<div class="{{wrapperClasses}}">
+    {% if loading %}
+        <span class="spinner spinner--normal icon icon--spinner"><svg role="img"><use xlink:href="#spinner"></use></svg></span>
+    {% endif %}
+    <div class="mk-table">
+        <div class="mk-table-container">
+            <div class="mk-table-content">
+                <table class="mk-table">
+                    <thead class="mk-table-thead">
+                        <tr>
+                            {% for column in columns %}
+                                <th class="mk-table-cell">{{ column.title }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody class="mk-table-tbody">
+                        {% for row in rows %}
+                            <tr class='mk-table-row'>
+                                {% for column in columns %}
+
+                                    {# {% if column.component != ''%}
+                                        <td>{{ component(column.component, {} | merge(row[loop.index - 1])) }}</td>
+                                    {% else %}
+                                        {% set index = loop.index - 1 %}
+                                        {% if row[index] is defined %}
+                                            <td>{{ row[index] }}  </td>
+                                        {% else %}
+                                            <td>default</td>
+                                        {% endif %}
+                                    {% endif %} #}
+
+                                    {% set index = loop.index - 1 %}
+                                    {% if row[index] is defined %}
+
+                                        {% if column.component != ''%}
+                                            <td class="mk-table-cell">{{ component(row[loop.index - 1]['component'], {} | merge(row[loop.index - 1])) }}</td>
+                                        {% else %}
+                                            <td class="mk-table-cell">{{ row[index] }}  </td>
+                                        {% endif %}
+                                    {% else %}
+                                        <td class="mk-table-cell">-</td>
+                                    {% endif %}
+
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

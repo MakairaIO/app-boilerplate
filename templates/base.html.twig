@@ -5,6 +5,17 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         <link rel="stylesheet" href="{{ asset('css/makaira.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/buttons.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/table.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/buttons.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/textarea.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/checkbox.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/select.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/radio.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/textinput.css') }}">
+
+        <script src="{{ asset('js/textarea.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('js/select.js') }}" type="text/javascript"></script>
 
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
