@@ -1,0 +1,34 @@
+.page-title {
+  display: flex;
+  height: 7.3rem;
+  color: var(--text-aubergine);
+  border-bottom: 1px solid var(--neutral-20);
+  background: var(--neutral-10);
+  align-items: center;
+  padding: 0 2rem;
+}
+.page-title__main {
+  display: flex;
+  position: relative;
+  min-width: 0;
+}
+.page-title__main .text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.page-title__title {
+  margin: 0;
+}
+.page-title__suffix {
+  padding-left: 1rem;
+  text-align: left;
+}
+.page-title__prefix {
+  padding-right: 1rem;
+  text-align: right;
+}
+.page-title__prefix .text,
+.page-title__suffix .text  {
+  color: var(--neutral-60);
+}
