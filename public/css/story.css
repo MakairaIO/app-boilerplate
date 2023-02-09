@@ -1,8 +1,14 @@
 .makaira-app__story {
-    padding: 50px;
- }
+  padding: 50px;
+}
 
- .story-item {
-    margin-bottom: 2rem;
- }
- 
+.story-item {
+  margin-bottom: 2rem;
+}
+.story-item.story-item--with-col {
+    display: flex;
+}
+
+.story-item__col {
+    flex: 1
+}
