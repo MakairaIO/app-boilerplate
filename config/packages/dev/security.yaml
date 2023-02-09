@@ -1,0 +1,8 @@
+security:
+    firewalls:
+        main:
+            security: false
+            stateless: true
+
+            custom_authenticators:
+                - App\Security\SignedRequestAuthenticator
