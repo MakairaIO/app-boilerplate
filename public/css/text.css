@@ -1,0 +1,81 @@
+.text {
+  margin: 0;
+}
+.text--alpha {
+  font-size: 1rem;
+  letter-spacing: 0.03rem;
+  line-height: 1.2rem;
+}
+.text--bravo {
+  font-size: 1.3rem;
+  letter-spacing: 0.02rem;
+  line-height: 1.8rem;
+}
+.text--charlie {
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  line-height: 2.2rem;
+}
+.text--delta {
+  font-size: 1.8rem;
+  letter-spacing: 0;
+  line-height: 2.6rem;
+}
+.text--echo {
+  font-size: 2.4rem;
+  letter-spacing: -0.02rem;
+  line-height: 3.4rem;
+}
+.text--foxtrot {
+  font-size: 3rem;
+  letter-spacing: -0.04rem;
+  line-height: 3.8rem;
+}
+.text--golf {
+  font-size: 3.8rem;
+  letter-spacing: -0.05rem;
+  line-height: 4.3rem;
+}
+.text--hotel {
+  font-size: 5rem;
+  letter-spacing: -0.07rem;
+  line-height: 5rem;
+}
+.text--india {
+  font-size: 6.4rem;
+  letter-spacing: -0.1rem;
+  line-height: 6.4rem;
+}
+.text--juliett {
+  font-size: 8rem;
+  letter-spacing: -0.2rem;
+  line-height: 8.4rem;
+}
+.text--300,
+.text--light {
+  font-weight: var(--font-weight-light);
+}
+.text--500,
+.text--medium {
+  font-weight: var(--font-weight-medium);
+}
+.text--700,
+.text--bold {
+  font-weight: var(--font-weight-bold);
+}
+.text--900,
+.text--heavy {
+  font-weight: var(--font-weight-heavy);
+}
+.text--regular {
+  color: var(--brand-aubergine);
+}
+.text--book {
+  font-weight: var(--font-weight-book);
+}
+.text--centered {
+  text-align: center;
+}
+.text--max-width {
+  max-width: 90%;
+}

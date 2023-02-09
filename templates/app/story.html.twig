@@ -118,10 +118,13 @@
                 })
             }}
         </div>
-        <div class="story-item">
-            {{
-                component('radio', {})
-            }}
+        <div class="story-item story-item--with-col">
+            <div class="story-item__col">
+                {{ component('radio', {}) }}
+            </div>
+             <div class="story-item__col">
+                {{ component('radio', {size: 'large'}) }}
+            </div>
         </div>
         <div class="story-item">
             {{
@@ -180,6 +183,15 @@
         </div>
         <div class="story-item">
               {{ component('page-title')}}
+        </div>
+
+        <div class="story-item story-item--with-col">
+            <div class="story-item__col">
+                {{ component('heading', {}) }}
+            </div>
+             <div class="story-item__col">
+                {{ component('heading', {children: 'Page heading h4',level: 4}) }}
+            </div>
         </div>
     </div>
 {% endblock %}

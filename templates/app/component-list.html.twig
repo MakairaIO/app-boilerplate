@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Makaira App Boilerplate{% endblock %}
+
+{% block body %}
+    <div class="makaira-app__wrapper">
+        <h1>Components</h1>
+
+        <ul>
+            {% for component in components %}
+                <li>{{ component.name }} | {{ component.identifier }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
