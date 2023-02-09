@@ -53,9 +53,9 @@ class SignedRequestAuthenticator extends AbstractAuthenticator
         $instance = $request->query->get("instance");
         $hmac = $request->query->get("hmac");
 
-        // if (null === $nonce || null === $domain || null === $instance || null === $hmac) {
-        //     throw new AuthenticationException();
-        // }
+         if (null === $nonce || null === $domain || null === $instance || null === $hmac) {
+             throw new AuthenticationException();
+         }
 
         $expected = hash_hmac(
             'sha256',
@@ -65,7 +65,6 @@ class SignedRequestAuthenticator extends AbstractAuthenticator
 
         return new Passport(new UserBadge("signed_request"), new CustomCredentials(
            function ($credentials) {
-               return true;
                return $credentials[0] === $credentials[1];
            },
            [$expected, $hmac]
