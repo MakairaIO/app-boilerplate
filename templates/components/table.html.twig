@@ -1,0 +1,43 @@
+{# table.html.twig #}
+
+<table>
+    <thead>
+        <tr>
+            {% for column in columns %}
+                <th>{{ column.title }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in rows %}
+            <tr>
+                {% for column in columns %}
+
+                    {# {% if column.component != ''%}
+                        <td>{{ component(column.component, {} | merge(row[loop.index - 1])) }}</td>
+                    {% else %}
+                        {% set index = loop.index - 1 %}
+                        {% if row[index] is defined %}
+                            <td>{{ row[index] }}  </td>
+                        {% else %}
+                            <td>default</td>
+                        {% endif %}
+                    {% endif %} #}
+
+                    {% set index = loop.index - 1 %}
+                    {% if row[index] is defined %}
+
+                        {% if column.component != ''%}
+                            <td>{{ component(row[loop.index - 1]['component'], {} | merge(row[loop.index - 1])) }}</td>
+                        {% else %}
+                            <td>{{ row[index] }}  </td>
+                        {% endif %}
+                    {% else %}
+                        <td>-</td>
+                    {% endif %}
+
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
