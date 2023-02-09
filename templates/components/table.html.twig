@@ -15,32 +15,36 @@
                         </tr>
                     </thead>
                     <tbody class="mk-table-tbody">
-                        {% for row in rows %}
-                            <tr class='mk-table-row'>
+                        {% for entry in data %}
+                            <tr class='mk-table-entry'>
                                 {% for column in columns %}
 
+                                    <td>{{ entry[column.dataIndex] }}</td>
+
                                     {# {% if column.component != ''%}
-                                        <td>{{ component(column.component, {} | merge(row[loop.index - 1])) }}</td>
+                                        <td>{{ component(column.component, {} | merge(entry[loop.index - 1])) }}</td>
                                     {% else %}
                                         {% set index = loop.index - 1 %}
-                                        {% if row[index] is defined %}
-                                            <td>{{ row[index] }}  </td>
+                                        {% if entry[index] is defined %}
+                                            <td>{{ entry[index] }}  </td>
                                         {% else %}
                                             <td>default</td>
                                         {% endif %}
                                     {% endif %} #}
 
+{#
                                     {% set index = loop.index - 1 %}
-                                    {% if row[index] is defined %}
+                                    {% if entry[index] is defined %}
 
                                         {% if column.component != ''%}
-                                            <td class="mk-table-cell">{{ component(row[loop.index - 1]['component'], {} | merge(row[loop.index - 1])) }}</td>
+                                            <td class="mk-table-cell">{{ component(entry[loop.index - 1]['component'], {} | merge(entry[loop.index - 1])) }}</td>
                                         {% else %}
-                                            <td class="mk-table-cell">{{ row[index] }}  </td>
+                                            <td class="mk-table-cell">{{ entry[column.dataIndex] }}  </td>
                                         {% endif %}
                                     {% else %}
                                         <td class="mk-table-cell">-</td>
                                     {% endif %}
+#}
 
                                 {% endfor %}
                             </tr>

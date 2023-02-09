@@ -9,7 +9,7 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 class TableComponent
 {
   public array $columns =  [];
-  public array $rows = [];
+  public array $data = [];
   public bool $loading = false;
   public string $wrapperClasses = 'mk-table__wrapper';
 
