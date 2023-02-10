@@ -12,6 +12,12 @@
     box-shadow: none;
 }
 
+.dashboard-app__text  {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .dashboard-app__link {
     position: relative;
     display: flex;
@@ -47,4 +53,8 @@
     padding: 6px;
     background-color: var(--brand-cyan);
     color: var(--white);
+    max-width: 80%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
