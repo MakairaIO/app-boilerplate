@@ -26,17 +26,11 @@
                 {'title' : 'ID', 'dataIndex' : 'id'},
                 {'title' : 'Name', 'dataIndex' : 'name', 'width': 250},
                 {'title' : 'Identifier', 'dataIndex' : 'identifier', 'width': 200},
-                {'title' : '', 'dataIndex' : 'componentData', 'width': 200, 'isComponent': true},
+                {'title' : '', 'dataIndex' : 'componentData', 'width': 200, 'isComponent': true, 'componentData': {component: 'button', variant: 'primary', children: 'Remove' }},
             ],
             data: dummyComponents,
             loading: false
         })
         }}
-
-        <ul>
-            {% for component in components %}
-                <li>{{ component.name }} | {{ component.identifier }}</li>
-            {% endfor %}
-        </ul>
     </div>
 {% endblock %}

@@ -25,7 +25,7 @@
                                     {% if column.isComponent is defined  and column.isComponent %}
                                         <td class="mk-table-cell">
                                         {% if entry[column.dataIndex] is defined %}
-                                            {{component(entry[column.dataIndex]["component"], {} | merge(entry[column.dataIndex])) }}
+                                            {{component(column["componentData"]["component"], {} | merge(column["componentData"])) }}
                                         {% endif %}
                                         </td>
                                     {% else %}
