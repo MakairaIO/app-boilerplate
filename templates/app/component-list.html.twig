@@ -9,9 +9,12 @@
         {{
         component('table', {
             columns: [
+                
                 {'title' : 'ID', 'dataIndex' : 'id'},
-                {'title' : 'Name', 'dataIndex' : 'name'},
-                {'title' : 'Identifier', 'dataIndex' : 'identifier'},
+                {'title' : 'Name', 'dataIndex' : 'name', 'width': 250},
+                {'title' : 'Identifier', 'dataIndex' : 'identifier', 'width': 200},
+                {'title' : '', 'dataIndex' : 'componentData', 'width': 200, 'isComponent': true},
+
             ],
             data: components,
             loading: false

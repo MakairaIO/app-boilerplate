@@ -62,8 +62,27 @@ class AppController extends AbstractController
     #[Route('/component-list', name: 'component_list')]
     public function componentList(Request $request): Response
     {
-        $components = $this->communicationService->fetchComponents();
+        // $components = $this->communicationService->fetchComponents();
 
+        $components = [
+            [
+                "id" => 12,
+                "identifier" => "contact-form",
+                "name" => "Contact Form",
+            ],
+            [
+                "id" => 11,
+                "identifier" => "discovery-image",
+                "name" => "Discovery Image",
+            ],
+            [
+                "id" => 8,
+                "identifier" => "teaser-grid",
+                "name" => "Teaser (Grid)",
+                "componentData" =>  ['component' => 'button', 'variant' => 'secondary', 'children' => 'Click me', 'loading' => false, 'disabled' => false, 'icon' => '']
+            ],
+        ];
+        
         return $this->render('app/component-list.html.twig', [
             'components'  => $components,
         ]);

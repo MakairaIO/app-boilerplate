@@ -10,7 +10,11 @@
                     <thead class="mk-table-thead">
                         <tr>
                             {% for column in columns %}
-                                <th class="mk-table-cell">{{ column.title }}</th>
+                              {% set columnWidth = "auto;"%}
+                              {% if column.width is defined  and column.width != '' %}
+                                {% set columnWidth = column.width ~ 'px;' %}
+                              {% endif %}
+                                <th class="mk-table-cell" style="width: {{columnWidth}}">{{ column.title }}</th>
                             {% endfor %}
                         </tr>
                     </thead>
@@ -19,33 +23,22 @@
                             <tr class='mk-table-entry'>
                                 {% for column in columns %}
 
-                                    <td>{{ entry[column.dataIndex] }}</td>
+                                    {# <td  class="mk-table-cell">{{ entry[column.dataIndex] }}</td> #}
 
-                                    {# {% if column.component != ''%}
-                                        <td>{{ component(column.component, {} | merge(entry[loop.index - 1])) }}</td>
+                                    {% if column.isComponent is defined  and column.isComponent %}
+                                        <td class="mk-table-cell">
+
+                                        {% if entry[column.dataIndex] is defined %}
+
+                                            {{component(entry[column.dataIndex]["component"], {} | merge(entry[column.dataIndex])) }}
+                                            {% else %}
+                                            - 
+                                            {% endif %}
+
+                                        </td>
                                     {% else %}
-                                        {% set index = loop.index - 1 %}
-                                        {% if entry[index] is defined %}
-                                            <td>{{ entry[index] }}  </td>
-                                        {% else %}
-                                            <td>default</td>
-                                        {% endif %}
-                                    {% endif %} #}
-
-{#
-                                    {% set index = loop.index - 1 %}
-                                    {% if entry[index] is defined %}
-
-                                        {% if column.component != ''%}
-                                            <td class="mk-table-cell">{{ component(entry[loop.index - 1]['component'], {} | merge(entry[loop.index - 1])) }}</td>
-                                        {% else %}
-                                            <td class="mk-table-cell">{{ entry[column.dataIndex] }}  </td>
-                                        {% endif %}
-                                    {% else %}
-                                        <td class="mk-table-cell">-</td>
+                                        <td  class="mk-table-cell">{{ entry[column.dataIndex] }}</td>
                                     {% endif %}
-#}
-
                                 {% endfor %}
                             </tr>
                         {% endfor %}
