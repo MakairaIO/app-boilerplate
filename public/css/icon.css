@@ -1,0 +1,14 @@
+.icon {
+  display: inline-block;
+}
+
+.icon:focus {
+  outline: var(--outline);
+}
+
+.icon svg {
+  display: block;
+  fill: currentColor;
+  max-height: 100%;
+  max-width: 100%;
+}
