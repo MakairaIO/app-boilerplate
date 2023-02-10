@@ -5,6 +5,7 @@
     text-align: center;
     line-height: 3rem;
     display: inline-block;
+    align-items: center;
     position: relative;
     border: 1px solid var(--neutral-40);
     border-radius: 100vh;
@@ -233,7 +234,7 @@
     border-color: var(--neutral-40)
 }
 
-.button--icon {
+.button.button--icon {
     display: inline-flex;
     align-items: center
 }
@@ -261,18 +262,7 @@
 }
 
 .button:not(.button--icon-only) .spinner {
-    position: absolute;
-    top: 50%;
-    left: 1.2rem;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
     color: inherit
-}
-
-.button--loading:not(.button--icon-only) {
-    display: inline-flex;
-    align-items: center;
-    padding-left: 3.3rem
 }
 
 .button--icon .icon {
@@ -309,4 +299,8 @@
     color: inherit
 }
 
+.button .spinner.hidden,
+.button .hidden {
+    display: none;
+}
 

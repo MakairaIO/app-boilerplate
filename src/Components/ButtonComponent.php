@@ -9,27 +9,19 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 class ButtonComponent
 {
   public string $children = '';
-  public bool $loading = false;
   public string $href = '';
+  public bool $isExternalLink = false;
   public bool $disabled = false;
   public string $icon = '';
-  public string $iconPosition = '';
   public string $buttonClasses = 'button';
 
-  public function mount(string $variant = 'primary', string $icon = '', string $iconPosition = 'right', bool $loading = false, string $action = '')
+  public function mount(string $variant = 'primary', string $icon = '')
   {
     $this->buttonClasses = $this->buttonClasses . " button--{$variant}";
 
     if ($icon != '') {
-      $this->buttonClasses = $this->buttonClasses . " button--icon button--{$this->iconPosition}";
+      $this->buttonClasses = $this->buttonClasses . " button--icon button--icon-right";
       $this->icon = $icon;
-
-      $this->iconPosition = $iconPosition != '' ? $iconPosition : 'right';
-    }
-
-    if ($loading) {
-      $this->buttonClasses = $this->buttonClasses . " button--loading";
-      $this->loading = $loading;
     }
   }
 }

@@ -47,7 +47,6 @@
                 component('button', {
                     variant: 'primary',
                     children: 'Primary',
-                    loading: true,
                     disabled: false,
                     icon: 'star',
                 }) 
@@ -57,11 +56,21 @@
             {{
                 component('button', {
                     variant: 'primary',
-                    children: 'Primary Link',
-                    loading: false,
+                    children: 'External Link',
                     disabled: false,
-                    icon: 'star',
-                    href: '/example'
+                    href: 'https://www.example.com',
+                    isExternalLink: true,
+                })
+            }}
+        </div>
+        <div class="story-item">
+            {{
+                component('button', {
+                    variant: 'primary',
+                    children: 'Internal Link',
+                    disabled: false,
+                    href: 'component_list',
+                    isExternalLink: false
                 })
             }}
         </div>
@@ -70,7 +79,6 @@
                 component('button', {
                     variant: 'primary',
                     children: 'Primary disable',
-                    loading: true,
                     onClick: '',
                     disabled: true,
                     icon: 'star',
@@ -82,10 +90,8 @@
                 component('button', {
                     variant: 'secondary',
                     children: 'Secondary',
-                    loading: true,
                     onClick: '',
                     disabled: false,
-                    iconPosition: 'left',
                     icon: 'star',
                 }) 
             }}
@@ -95,7 +101,6 @@
                 component('button', {
                     variant: 'primary-blocker',
                     children: 'Primary blocker',
-                    loading: true,
                     onClick: '',
                     disabled: true,
                     icon: 'xmark',
@@ -107,7 +112,6 @@
                 component('button', {
                     variant: 'secondary-blocker',
                     children: 'Secondary Blocker',
-                    loading: true,
                     onClick: '',
                     disabled: false,
                     icon: 'xmark',
