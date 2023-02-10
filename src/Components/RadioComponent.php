@@ -1,21 +1,22 @@
 <?php
-    namespace App\Components;
 
-    use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+namespace App\Components;
 
-    #[AsTwigComponent('radio')]
-    class RadioComponent
-    {
-        public string $name = 'radio_name';
-        public string $size = 'medium'; // medium, large
-        public bool $disabled = false;
+use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-        public array $options = array(
-            array('label' => 'Banana', 'value' => 'Banana'),
-            array('label' => 'Pineapple', 'value' => 'Pineapple'),
-            array('label' => 'Avocado', 'value' => 'Avocado'),
-            array('label' => 'Potato', 'value' => 'Potato'),
-            array('label' => 'Tomato', 'value' => 'Tomato')
-        );
+#[AsTwigComponent('radio')]
+class RadioComponent
+{
+    public string $name = 'radio_name';
+    public string $size = 'medium'; // medium, large
+    public bool $disabled = false;
 
-    }
+    public array $options = [
+        ['label' => 'Banana', 'value' => 'Banana'],
+        ['label' => 'Pineapple', 'value' => 'Pineapple'],
+        ['label' => 'Avocado', 'value' => 'Avocado'],
+        ['label' => 'Potato', 'value' => 'Potato'],
+        ['label' => 'Tomato', 'value' => 'Tomato'],
+    ];
+
+}

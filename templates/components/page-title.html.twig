@@ -1,14 +1,14 @@
 {# templates/components/page-title.html.twig #}
 <div class="page-title">
     <div class="page-title__prefix">
-        <p class="text text--delta text--book text--regular">{{prefix}}</p>
+        <p class="text text--delta text--book text--regular">{{ prefix }}</p>
     </div>
     <div class="page-title__main">
-        <p class="page-title__title text text--golf text--heavy text--regular">{{children}}</p>
+        <p class="page-title__title text text--golf text--heavy text--regular">{{ children }}</p>
     </div>
     {% if suffix %}
         <div class="page-title__suffix">
-            <p class="text text--delta text--book text--regular">{{suffix}}</p>
+            <p class="text text--delta text--book text--regular">{{ suffix }}</p>
         </div>
     {% endif %}
 </div>

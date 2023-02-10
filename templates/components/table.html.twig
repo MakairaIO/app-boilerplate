@@ -1,5 +1,5 @@
 {# table.html.twig #}
-<div class="{{wrapperClasses}}">
+<div class="{{ wrapperClasses }}">
     {% if loading %}
         <span class="spinner spinner--normal icon icon--spinner"><svg role="img"><use xlink:href="#spinner"></use></svg></span>
     {% endif %}
@@ -8,32 +8,32 @@
             <div class="mk-table-content">
                 <table class="mk-table">
                     <thead class="mk-table-thead">
-                        <tr>
-                            {% for column in columns %}
-                                {% set columnWidth = "auto;"%}
-                                {% if column.width is defined  and column.width != '' %}
-                                    {% set columnWidth = column.width ~ 'px;' %}
-                                {% endif %}
-                                    <th class="mk-table-cell" style="width: {{columnWidth}}">{{ column.title }}</th>
-                            {% endfor %}
-                        </tr>
+                    <tr>
+                        {% for column in columns %}
+                            {% set columnWidth = "auto;" %}
+                            {% if column.width is defined  and column.width != '' %}
+                                {% set columnWidth = column.width ~ 'px;' %}
+                            {% endif %}
+                            <th class="mk-table-cell" style="width: {{ columnWidth }}">{{ column.title }}</th>
+                        {% endfor %}
+                    </tr>
                     </thead>
                     <tbody class="mk-table-tbody">
-                        {% for entry in data %}
-                            <tr class='mk-table-entry'>
-                                {% for column in columns %}
-                                    {% if column.isComponent is defined  and column.isComponent %}
-                                        <td class="mk-table-cell">
+                    {% for entry in data %}
+                        <tr class='mk-table-entry'>
+                            {% for column in columns %}
+                                {% if column.isComponent is defined  and column.isComponent %}
+                                    <td class="mk-table-cell">
                                         {% if entry[column.dataIndex] is defined %}
-                                            {{component(column["componentData"]["component"], {} | merge(column["componentData"])) }}
+                                            {{ component(column["componentData"]["component"], {} | merge(column["componentData"])) }}
                                         {% endif %}
-                                        </td>
-                                    {% else %}
-                                        <td  class="mk-table-cell">{{ entry[column.dataIndex] }}</td>
-                                    {% endif %}
-                                {% endfor %}
-                            </tr>
-                        {% endfor %}
+                                    </td>
+                                {% else %}
+                                    <td class="mk-table-cell">{{ entry[column.dataIndex] }}</td>
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>

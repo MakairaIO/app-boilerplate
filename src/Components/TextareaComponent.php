@@ -1,25 +1,26 @@
 <?php
-    namespace App\Components;
 
-    use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
+namespace App\Components;
 
-    #[AsTwigComponent('textarea')]
-    class TextareaComponent
-    {
-        public string $name = 'area_demo';
+use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-        public string $placeholder = 'placeholder...';
+#[AsTwigComponent('textarea')]
+class TextareaComponent
+{
+    public string $name = 'area_demo';
 
-        public string $title = 'Title';
+    public string $placeholder = 'placeholder...';
 
-        public bool $disabled = false;
+    public string $title = 'Title';
 
-        public int $maxlength = 20;
+    public bool $disabled = false;
 
-        public string $value = '';
+    public int $maxlength = 20;
 
-        public string $description = 'Textarea description';
+    public string $value = '';
 
-        public string $error = '';
+    public string $description = 'Textarea description';
 
-    }
+    public string $error = '';
+
+}

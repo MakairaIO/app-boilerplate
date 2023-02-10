@@ -1,6 +1,6 @@
 {# templates/components/checkbox.html.twig #}
-<label class="checkbox {% if disabled %} checkbox__disabled {% endif %}" for="{{name}}">
-    <input name="{{name}}" type="checkbox" id="{{name}}" {% if disabled == true %} disabled {% endif %}/>
+<label class="checkbox {% if disabled %} checkbox__disabled {% endif %}" for="{{ name }}">
+    <input name="{{ name }}" type="checkbox" id="{{ name }}" {% if disabled == true %} disabled {% endif %}/>
     <span class="checkmark"></span>
-    <span class="text text--bravo text--medium text--regular">{{label}}</span>
+    <span class="text text--bravo text--medium text--regular">{{ label }}</span>
 </label>

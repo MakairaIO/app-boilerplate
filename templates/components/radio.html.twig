@@ -2,8 +2,8 @@
 <div class="radio-group">
     {% for option in options %}
         <label class="radio-button {% if size == 'large' %} radio-button--large {% else %} radio-button--medium {% endif %} {% if disabled %} radio-button--disabled {% endif %} radio-button--horizontal">
-            <input type="radio" value="{{option.value}}" checked="" name={{name}} {% if disabled == true %} disabled {% endif %}>
-            <span class="radio-button__checkmark"></span>{{option.label}}
+            <input type="radio" value="{{ option.value }}" checked="" name={{ name }} {% if disabled == true %} disabled {% endif %}>
+            <span class="radio-button__checkmark"></span>{{ option.label }}
         </label>
     {% endfor %}
 </div>

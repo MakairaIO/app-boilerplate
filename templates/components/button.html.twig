@@ -1,31 +1,31 @@
 {% if this.children != '' %}
     {% if this.href == '' %}
-        <button class="{{buttonClasses}}" type="submit" {{this.disabled ? 'disabled' : ''}}>
+        <button class="{{ buttonClasses }}" type="submit" {{ this.disabled ? 'disabled' : '' }}>
     {% else %}
         {% if isExternalLink %}
-            <a href="{{this.href}}" target="_blank" class="{{buttonClasses}}" {{this.disabled ? 'disabled' : ''}}>
+            <a href="{{ this.href }}" target="_blank" class="{{ buttonClasses }}" {{ this.disabled ? 'disabled' : '' }}>
         {% else %}
-            <a href="{{ path(this.href, app.request.query.all) }}" class="{{buttonClasses}}" {{this.disabled ? 'disabled' : ''}}>
+            <a href="{{ path(this.href, app.request.query.all) }}" class="{{ buttonClasses }}" {{ this.disabled ? 'disabled' : '' }}>
         {% endif %}
-    {% endif     %}
+    {% endif %}
 
 
-        <span class="spinner spinner--small icon icon--spinner hidden">
+    <span class="spinner spinner--small icon icon--spinner hidden">
             <svg role="img">
                 <use xlink:href="#spinner"></use>
             </svg>
         </span>
 
-        <span class="button__text">{{ this.children }}</span>
-        
-        {% if this.icon %}
-        <span class="icon icon--{{this.icon}}">
+    <span class="button__text">{{ this.children }}</span>
+
+    {% if this.icon %}
+        <span class="icon icon--{{ this.icon }}">
             <svg
-                role="img">
-                <use xlink:href="#{{this.icon}}"></use>
+                    role="img">
+                <use xlink:href="#{{ this.icon }}"></use>
             </svg>
         </span>
-        {% endif %} 
+    {% endif %}
 
     {% if this.href == '' %}
         </button>

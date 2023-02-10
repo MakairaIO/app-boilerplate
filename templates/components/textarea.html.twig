@@ -1,15 +1,17 @@
 {# templates/components/textarea.html.twig #}
 <div class="textarea-input {% if disabled %} textarea-input__disabled {% endif %} {% if error %} textarea-input__has-error {% endif %}">
     <div class="textarea-input__label">
-        <label>{{title}}</label>
+        <label>{{ title }}</label>
         {% if maxlength %}
             <span class="textarea-input__count">
-                <span>0</span>/{{maxlength}} Character 
+                <span>0</span>/{{ maxlength }} Character
             </span>
         {% endif %}
     </div>
-    <textarea {% if disabled == true %} disabled {% endif %} placeholder="{{placeholder}}" maxlength="{{maxlength}}">{{value}}</textarea>
+
+    <textarea {% if disabled == true %} disabled {% endif %} placeholder="{{ placeholder }}" maxlength="{{ maxlength }}">{{ value }}</textarea>
+
     <div class="textarea-input__description">
-        {% if error == '' %} {{ description }} {% else %} {{error}} {% endif %}
+        {% if error == '' %} {{ description }} {% else %} {{ error }} {% endif %}
     </div>
 </div>
