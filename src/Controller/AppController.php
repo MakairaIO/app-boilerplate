@@ -64,7 +64,7 @@ class AppController extends AbstractController
     {
         $components = $this->communicationService->fetchComponents();
 
-        $dummtComponents = [
+        $dummyComponents = [
             [
                 "id" => 12,
                 "identifier" => "contact-form",
@@ -80,7 +80,7 @@ class AppController extends AbstractController
         
         return $this->render('app/component-list.html.twig', [
             'components'  => $components,
-            'dummtComponents'  => $dummtComponents,
+            'dummyComponents'  => $dummyComponents,
         ]);
     }
 
