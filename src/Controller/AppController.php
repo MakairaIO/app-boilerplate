@@ -79,7 +79,7 @@ class AppController extends AbstractController
                 "id" => 8,
                 "identifier" => "teaser-grid",
                 "name" => "Teaser (Grid)",
-                "componentData" =>  ['component' => 'button', 'variant' => 'secondary', 'children' => 'Click me', 'loading' => false, 'disabled' => false, 'icon' => '']
+                "componentData" =>  ['component' => 'button', 'variant' => 'primary', 'children' => 'Example page', 'loading' => false, 'disabled' => false, 'icon' => '', 'href' => '/story']
             ],
         ];
         

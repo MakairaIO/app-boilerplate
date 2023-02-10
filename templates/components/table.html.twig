@@ -22,19 +22,13 @@
                         {% for entry in data %}
                             <tr class='mk-table-entry'>
                                 {% for column in columns %}
-
-                                    {# <td  class="mk-table-cell">{{ entry[column.dataIndex] }}</td> #}
-
                                     {% if column.isComponent is defined  and column.isComponent %}
                                         <td class="mk-table-cell">
-
                                         {% if entry[column.dataIndex] is defined %}
-
                                             {{component(entry[column.dataIndex]["component"], {} | merge(entry[column.dataIndex])) }}
-                                            {% else %}
+                                        {% else %}
                                             - 
-                                            {% endif %}
-
+                                        {% endif %}
                                         </td>
                                     {% else %}
                                         <td  class="mk-table-cell">{{ entry[column.dataIndex] }}</td>
