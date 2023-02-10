@@ -4,20 +4,16 @@
 
 {% block body %}
     <div class="makaira-app__story">
-        <div class="story-item">
-            {{  
-                component('textarea', {}) 
-            }}
-        </div>
-         <div class="story-item">
-            {{  
-                component('textarea', { disabled: true, title: 'Title disabled' }) 
-            }}
-        </div>
-            <div class="story-item">
-            {{  
-                component('textarea', { error: 'Textarea error now' }) 
-            }}
+        <div class="story-item story-item--with-col">
+            <div class="story-item__col">
+                {{ component('textarea', {}) }}
+            </div>
+            <div class="story-item__col">
+                {{ component('textarea', { disabled: true, title: 'Title disabled' }) }}
+            </div>
+            <div class="story-item__col">
+                {{ component('textarea', { error: 'Textarea error now' }) }}
+            </div>
         </div>
         <div class="story-item">
             {{
@@ -32,16 +28,14 @@
                 })
             }}
         </div >
-        <div class="story-item">
-            {{
-                component('select', {})
-            }}
-        </div >
-          <div class="story-item">
-            {{
-                component('select', {title: "Select disabled",disabled: true})
-            }}
-        </div >
+        <div class="story-item story-item--with-col">
+            <div class="story-item__col">
+                {{ component('select', {}) }}
+            </div>
+            <div class="story-item__col">
+                {{ component('select', {title: "Select disabled",disabled: true}) }}
+            </div>
+        </div>
         <div class="story-item">
             {{ 
                 component('button', {
@@ -147,5 +141,18 @@
                 {{ component('heading', {children: 'Page heading h4',level: 4}) }}
             </div>
         </div>
+
+        <div class="story-item story-item--with-col">
+            <div class="story-item__col">
+                {{ component('dashboard-app')}}
+            </div>
+            <div class="story-item__col">
+                {{ component('dashboard-app', { text: 'Components', icon: 'toolbox', badge: 'Sale'})}}
+            </div>
+            <div class="story-item__col">
+                {{ component('dashboard-app', { text: 'Bundles', icon: 'box-open-full', badge: ''})}}
+            </div>
+        </div>
+
     </div>
 {% endblock %}

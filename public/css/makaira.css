@@ -1,3 +1,6 @@
+@import url(story.css);
+@import url(icon.css);
+@import url(text.css);
 @import url(checkbox.css);
 @import url(buttons.css);
 @import url(table.css);
@@ -6,8 +9,7 @@
 @import url(radio.css);
 @import url(textinput.css);
 @import url(page-title.css);
-@import url(text.css);
-@import url(story.css);
+@import url(dashboard-app.css);
 
 :root {
     --white: #fff;
@@ -107,6 +109,7 @@ html {
     font-size: 10px;
     margin: 0;
     font-family: FuturaBT, sans-serif;
+    background-color: var(--neutral-10);
 }
 
 .text--alpha {

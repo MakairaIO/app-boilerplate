@@ -113,9 +113,12 @@
   border-color: transparent !important;
 }
 
-.select-input__disabled .rc-select {
+.select-input__disabled {
   cursor: not-allowed;
   pointer-events: none;
+}
+
+.select-input__disabled .rc-select {
   background-color: #fafafa !important;
 }
 
