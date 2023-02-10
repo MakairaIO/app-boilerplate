@@ -27,29 +27,29 @@
     --text-teal: #63b6c8;
     --errorBackground: #b71c1c;
     --activeColor: #43a047;
-    --brand-aubergine: #61304d;
-    --brand-aubergine-inactive: #9c8b95;
-    --brand-aubergine-hover: #4e273e;
-    --brand-aubergine-light: #86426a;
-    --brand-aubergine-lightest: #cf9dbb;
-    --brand-aubergine-dark: #522941;
-    --brand-coral: #eb6e68;
-    --brand-coral-hover: #e54139;
-    --brand-coral-inactive: #c98d8a;
-    --brand-cyan: #63b6c8;
-    --brand-sun: #f5bf33;
+    --brand-aubergine: #61304D;
+    --brand-aubergine-inactive: #9C8B95;
+    --brand-aubergine-hover: #4E273E;
+    --brand-aubergine-light: lighten(#61304D, 15%);
+    --brand-aubergine-lightest: lighten(#61304D, 60%);
+    --brand-aubergine-dark: darken(#61304D, 15%);
+    --brand-coral: #EB6E68;
+    --brand-coral-hover: #E54139;
+    --brand-coral-inactive: #C98D8A;
+    --brand-cyan: #63B6C8;
+    --brand-sun: #F5BF33;
     --neutral-00: #fff;
-    --neutral-10: #ecf2f3;
-    --neutral-20: #dee7e8;
-    --neutral-40: #bdd2d6;
-    --neutral-50: #a2babe;
-    --neutral-60: #84a4a9;
+    --neutral-10: #ECF2F3;
+    --neutral-20: #DEE7E8;
+    --neutral-40: #BDD2D6;
+    --neutral-50: #A2BABE;
+    --neutral-60: #84A4A9;
     --neutral-70: #537074;
     --neutral-80: #334548;
     --neutral-90: #192224;
     --neutral-100: #000;
-    --legende: #84a400;
-    --divider: #dde7e9;
+    --legende: #84A400;
+    --divider: #DDE7E9;
     --font-family-regular: 'FuturaBT';
     --font-weight-light: 100;
     --font-weight-medium: 400;
@@ -211,44 +211,10 @@ p {
     margin-right: 0.4rem;
 }
 
-.button {
-    font-size: 1.5rem;
-    letter-spacing: 0;
-    text-align: center;
-    line-height: 3rem;
-    display: inline-block;
-    position: relative;
-    border: 1px solid var(--neutral-40);
-    border-radius: 100vh;
-    height: 3.2rem;
-    padding: 0 16px;
-    transition: background 200ms ease-out,padding .2s cubic-bezier(.175,.885,.32,1.275);
-    color: var(--neutral-50);
-    background: var(--neutral-10);
-    font-family: FuturaBT, sans-serif;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.button:focus {
-    outline: solid 2px var(--sunny);
-}
-
-.button--primary {
-    background: var(--aubergine);
-    border-color: var(--neutral-40);
-    color: var(--neutral-00);
-}
-
-.button--primary:hover {
-    background: var(--aubergine-hovered);
-}
 
 #example-button {
     margin-top: 25px;
 }
-
-
 
 /* common CSS */
 .icon {
@@ -265,7 +231,6 @@ p {
     max-height: 100%;
     max-width: 100%
 }
-
 
 .spinner {
     -webkit-animation: fade-in .3s cubic-bezier(.25, .46, .45, .94) both;

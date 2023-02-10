@@ -1,7 +1,6 @@
 .button {
     font-size: 1.5rem;
     letter-spacing: 0;
-    line-height: 2.2rem;
     text-align: center;
     line-height: 3rem;
     display: inline-block;
@@ -13,7 +12,9 @@
     padding: 0 16px;
     transition: background 200ms ease-out, padding .2s cubic-bezier(.175, .885, .32, 1.275);
     color: var(--neutral-50);
-    background: var(--neutral-10)
+    background: var(--neutral-10);
+    font-family: FuturaBT, sans-serif;
+    text-decoration: none;
 }
 
 .button:hover {
@@ -50,7 +51,7 @@
 .button--secondary {
     background: var(--neutral-00);
     border-color: var(--neutral-40);
-    color: var(--brand-aubergine)
+    color: var(--brand-aubergine);
 }
 
 .button--secondary:hover:not(:disabled) {
