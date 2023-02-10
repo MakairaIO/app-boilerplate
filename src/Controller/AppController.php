@@ -62,18 +62,13 @@ class AppController extends AbstractController
     #[Route('/component-list', name: 'component_list')]
     public function componentList(Request $request): Response
     {
-        // $components = $this->communicationService->fetchComponents();
+        $components = $this->communicationService->fetchComponents();
 
-        $components = [
+        $dummtComponents = [
             [
                 "id" => 12,
                 "identifier" => "contact-form",
                 "name" => "Contact Form",
-            ],
-            [
-                "id" => 11,
-                "identifier" => "discovery-image",
-                "name" => "Discovery Image",
             ],
             [
                 "id" => 8,
@@ -85,6 +80,7 @@ class AppController extends AbstractController
         
         return $this->render('app/component-list.html.twig', [
             'components'  => $components,
+            'dummtComponents'  => $dummtComponents,
         ]);
     }
 

@@ -10,11 +10,11 @@
                     <thead class="mk-table-thead">
                         <tr>
                             {% for column in columns %}
-                              {% set columnWidth = "auto;"%}
-                              {% if column.width is defined  and column.width != '' %}
-                                {% set columnWidth = column.width ~ 'px;' %}
-                              {% endif %}
-                                <th class="mk-table-cell" style="width: {{columnWidth}}">{{ column.title }}</th>
+                                {% set columnWidth = "auto;"%}
+                                {% if column.width is defined  and column.width != '' %}
+                                    {% set columnWidth = column.width ~ 'px;' %}
+                                {% endif %}
+                                    <th class="mk-table-cell" style="width: {{columnWidth}}">{{ column.title }}</th>
                             {% endfor %}
                         </tr>
                     </thead>
@@ -26,8 +26,6 @@
                                         <td class="mk-table-cell">
                                         {% if entry[column.dataIndex] is defined %}
                                             {{component(entry[column.dataIndex]["component"], {} | merge(entry[column.dataIndex])) }}
-                                        {% else %}
-                                            - 
                                         {% endif %}
                                         </td>
                                     {% else %}
