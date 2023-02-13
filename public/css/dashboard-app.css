@@ -1,7 +1,6 @@
 .dashboard-app{
     border: 1px solid var(--aubergine);
     height: 15.5rem;
-    width: 15.5rem;
     border-radius: 16px;
     box-shadow: var(--elevation-15);
     transition: var(--transition-regular);

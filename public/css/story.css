@@ -5,9 +5,18 @@
 .story-item {
   margin-bottom: 2rem;
 }
+
 .story-item.story-item--with-col {
     display: flex;
     gap: 1rem;
+}
+
+.story-item--with-col-grid {
+    max-width: 965px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 24px;
+    padding-bottom: 24px;
 }
 
 .story-item__col {
