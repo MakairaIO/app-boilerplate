@@ -14,11 +14,26 @@
 .story-item--with-col-grid {
     max-width: 965px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
     grid-gap: 24px;
     padding-bottom: 24px;
 }
 
+.story-item--with-col-grid--3-column {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.story-item--with-col-grid--4-column {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.story-item--with-col-grid--5-column {
+    grid-template-columns: repeat(5, 1fr);
+}
+
 .story-item__col {
     flex: 1
+}
+
+.story-section + .story-section {
+    padding-top: 3.6rem;
 }

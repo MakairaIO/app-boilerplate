@@ -17,20 +17,5 @@
             loading: false
         })
         }}
-
-        <h2>Table with button</h1>
-
-        {{
-        component('table', {
-            columns: [
-                {'title' : 'ID', 'dataIndex' : 'id'},
-                {'title' : 'Name', 'dataIndex' : 'name', 'width': 250},
-                {'title' : 'Identifier', 'dataIndex' : 'identifier', 'width': 200},
-                {'title' : '', 'dataIndex' : 'componentData', 'width': 200, 'isComponent': true, 'componentData': {component: 'button', variant: 'primary', children: 'Remove' }},
-            ],
-            data: dummyComponents,
-            loading: false
-        })
-        }}
     </div>
 {% endblock %}

@@ -56,15 +56,12 @@ class AppController extends AbstractController
     #[Route('/story', name: 'app_story')]
     public function story(Request $request): Response
     {
-        return $this->render('app/story.html.twig');
-    }
-
-    #[Route('/component-list', name: 'component_list')]
-    public function componentList(Request $request): Response
-    {
-        $components = $this->communicationService->fetchComponents();
-
-        $dummyComponents = [
+        $listData = [
+            [
+                "id" => 12,
+                "identifier" => "fancy-teaser",
+                "name" => "Fancy Teaser",
+            ],
             [
                 "id" => 12,
                 "identifier" => "contact-form",
@@ -74,13 +71,21 @@ class AppController extends AbstractController
                 "id" => 8,
                 "identifier" => "teaser-grid",
                 "name" => "Teaser (Grid)",
-                "componentData" =>  ['component' => 'button', 'variant' => 'primary', 'children' => 'Example page', 'loading' => false, 'disabled' => false, 'icon' => '', 'href' => 'app_story']
             ],
         ];
-        
+
+        return $this->render('app/story.html.twig', [
+            'listData'  => $listData,
+        ]);
+    }
+
+    #[Route('/component-list', name: 'component_list')]
+    public function componentList(Request $request): Response
+    {
+        $components = $this->communicationService->fetchComponents();
+
         return $this->render('app/component-list.html.twig', [
             'components'  => $components,
-            'dummyComponents'  => $dummyComponents,
         ]);
     }
 
