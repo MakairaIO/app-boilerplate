@@ -1,4 +1,4 @@
-.dashboard-app{
+.dashboard-app {
     border: 1px solid var(--aubergine);
     height: 15.5rem;
     border-radius: 16px;
@@ -11,7 +11,7 @@
     box-shadow: none;
 }
 
-.dashboard-app__text  {
+.dashboard-app__text {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

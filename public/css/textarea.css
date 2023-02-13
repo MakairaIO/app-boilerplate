@@ -1,66 +1,78 @@
 .textarea-input {
-  max-width: 54rem;
-  min-width: 15rem;
-  line-height: 1;
+    max-width: 54rem;
+    min-width: 15rem;
+    line-height: 1;
 }
+
 .textarea-input__disabled {
-  pointer-events: none;
+    pointer-events: none;
 }
-.textarea-input__disabled .textarea-input__label{
-  color: var(--neutral-60)
+
+.textarea-input__disabled .textarea-input__label {
+    color: var(--neutral-60)
 }
+
 .textarea-input__disabled textarea {
-  cursor: not-allowed;
-  pointer-events: none;
-  background-color: #fafafa !important;
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: #fafafa !important;
 }
+
 .textarea-input__has-error .textarea-input__description,
 .textarea-input__has-error .textarea-input__label {
-  color: var(--brand-coral);
+    color: var(--brand-coral);
 }
+
 .textarea-input__has-error textarea {
-  border-color: var(--brand-coral);
+    border-color: var(--brand-coral);
 }
+
 .textarea-input__label {
-  font-size: 1.3rem;
-  letter-spacing: 0.02rem;
-  line-height: 1.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--neutral-70);
-  margin-bottom: 4px;
+    font-size: 1.3rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--neutral-70);
+    margin-bottom: 4px;
 }
+
 .textarea-input__count {
-  flex-grow: 1;
-  text-align: right;
+    flex-grow: 1;
+    text-align: right;
 }
+
 .textarea-input__count .warning {
-  color: var(--brand-coral);
+    color: var(--brand-coral);
 }
+
 .textarea-input textarea {
-  font-size: 1.3rem;
-  letter-spacing: 0.02rem;
-  line-height: 1.8rem;
-  width: 100%;
-  resize: none;
-  border: 1px solid var(--neutral-40);
-  border-radius: 0.4rem;
-  padding: 8px;
-  color: var(--brand-aubergine);
-  margin-bottom: 0.3rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.8rem;
+    width: 100%;
+    resize: none;
+    border: 1px solid var(--neutral-40);
+    border-radius: 0.4rem;
+    padding: 8px;
+    color: var(--brand-aubergine);
+    margin-bottom: 0.3rem;
 }
+
 .textarea-input textarea:focus {
-  outline: 2px solid var(--sunny);
+    outline: 2px solid var(--sunny);
 }
+
 .textarea-input--auto-rows textarea {
-  overflow: hidden;
+    overflow: hidden;
 }
+
 .textarea-input__description {
-  font-size: 1.3rem;
-  letter-spacing: 0.02rem;
-  line-height: 1.8rem;
-  font-weight: var(--font-weight-book);
-  font-style: italic;
-  color: var(--neutral-60);
+    font-size: 1.3rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.8rem;
+    font-weight: var(--font-weight-book);
+    font-style: italic;
+    color: var(--neutral-60);
 }

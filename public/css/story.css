@@ -1,9 +1,9 @@
 .makaira-app__story {
-  padding: 50px;
+    padding: 50px;
 }
 
 .story-item {
-  margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 
 .story-item.story-item--with-col {
