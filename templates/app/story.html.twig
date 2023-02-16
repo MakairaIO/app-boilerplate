@@ -5,7 +5,7 @@
 {% block body %}
     <div class="makaira-app__story">
 
-        <div class="story-section">
+        {# <div class="story-section">
             {{ component('heading', { children: 'Navigation Items', level: 2 }) }}
 
             <div class="story-item story-item--with-col-grid story-item--with-col-grid--5-column">
@@ -182,6 +182,15 @@
                 data: listData,
                 loading: false
             }) }}
+        </div> #}
+
+
+        <div class="story-section">
+            {{ component('heading', { children: 'Slider input', level: 2 }) }}
+
+            {{ component('slider-input', {sliderId: 'slider-input'}) }}
+
+            {# {{ component('slider-input', {sliderId: 'slider-input-1'}) }} #}
         </div>
     </div>
 {% endblock %}

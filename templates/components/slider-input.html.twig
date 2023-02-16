@@ -1,0 +1,50 @@
+<div class="multi-range-container">
+    <div class="number-input__wrapper">
+        <div class="number-input__input-panel">
+
+            <input class="number-input__input" id="number-input" type="number" max="10" min="0" value="0">
+
+            <div class="number-input__control-panel">
+                <button class="number-input__button">
+                    <span class="number-input__button-icon icon icon--angle-up">
+                    <svg role="img">
+                        <use xlink:href="#angle-up"></use>
+                    </svg>
+                    </span>
+                </button>
+                <button class="number-input__button">
+                    <span class="number-input__button-icon icon icon--angle-down">
+                    <svg role="img">
+                        <use xlink:href="#angle-down"></use>
+                    </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="multi-range" id="{{ sliderId }}"></div>
+</div>
+
+
+{% block javascripts %}
+    <script>
+        {# TODO: fix it #}
+        {# TODO: add input number option #}
+
+        var settings = {
+            start: 0,
+            end: 15,
+            increment: 1
+        };
+
+        if (MultiRangeSlider && typeof MultiRangeSlider === 'function') {
+            var slider = MultiRangeSlider(
+                document.querySelector(`#${'{{ sliderId|e('js') }}'}`), 
+                settings, 
+            );
+            slider.init()
+        }
+    </script>
+{% endblock %}
+

@@ -10,6 +10,7 @@
 @import url(textinput.css);
 @import url(page-title.css);
 @import url(dashboard-app.css);
+@import url(input-slider.css);
 
 :root {
     --white: #fff;
