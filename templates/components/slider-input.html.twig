@@ -1,29 +1,30 @@
-<div class="multi-range-container">
-    <div class="number-input__wrapper">
-        <div class="number-input__input-panel">
+<div class="slider-input-container">
+    <span class="text--bravo title">Title</span> 
 
-            <input class="number-input__input" id="number-input" type="number" max="10" min="0" value="0">
-
-            <div class="number-input__control-panel">
-                <button class="number-input__button">
-                    <span class="number-input__button-icon icon icon--angle-up">
-                    <svg role="img">
-                        <use xlink:href="#angle-up"></use>
-                    </svg>
-                    </span>
-                </button>
-                <button class="number-input__button">
-                    <span class="number-input__button-icon icon icon--angle-down">
-                    <svg role="img">
-                        <use xlink:href="#angle-down"></use>
-                    </svg>
-                    </span>
-                </button>
+    <div class="slider-input__wrapper">
+        <div class="number-input__wrapper">
+            <div class="number-input__input-panel">
+                <input class="number-input__input" type="number" max="{{this.maxValue}}" min="0" value="{{initValue}}">
+                <div class="number-input__control-panel">
+                    <button class="number-input__button increaseBtn">
+                        <span class="number-input__button-icon icon icon--angle-up">
+                        <svg role="img">
+                            <use xlink:href="#angle-up"></use>
+                        </svg>
+                        </span>
+                    </button>
+                    <button class="number-input__button decreaseBtn">
+                        <span class="number-input__button-icon icon icon--angle-down">
+                        <svg role="img">
+                            <use xlink:href="#angle-down"></use>
+                        </svg>
+                        </span>
+                    </button>
+                </div>
             </div>
         </div>
+         <div class="slider-input" id="{{ sliderId }}"></div>
     </div>
-
-    <div class="multi-range" id="{{ sliderId }}"></div>
 </div>
 
 
@@ -32,7 +33,8 @@
         var settings = {
             start: 0,
             end: {{ maxValue|e('js') }},
-            increment: 1
+            increment: 1,
+            initValue: {{ initValue|e('js') }}
         };
 
         if (MultiRangeSlider && typeof MultiRangeSlider === 'function') {

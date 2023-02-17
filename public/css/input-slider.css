@@ -1,26 +1,32 @@
-.multi-range-container {
+.slider-input-container {
     display: flex;
-    align-content: space-between;
-
-    width: 500px;
-
+    flex-direction: column;
+    background-color: #fff;
+    max-width: 500px;
     padding: 8px 12px;
     border-radius: 4px;
     margin-bottom: 8px;
-    background-color: #fff;
+}
+.slider-input__wrapper {
     display: flex;
-    flex-direction: column;
-    position: relative;
-    height: 70px;
+    align-items: center;
     justify-content: center;
+    width: 100%;
+    position: relative;
+    min-height: 35px;
 }
 
-.multi-range {
+.slider-input-container .title {
+    color: var(--neutral-60);
+    margin-bottom: 4px;
+}
+
+.slider-input {
     width: 100%;
     position: relative;
 }
 
-.multi-range__track {
+.slider-input__track {
     height: 10px;
     width: 100%;
     background: transparent;
@@ -30,7 +36,7 @@
     left: 0;
 }
 
-.multi-range__track-bg {
+.slider-input__track-bg {
     background: #ccc;
     position: absolute;
     top: 0;
@@ -39,7 +45,7 @@
     left: 0;
 }
 
-.multi-range__fill {
+.slider-input__fill {
     height: 6px;
     width: 100%;
     background: #2994b2;
@@ -50,7 +56,7 @@
     left: 0;
 }
 
-.multi-range__handle {
+.slider-input__handle {
     background: #343434;
     position: absolute;
     top: 0;
@@ -64,15 +70,15 @@
     background: white;
 }
 
-.multi-range__handle:focus:first-child {
+.slider-input__handle:focus:first-child {
     border: 3px solid #dee7e8;
 }
 
-.multi-range__handle:focus:last-child {
+.slider-input__handle:focus:last-child {
     box-shadow: 0 0 0 3px #96dbfa;
 }
 
-.multi-range__ticks {
+.slider-input__ticks {
     height: 100%;
     width: 100%;
     background: transparent;
@@ -83,13 +89,13 @@
     justify-content: space-between;
 }
 
-.multi-range__tick {
+.slider-input__tick {
     width: 2px;
     height: 100%;
     /* background: #fff; */
 }
 
-.multi-range__labels {
+.slider-input__labels {
     font-size: 14px;
     position: absolute;
     left: 0;
@@ -104,17 +110,17 @@
 
 }
 
-.multi-range__labels>.label {
+.slider-input__labels>.label {
     width: 1px;
     background-color: #bdd2d6;
 
 }
 
-.multi-range__labels>.label:nth-child(odd) {
+.slider-input__labels>.label:nth-child(odd) {
     height: 6px;
 }
 
-.multi-range__labels>.label:nth-child(even) {
+.slider-input__labels>.label:nth-child(even) {
     height: 3px;
 }
 
@@ -140,7 +146,7 @@
     border: 1px solid var(--neutral-40);
     border-radius: 4px;
 
-    display: none;
+    /* display: none; */
 }
 
 .number-input__input-panel:hover .number-input__control-panel {
@@ -156,10 +162,14 @@
 }
 
 .number-input__input-panel .number-input__input {
+    font-size: 1.3rem;
+    letter-spacing: .02rem;
+    line-height: 1.8rem;
     height: 3.1rem;
     outline: none;
     font-weight: var(--font-weight-bold);
     color: var(--text-aubergine);
+    padding: 8px;
     margin-left: 1px;
     width: 7.4rem;
     border: none;
@@ -192,6 +202,12 @@
 .number-input__input-panel .number-input__control-panel .number-input__button {
     width: 2.4rem;
     height: 1.5rem;
+    border: none;
+    background: var(--neutral-00);
+}
+
+.number-input__input-panel .number-input__control-panel .number-input__button:hover {
+    cursor: pointer;
 }
 
 .number-input__input-panel .number-input__control-panel .number-input__button:first-child {

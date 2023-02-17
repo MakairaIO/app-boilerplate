@@ -184,15 +184,14 @@
             }) }}
         </div>
 
-
         <div class="story-section">
             {{ component('heading', { children: 'Slider input', level: 2 }) }}
 
             {{ component('heading', { children: 'Max 10', level: 3 }) }}
             {{ component('slider-input', {sliderId: 'slider-input'}) }}
             
-            {{ component('heading', { children: 'Max 15', level: 3 }) }}
-            {{ component('slider-input', {sliderId: 'slider-input-1', maxValue: 15}) }}
+            {{ component('heading', { children: 'Max 15 - initValue 5', level: 3 }) }}
+            {{ component('slider-input', {sliderId: 'slider-input-1', maxValue: 15, initValue: 5}) }}
         </div>
     </div>
 {% endblock %}

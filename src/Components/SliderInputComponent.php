@@ -10,4 +10,5 @@ class SliderInputComponent
 {
     public string $sliderId = 'slider-input';
     public int $maxValue = 10;
+    public int $initValue = 0;
 }

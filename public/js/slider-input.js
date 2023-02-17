@@ -7,10 +7,14 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
     const getHandleOffset = () => 0;
     const getTrackWidth = () => DOM.track.offsetWidth;
     const getFocusedHandle = () => DOM.handles.find(handle => document.activeElement === handle);
+    const inputNumber = slider.parentNode.querySelector(".number-input__input");
+    const decreaseBtn = slider.parentNode.querySelector(".decreaseBtn");
+    const increaseBtn = slider.parentNode.querySelector(".increaseBtn");
   
     const values = {
       start: settings.start,
-      end: settings.end
+      end: settings.end,
+      initValue: settings.initValue
     };
   
     function getSteps(sliderWidth, stepLen, handleOffset) {
@@ -42,7 +46,7 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
   
     function createLabels(container, settings) {
       const labels = document.createElement("div");
-      labels.classList.add("multi-range__labels");
+      labels.classList.add("slider-input__labels");
       steps = getSteps(slider.offsetWidth, getStepLen(), getHandleOffset());
       steps.forEach(step => {
         const label = document.createElement("label");
@@ -50,7 +54,7 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
         label.style.left = `${step.stepPercent}%`;
         labels.appendChild(label);
         const tick = document.createElement("div");
-        tick.classList.add("multi-range__tick");
+        tick.classList.add("slider-input__tick");
         container.appendChild(tick);
       });
       
@@ -59,20 +63,20 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
     
     function addElementsToDOM() {
       const track = document.createElement("div");
-      track.classList.add("multi-range__track");
+      track.classList.add("slider-input__track");
       DOM.track = track;
       const trackBg = document.createElement("div");
-      trackBg.classList.add("multi-range__track-bg");
+      trackBg.classList.add("slider-input__track-bg");
       const trackFill = document.createElement("div");
-      trackFill.classList.add("multi-range__fill");
+      trackFill.classList.add("slider-input__fill");
       DOM.trackFill = trackFill;
       const ticksContainer = document.createElement("div");
-      ticksContainer.classList.add("multi-range__ticks");
+      ticksContainer.classList.add("slider-input__ticks");
       let handleContainer = document.createElement("div");
-      handleContainer.classList.add("multi-range__handles");
+      handleContainer.classList.add("slider-input__handles");
   
       const rightHandle = document.createElement("div");
-      rightHandle.classList.add("multi-range__handle");
+      rightHandle.classList.add("slider-input__handle");
       rightHandle.setAttribute("data-handle-position", "end");
       rightHandle.setAttribute("tabindex", 0);
       handleContainer.appendChild(rightHandle);
@@ -99,7 +103,32 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
       window.addEventListener("touchmove", onHandleMove);
       window.addEventListener("keydown", onKeyDown);
 
+      if (inputNumber) {
+        decreaseBtn.addEventListener("click", function() {
+          if (1*inputNumber.value > 1*inputNumber.min) {
+            inputNumber.value--;
+            values['end'] = steps[1*inputNumber.value].value;
+            render();
+          }
+        });
+    
+        increaseBtn.addEventListener("click", function() {
+          if (1*inputNumber.value < 1*inputNumber.max) {
+            inputNumber.value++;
+            values['end'] = steps[1*inputNumber.value].value;
+            render();
+          }
+        });
+
+        inputNumber.addEventListener("change", function() {
+         values['end'] = steps[1*inputNumber.value].value;
+         render();
+        });
+      }
+
       render();
+      innitFill();
+      initHandles();
     }
   
     function dispatchEvent() {
@@ -163,11 +192,29 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
       DOM.trackFill.style.width = `${percentage}%`;
       DOM.trackFill.style.left = `${startStep.stepPercent}%`;
     }
+
+    function innitFill() {
+      const trackWidth = getTrackWidth();
+      const startStep = getStep(values.start);
+      const endStep = getStep(values.initValue);
+
+      const newWidth =
+        trackWidth - (startStep.stepX + (trackWidth - endStep.stepX));
+      const percentage = newWidth / trackWidth * 100;
+      DOM.trackFill.style.width = `${percentage}%`;
+      DOM.trackFill.style.left = `${startStep.stepPercent}%`;
+    }
+
+    function initHandles() {
+      DOM.handles.forEach(function(handle, index) {
+        const step =  getStep(values.initValue);
+        handle.style.left = `${step.stepPercent}%`;
+      });
+    }
   
     function render() {
-        slider.offsetWidth
-
-        slider.style.setProperty('--slider-width', slider.offsetWidth + 'px');
+      slider.offsetWidth
+      slider.style.setProperty('--slider-width', slider.offsetWidth + 'px');
       updateFill();
       updateHandles();
     }
@@ -192,6 +239,9 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
         values[handlePosition] = currentStep.value;
         render();
         dispatchEvent();
+        if (inputNumber) {
+          inputNumber.value = values.end
+        }
       });
     }
     
