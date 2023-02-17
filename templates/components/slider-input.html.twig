@@ -29,12 +29,9 @@
 
 {% block javascripts %}
     <script>
-        {# TODO: fix it #}
-        {# TODO: add input number option #}
-
         var settings = {
             start: 0,
-            end: 15,
+            end: {{ maxValue|e('js') }},
             increment: 1
         };
 

@@ -1,7 +1,18 @@
 .multi-range-container {
-    background: #fff;
     display: flex;
     align-content: space-between;
+
+    width: 500px;
+
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 70px;
+    justify-content: center;
 }
 
 .multi-range {
@@ -33,6 +44,7 @@
     width: 100%;
     background: #2994b2;
     background: linear-gradient(90deg, #84a4a9 12.14%, #f5bf33 69.98%, #eb6e68 100%);
+    background-size: var(--slider-width);
     position: absolute;
     top: 0;
     left: 0;
@@ -60,8 +72,6 @@
     box-shadow: 0 0 0 3px #96dbfa;
 }
 
-
-
 .multi-range__ticks {
     height: 100%;
     width: 100%;
@@ -76,9 +86,7 @@
 .multi-range__tick {
     width: 2px;
     height: 100%;
-    background: #fff;
-
-
+    /* background: #fff; */
 }
 
 .multi-range__labels {
@@ -131,6 +139,8 @@
     display: flex;
     border: 1px solid var(--neutral-40);
     border-radius: 4px;
+
+    display: none;
 }
 
 .number-input__input-panel:hover .number-input__control-panel {

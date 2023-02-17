@@ -9,4 +9,5 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 class SliderInputComponent
 {
     public string $sliderId = 'slider-input';
+    public int $maxValue = 10;
 }

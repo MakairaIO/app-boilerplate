@@ -4,7 +4,7 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
     let steps = [];
     let dragging = false;
     let currentHandle = null;
-    const getHandleOffset = () => DOM.handles[0].offsetWidth / 2;
+    const getHandleOffset = () => 0;
     const getTrackWidth = () => DOM.track.offsetWidth;
     const getFocusedHandle = () => DOM.handles.find(handle => document.activeElement === handle);
   
@@ -18,8 +18,6 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
       for (let i = 0; i <= stepLen; i++) {
         const stepX = i * (sliderWidth * 1 / stepLen) + handleOffset;
         const stepPercent = (i * (100 / stepLen)).toFixed(2);
-        // const stepX = i * (sliderWidth * 0.95 / stepLen) + handleOffset;
-        // const stepPercent = (i * (95 / stepLen)).toFixed(2);
         const value = i * settings.increment + settings.start;
         steps.push({
           value,
@@ -35,8 +33,12 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
     const startDrag = (event) => {
       currentHandle = event.target;
       dragging = true;
+      slider.classList.add("dragging");
     };
-    const stopDrag = () => dragging = false;
+    const stopDrag = () => {
+      dragging = false;
+      slider.classList.remove("dragging");
+    }
   
     function createLabels(container, settings) {
       const labels = document.createElement("div");
@@ -45,7 +47,6 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
       steps.forEach(step => {
         const label = document.createElement("label");
         label.classList.add("label");
-        // label.textContent = getFormattedValue(step.value);
         label.style.left = `${step.stepPercent}%`;
         labels.appendChild(label);
         const tick = document.createElement("div");
@@ -70,18 +71,11 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
       let handleContainer = document.createElement("div");
       handleContainer.classList.add("multi-range__handles");
   
-      // const leftHandle = document.createElement("div");
-      // leftHandle.classList.add("multi-range__handle");
-      // leftHandle.setAttribute("data-handle-position", "start");
-      // leftHandle.setAttribute("tabindex", 0);
-  
       const rightHandle = document.createElement("div");
       rightHandle.classList.add("multi-range__handle");
       rightHandle.setAttribute("data-handle-position", "end");
       rightHandle.setAttribute("tabindex", 0);
-      // handleContainer.appendChild(leftHandle);
       handleContainer.appendChild(rightHandle);
-      // DOM.handles = [leftHandle, rightHandle];
       DOM.handles = [rightHandle];
       track.appendChild(trackBg);
       track.appendChild(trackFill);
@@ -127,6 +121,7 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
     function getClosestStep(newX, handlePosition) {
       const isStart = handlePosition === "start";
       const otherStep = getStep(values[isStart ? "end" : "start"]);
+
       let closestDistance = Infinity;
       let indexOfClosest = null;
       for (let i = 0; i < steps.length; i++) {
@@ -138,6 +133,10 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
           if (distance < closestDistance) {
             closestDistance = distance;
             indexOfClosest = i;
+          } else {
+            if (indexOfClosest === 1 && i === steps.length - 1 && newX == 0) {
+              indexOfClosest = 0
+            }
           }
         }
       }
@@ -146,10 +145,7 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
   
     function updateHandles() {
       DOM.handles.forEach(function(handle, index) {
-        // const step = index === 0 ? getStep(values.start) : getStep(values.end);
         const step =  getStep(values.end);
-  
-        console.log(' ===============> updateHandles step ====: ', step);
         handle.style.left = `${step.stepPercent}%`;
       });
     }
@@ -161,7 +157,6 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
       const startStep = getStep(values.start);
       const endStep = getStep(values.end);
 
-      console.log(' ===============> : trackWidth, startStep, endStep', trackWidth, startStep, endStep);
       const newWidth =
         trackWidth - (startStep.stepX + (trackWidth - endStep.stepX));
       const percentage = newWidth / trackWidth * 100;
@@ -170,7 +165,9 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
     }
   
     function render() {
-        console.log(' ===============> RENDERRRRRRRRRRR: ', );
+        slider.offsetWidth
+
+        slider.style.setProperty('--slider-width', slider.offsetWidth + 'px');
       updateFill();
       updateHandles();
     }
@@ -179,18 +176,19 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
       event.preventDefault();
       if (!dragging) return;
       const handleOffset = getHandleOffset();
+
       const clientX = event.clientX || event.touches[0].clientX;
       window.requestAnimationFrame(() => {
         if (!dragging) return;
         const mouseX = clientX - slider.offsetLeft;
         const handlePosition = currentHandle.dataset.handlePosition;
+
         let newX = Math.max(
           handleOffset,
           Math.min(mouseX, slider.offsetWidth - handleOffset)
         );
+
         const currentStep = getClosestStep(newX, handlePosition);
-  
-        console.log(' ===============> currentStep: ', currentStep);
         values[handlePosition] = currentStep.value;
         render();
         dispatchEvent();
@@ -249,10 +247,6 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
       if(removeElement) slider.parentNode.removeChild(slider);
     }
   
-    // init();
-  
-    // render();
-  
     return {
       on,
       off,
@@ -261,8 +255,3 @@ function MultiRangeSlider(element, settings, getFormattedValue = (value) => valu
       init
     };
   }
-  
-
-//   function getFormattedValue(value) {
-//     return value;
-//   }
