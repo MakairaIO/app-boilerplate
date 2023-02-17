@@ -1,28 +1,35 @@
 <div class="slider-input-container">
-    <span class="text--bravo title">Title</span> 
 
+    {% if title is not empty %}
+        <span class="text--bravo title">{{title}}</span> 
+    {% endif %}
+
+    
     <div class="slider-input__wrapper">
-        <div class="number-input__wrapper">
-            <div class="number-input__input-panel">
-                <input class="number-input__input" type="number" max="{{this.maxValue}}" min="0" value="{{initValue}}">
-                <div class="number-input__control-panel">
-                    <button class="number-input__button increaseBtn">
-                        <span class="number-input__button-icon icon icon--angle-up">
-                        <svg role="img">
-                            <use xlink:href="#angle-up"></use>
-                        </svg>
-                        </span>
-                    </button>
-                    <button class="number-input__button decreaseBtn">
-                        <span class="number-input__button-icon icon icon--angle-down">
-                        <svg role="img">
-                            <use xlink:href="#angle-down"></use>
-                        </svg>
-                        </span>
-                    </button>
+        {% if showInput %}
+            <div class="number-input__wrapper">
+                <div class="number-input__input-panel">
+                    <input class="number-input__input" type="number" max="{{this.maxValue}}" min="0" value="{{initValue}}">
+                    <div class="number-input__control-panel">
+                        <button class="number-input__button increaseBtn">
+                            <span class="number-input__button-icon icon icon--angle-up">
+                            <svg role="img">
+                                <use xlink:href="#angle-up"></use>
+                            </svg>
+                            </span>
+                        </button>
+                        <button class="number-input__button decreaseBtn">
+                            <span class="number-input__button-icon icon icon--angle-down">
+                            <svg role="img">
+                                <use xlink:href="#angle-down"></use>
+                            </svg>
+                            </span>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
+
          <div class="slider-input" id="{{ sliderId }}"></div>
     </div>
 </div>

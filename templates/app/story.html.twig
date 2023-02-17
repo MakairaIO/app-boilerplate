@@ -187,11 +187,11 @@
         <div class="story-section">
             {{ component('heading', { children: 'Slider input', level: 2 }) }}
 
-            {{ component('heading', { children: 'Max 10', level: 3 }) }}
-            {{ component('slider-input', {sliderId: 'slider-input'}) }}
+            {{ component('slider-input', {sliderId: 'slider-input', title: "Max 10"}) }}
             
-            {{ component('heading', { children: 'Max 15 - initValue 5', level: 3 }) }}
-            {{ component('slider-input', {sliderId: 'slider-input-1', maxValue: 15, initValue: 5}) }}
+            {{ component('slider-input', {sliderId: 'slider-input-1', maxValue: 15, initValue: 5, title: "Max 15 - initValue 5"}) }}
+
+            {{ component('slider-input', {sliderId: 'slider-input-2', maxValue: 15, initValue: 5, showInput: false, title: "Slider only"}) }}
         </div>
     </div>
 {% endblock %}
