@@ -1,0 +1,25 @@
+{# templates/components/tabs.html.twig #}
+<section class="tabs">
+    {% for tab in tabs %}
+        <div class="tab-item">
+            <input id="{{ groupKey }}_{{tab.key}}" name="{{ groupKey }}" type="radio" class="tab-selector" {% if tab.selected is defined and tab.selected == true %} checked="checked" {% endif %}  {% if tab.disabled is defined and tab.disabled == true %} disabled {% endif %} />
+            <label for="{{ groupKey }}_{{tab.key}}" title="{{ tab.title }}" class="tab-title">{{ tab.title }}</label>
+            <div class="content">
+                {% if tab.contentType is defined and tab.contentType == 'text' %}
+                    <p class='text text--bravo text--medium text--regular'>
+                        {{tab.content}}
+                    </p>
+                {% else %}
+                    {% if tab.content is iterable %}
+                        {% for c in tab.content %}
+                            {{c | raw}}
+                        {% endfor %}
+                    {% else %}
+                        {{tab.content | raw}}
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</section>
+

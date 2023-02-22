@@ -184,14 +184,36 @@
             }) }}
         </div>
 
-        <div class="story-section" style="max-width: 600px;">
+        <div class="story-section" style="width: 100%">
             {{ component('heading', { children: 'Slider input', level: 2 }) }}
-
             {{ component('slider-input', {sliderId: 'slider-input', title: "Max 10"}) }}
-            
             {{ component('slider-input', {sliderId: 'slider-input-1', maxValue: 15, initValue: 5, title: "Max 15 - initValue 5"}) }}
-
             {{ component('slider-input', {sliderId: 'slider-input-2', maxValue: 15, initValue: 5, showInput: false, title: "Slider only"}) }}
         </div>
+
+
+        <div class="story-section" >
+            {{ component('heading', { children: 'Tabs', level: 2 }) }}
+            {{ component('tabs', { tabs: [
+                {'title': 'Text', 'key': 'text', 'selected': true, "content": 'Hello world', "contentType": 'text'},
+                {'title': 'Disabled', 'key': 'disabled', "content": 3,  "contentType": 'text', "disabled": true},
+                {'title': 'Component', 'key': 'importer', "content": component('button', 
+                    {
+                        variant: 'primary',
+                        children: 'Primary',
+                        disabled: false,
+                        icon: 'star',
+                    }), "contentType": 'html'},
+                {'title': 'Components', 'key': 'component', "content": [component('radio', {}), "<hr />", component('button', 
+                    {
+                        variant: 'primary',
+                        children: 'Submit',
+                        disabled: false,
+                        icon: 'star',
+                    })], "contentType": 'html' },
+                {'title': 'HTML', 'key': 'html', "content": "<h2>This is a free html</h2><input type='text' placeholder='tab html content test'/>",  "contentType": 'html'},
+            ]} )}}
+        </div>
+        
     </div>
 {% endblock %}
