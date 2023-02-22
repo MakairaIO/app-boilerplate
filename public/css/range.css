@@ -1,0 +1,99 @@
+.custom-range {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.custom-range > label {
+  color: var(--neutral-60);
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.range-input__panel {
+  width: 100%;
+}
+
+.custom-range .range-input__bar {
+  position: relative;
+  display: block;
+  height: 8px;
+  width: 100%;
+  border-radius: 8px;
+  background-image: linear-gradient(90deg, #84a4a9 12.14%, #f5bf33 69.98%, #eb6e68 98%, var(--neutral-20) 100%);
+}
+
+.custom-range input[type=range] {
+  -webkit-appearance: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid var(--neutral-40);
+  height: 8px;
+  border-radius: 8px;
+  background-image: linear-gradient(var(--neutral-20), var(--neutral-20));
+  background-repeat: no-repeat;
+  background-position: right; 
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.range-input__indicators {
+  height: 6px;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.range-input__indicators > span{
+  width: 1px;
+  height: 4px;
+  background-color: var(--neutral-40);
+}
+
+.range-input__indicators > span:nth-child(odd) {
+  height: 6px;
+}
+
+/* Input Thumb */
+.custom-range input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 2.4rem;
+  width: 2.4rem;
+  border-radius: 50%;
+  background: var(--white);
+  cursor: grab;
+  border: 1px solid var(--neutral-40);
+  z-index: 1;
+}
+
+.custom-range input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 2.4rem;
+  width: 2.4rem;
+  border-radius: 50%;
+  background: var(--white);
+  cursor: grab;
+  border: 1px solid var(--neutral-40);
+}
+
+.custom-range input[type="range"]::-ms-thumb {
+  -webkit-appearance: none;
+  height: 2.4rem;
+  width: 2.4rem;
+  border-radius: 50%;
+  background: var(--white);
+  cursor: grab;
+  border: 1px solid var(--neutral-40);
+}
+

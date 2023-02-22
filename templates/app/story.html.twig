@@ -184,14 +184,12 @@
             }) }}
         </div>
 
-        <div class="story-section" style="max-width: 600px;">
-            {{ component('heading', { children: 'Slider input', level: 2 }) }}
-
-            {{ component('slider-input', {sliderId: 'slider-input', title: "Max 10"}) }}
-            
-            {{ component('slider-input', {sliderId: 'slider-input-1', maxValue: 15, initValue: 5, title: "Max 15 - initValue 5"}) }}
-
-            {{ component('slider-input', {sliderId: 'slider-input-2', maxValue: 15, initValue: 5, showInput: false, title: "Slider only"}) }}
+        <div class="story-section">
+            {{ component('heading', { children: 'Range HTML5', level: 2 }) }}
+            {{ component('range') }}
+            {{ component('range', { showNumber: false }) }}
+            {{ component('range', { maxValue: 15, title: '' }) }}
+            {{ component('range', { showNumber: false, title: '' }) }}
         </div>
     </div>
 {% endblock %}
