@@ -194,7 +194,7 @@
 
         <div class="story-section">
             {{ component('heading', { children: 'Range HTML5', level: 2 }) }}
-            {{ component('range') }}
+            {{ component('range',  { minValue: 4, maxValue: 15, value: 3, title: 'Range with invalid: min, max, val' }) }}
             {{ component('range', { showNumber: false }) }}
             {{ component('range', { maxValue: 15, title: '' }) }}
             {{ component('range', { showNumber: false, title: '' }) }}

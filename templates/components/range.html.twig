@@ -5,13 +5,12 @@
     {% endif %}
     <div class="input-wrapper">
         {% if showNumber %}
-          {{ component('numberinput', { minValue, maxValue, step, value, id: "number_#{id}", title: '', placeholder: '' }) }}
+          {{ component('numberinput', { minValue, maxValue, value, id: "number_#{id}", title: '', placeholder: '' }) }}
         {% endif %}
         <div class="range-input__panel">
             <div class="range-input__bar">
                 <input type="range" 
                     name="{{name}}" 
-                    step="{{step}}" 
                     min="{{minValue}}" 
                     max="{{maxValue}}" 
                     value="{{value}}" 

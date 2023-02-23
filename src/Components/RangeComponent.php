@@ -16,7 +16,6 @@ class RangeComponent
     public string $title = 'Title';
     public int $minValue = 0;
     public int $maxValue = 10;
-    public int $step = 1;
     public int $value = 3;
     public bool $showNumber = true;
 }

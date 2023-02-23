@@ -16,7 +16,6 @@ class NumberInputComponent
     public string $title;
     public int $minValue = 0;
     public int $maxValue = 20;
-    public int $step = 1;
     public int $value = 5;
     public string $placeholder;
     public bool $disabled = false;
