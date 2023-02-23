@@ -1,0 +1,34 @@
+{# templates/components/numberinput.html.twig #}
+<div class="number-input {% if disabled == true %} number-input__disabled {% endif %}">
+    {% if title is not empty %}
+        <label class="text--bravo number-input__label">{{title}}</label> 
+    {% endif %}
+    <div class="number-input__panel">
+        <input class="number-input__input" 
+            type="number" 
+            placeholder="{{placeholder}}" 
+            name="{{name}}"
+            step="{{step}}" 
+            min="{{minValue}}" 
+            max="{{maxValue}}" 
+            value="{{value}}"
+            {% if disabled == true %} disabled {% endif %}
+            >
+        <div class="number-input__control-panel">
+            <button class="number-input__button increaseBtn">
+                <span class="number-input__button-icon icon icon--angle-up">
+                <svg role="img">
+                    <use xlink:href="#angle-up"></use>
+                </svg>
+                </span>
+            </button>
+            <button class="number-input__button decreaseBtn">
+                <span class="number-input__button-icon icon icon--angle-down">
+                <svg role="img">
+                    <use xlink:href="#angle-down"></use>
+                </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+</div>

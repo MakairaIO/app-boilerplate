@@ -29,32 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const numberInput = component.querySelector('input[type=number]');
         if (numberInput) {
-            const decreaseBtn = component.querySelector(".decreaseBtn");
-            const increaseBtn = component.querySelector(".increaseBtn");
-            decreaseBtn.addEventListener("click", () => {
-                numberInput.stepDown();
-                const ev = new Event('input');
-                numberInput.dispatchEvent(ev);
-            });
-            increaseBtn.addEventListener("click", () =>  {
-                numberInput.stepUp();
-                const ev = new Event('input');
-                numberInput.dispatchEvent(ev);
-            });
             numberInput.addEventListener('input', handleInputChange);
-            numberInput.addEventListener('focusin', (e) => {
-                e.target.dataset.value = e.target.value;
-            });
-            numberInput.addEventListener('change', (e) => {
-                const prevValue = parseInt(e.target.dataset.value);
-                const currentValue = parseInt(e.target.value)
-                const maxValue = parseInt(e.target.max);
-                if(currentValue > maxValue || currentValue < 0) {
-                    numberInput.value = prevValue;
-                    const ev = new Event('input');
-                    numberInput.dispatchEvent(ev);
-                }     
-            })
         }
     });
 })

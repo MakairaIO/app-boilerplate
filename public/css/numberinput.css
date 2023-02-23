@@ -1,5 +1,12 @@
+.number-input__disabled {
+    pointer-events: none;
+    opacity: .7;
+}
+
 .number-input__label {
+    display: inline-block;
     color: var(--neutral-70);
+    margin-bottom: .5rem;
 }
 .number-input__panel {
     width: max-content;

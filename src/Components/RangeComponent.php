@@ -12,9 +12,11 @@ class RangeComponent
         $this->id = bin2hex(random_bytes(16));
     }
     public string $id;
-    public int $defaultValue = 3;
+    public string $name = 'range_name';
+    public string $title = 'Title';
+    public int $minValue = 0;
     public int $maxValue = 10;
     public int $step = 1;
+    public int $value = 3;
     public bool $showNumber = true;
-    public string $title = 'Title';
 }

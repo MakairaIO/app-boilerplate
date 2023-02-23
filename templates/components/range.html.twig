@@ -5,29 +5,11 @@
     {% endif %}
     <div class="input-wrapper">
         {% if showNumber %}
-            <div class="number-input__panel">
-                <input class="number-input__input" type="number" id="number_{{id}}" step="{{step}}" min="0" max="{{maxValue}}" value="{{defaultValue}}">
-                <div class="number-input__control-panel">
-                    <button class="number-input__button increaseBtn">
-                        <span class="number-input__button-icon icon icon--angle-up">
-                        <svg role="img">
-                            <use xlink:href="#angle-up"></use>
-                        </svg>
-                        </span>
-                    </button>
-                    <button class="number-input__button decreaseBtn">
-                        <span class="number-input__button-icon icon icon--angle-down">
-                        <svg role="img">
-                            <use xlink:href="#angle-down"></use>
-                        </svg>
-                        </span>
-                    </button>
-                </div>
-            </div>
+          {{ component('numberinput', { minValue, maxValue, step, value, title: '' }) }}
         {% endif %}
         <div class="range-input__panel">
             <div class="range-input__bar">
-                <input type="range" id="range_{{id}}" step="{{step}}" min="0" max="{{maxValue}}" value="{{defaultValue}}" oninput="number_{{id}}.value=value" style="background-size: {{(maxValue - defaultValue) * 100 / maxValue}}% 100%;"/>
+                <input type="range" name="{{name}}" id="range_{{id}}" step="{{step}}" min="0" max="{{maxValue}}" value="{{value}}" oninput="number_{{id}}.value=value" style="background-size: {{(maxValue - value) * 100 / maxValue}}% 100%;"/>
             </div>
             <div class="range-input__indicators"></div>
         </div>
