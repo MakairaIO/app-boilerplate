@@ -48,6 +48,7 @@
   background-repeat: no-repeat;
   background-position: right 1.2rem top; 
   margin: 0;
+  width: calc(100% + 2.2rem);
 }
 
 .range-input__indicators {
@@ -100,6 +101,16 @@
 }
 
 .custom-range input[type="range"]:active::-webkit-slider-thumb {
+  border-color: #57c5f7;
+  box-shadow: 0 0 0 5px #57c4f75b;
+}
+
+.custom-range input[type="range"]:active::-moz-range-thumb {
+  border-color: #57c5f7;
+  box-shadow: 0 0 0 5px #57c4f75b;
+}
+
+.custom-range input[type="range"]:active::-ms-thumb {
   border-color: #57c5f7;
   box-shadow: 0 0 0 5px #57c4f75b;
 }
