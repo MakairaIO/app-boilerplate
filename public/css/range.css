@@ -98,3 +98,8 @@
   cursor: grab;
   border: 1px solid var(--neutral-40);
 }
+
+.custom-range input[type="range"]:active::-webkit-slider-thumb {
+  border-color: #57c5f7;
+  box-shadow: 0 0 0 5px #57c4f75b;
+}
