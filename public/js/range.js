@@ -19,11 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
             if(e.target.type === 'number') {
                 if(val <= max) {
                     rangeInput.value = val;
-                    rangeInput.style.backgroundSize = 100 - percent + '% 100%';
+                    rangeInput.style.backgroundSize = `calc(${100 - percent}% - 1.2rem) 100%`;
                 }
             } else {
                 rangeInput.style.backgroundSize = `calc(${100 - percent}% - 1.2rem) 100%`;
-               
             }
         }
         rangeInput.addEventListener('input', handleInputChange);
