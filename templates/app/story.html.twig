@@ -4,6 +4,17 @@
 
 {% block body %}
     <div class="makaira-app__story">
+        <div class="story-section">
+            {{ component('heading', { children: 'Page Title', level: 2 }) }}
+
+            <div class="story-item">
+                {{ component('page-title', { prefix: '', suffix: ''}) }}
+            </div>
+
+            <div class="story-item">
+                {{ component('page-title') }}
+            </div>
+        </div>
 
         <div class="story-section">
             {{ component('heading', { children: 'Navigation Items', level: 2 }) }}
@@ -99,18 +110,6 @@
         </div>
 
         <div class="story-section">
-            {{ component('heading', { children: 'Page Title', level: 2 }) }}
-
-            <div class="story-item">
-                {{ component('page-title', { prefix: '', suffix: ''}) }}
-            </div>
-
-            <div class="story-item">
-                {{ component('page-title') }}
-            </div>
-        </div>
-
-        <div class="story-section">
             {{ component('heading', { children: 'Form Elements', level: 2 }) }}
 
             <div class="story-item story-item--with-col">
@@ -175,6 +174,13 @@
                     {{ component('radio', {}) }}
                 </div>
             </div>
+
+            <div class="story-item story-item--with-col-grid story-item--with-col-grid--3-column">
+                {{ component('range',  { minValue: 4, maxValue: 15, value: 3, title: 'Range with invalid: min, max, val' }) }}
+                {{ component('range', { showNumber: false }) }}
+                {{ component('range', { maxValue: 15, title: '' }) }}
+                {{ component('range', { showNumber: false, title: '' }) }}
+            </div>
         </div>
 
         <div class="story-section">
@@ -191,22 +197,6 @@
                 loading: false
             }) }}
         </div>
-
-        <div class="story-section" style="width: 100%">
-            {{ component('heading', { children: 'Slider input', level: 2 }) }}
-            {{ component('slider-input', {sliderId: 'slider-input', title: "Max 10"}) }}
-            {{ component('slider-input', {sliderId: 'slider-input-1', maxValue: 15, initValue: 5, title: "Max 15 - initValue 5"}) }}
-            {{ component('slider-input', {sliderId: 'slider-input-2', maxValue: 15, initValue: 5, showInput: false, title: "Slider only"}) }}
-        </div>
-
-        <div class="story-section">
-            {{ component('heading', { children: 'Range HTML5', level: 2 }) }}
-            {{ component('range',  { minValue: 4, maxValue: 15, value: 3, title: 'Range with invalid: min, max, val' }) }}
-            {{ component('range', { showNumber: false }) }}
-            {{ component('range', { maxValue: 15, title: '' }) }}
-            {{ component('range', { showNumber: false, title: '' }) }}
-        </div>
-
 
         <div class="story-section" >
             {{ component('heading', { children: 'Tabs', level: 2 }) }}
