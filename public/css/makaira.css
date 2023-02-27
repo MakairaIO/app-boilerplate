@@ -11,6 +11,7 @@
 @import url(page-title.css);
 @import url(dashboard-app.css);
 @import url(input-slider.css);
+@import url(tabs.css);
 
 :root {
     --white: #fff;
