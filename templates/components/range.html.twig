@@ -1,0 +1,24 @@
+{# templates/components/range.html.twig #}
+<div class="custom-range">
+    {% if title is not empty %}
+        <label class="text--bravo">{{title}}</label> 
+    {% endif %}
+    <div class="input-wrapper">
+        {% if showNumber %}
+          {{ component('numberinput', { minValue, maxValue, value, id: "number_#{id}", title: '', placeholder: '' }) }}
+        {% endif %}
+        <div class="range-input__panel">
+            <div class="range-input__bar">
+                <input type="range" 
+                    name="{{name}}" 
+                    min="{{minValue}}" 
+                    max="{{maxValue}}" 
+                    value="{{value}}" 
+                    oninput="number_{{id}}.value=value" 
+                    style="background-size: calc({{(maxValue - value) * 100 / maxValue}}% - 1.2rem) 100%;"
+                />
+            </div>
+            <div class="range-input__indicators"></div>
+        </div>
+    </div>
+</div>

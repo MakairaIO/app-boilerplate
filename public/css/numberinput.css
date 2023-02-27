@@ -1,0 +1,82 @@
+.number-input__disabled {
+    pointer-events: none;
+    opacity: .7;
+}
+
+.number-input__label {
+    display: inline-block;
+    color: var(--neutral-70);
+    margin-bottom: .5rem;
+}
+.number-input__panel {
+    width: max-content;
+    display: flex;
+    border: 1px solid var(--neutral-40);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.number-input__panel:hover .number-input__control-panel {
+    border-left: 1px solid var(--neutral-40);
+}
+.number-input__panel:hover .number-input__control-panel .number-input__button:first-child {
+    border-bottom: 1px solid var(--neutral-40);
+}
+.number-input__panel:hover .number-input__control-panel .number-input__button-icon {
+    color: var(--aubergine);
+}
+.number-input__panel .number-input__input {
+    font-size: 1.3rem;
+    letter-spacing: .02rem;
+    line-height: 1.8rem;
+    height: 3.1rem;
+    outline: none;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-aubergine);
+    padding: 8px;
+    margin-left: 1px;
+    width: 7.4rem;
+    border: none;
+}
+.number-input__panel .number-input__input::placeholder {
+    color: var(--neutral-20);
+}
+.number-input__panel input[type="number"] {
+    -moz-appearance: textfield;
+}
+.number-input__panel input::-webkit-outer-spin-button,
+.number-input__panel input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.number-input__panel .number-input__control-panel {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--neutral-10);
+}
+.number-input__panel .number-input__control-panel--disabled .number-input__button {
+    cursor: not-allowed;
+}
+.number-input__panel .number-input__control-panel .number-input__button {
+    width: 2.4rem;
+    height: 1.5rem;
+    border: none;
+    background: var(--neutral-00);
+}
+.number-input__panel .number-input__control-panel .number-input__button:hover {
+    cursor: pointer;
+}
+.number-input__panel .number-input__control-panel .number-input__button:first-child {
+    border-bottom: 1px solid var(--neutral-10);
+}
+.number-input__panel .number-input__control-panel .number-input__button-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    color: var(--neutral-40);
+    margin: auto;
+}
+.number-input__message {
+    font-style: italic;
+    font-weight: var(--font-weight-book);
+    margin-top: 0.35rem;
+    color: var(--neutral-60);
+}

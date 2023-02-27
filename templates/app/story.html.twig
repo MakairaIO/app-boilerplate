@@ -156,6 +156,14 @@
                 <div class="story-item">
                     {{ component('textinput', { title: "Input disabled", disabled: true }) }}
                 </div>
+
+                <div class="story-item">
+                   {{ component('numberinput', { title: "Number title", placeholder:'I am a number....'}) }}
+                </div>
+
+                <div class="story-item">
+                   {{ component('numberinput', { title: "Number disabled", placeholder: 'I am a number....', disabled: true }) }}
+                </div>
             </div>
 
             <div class="story-item story-item--with-col-grid story-item--with-col-grid--5-column">
@@ -191,20 +199,28 @@
             {{ component('slider-input', {sliderId: 'slider-input-2', maxValue: 15, initValue: 5, showInput: false, title: "Slider only"}) }}
         </div>
 
+        <div class="story-section">
+            {{ component('heading', { children: 'Range HTML5', level: 2 }) }}
+            {{ component('range',  { minValue: 4, maxValue: 15, value: 3, title: 'Range with invalid: min, max, val' }) }}
+            {{ component('range', { showNumber: false }) }}
+            {{ component('range', { maxValue: 15, title: '' }) }}
+            {{ component('range', { showNumber: false, title: '' }) }}
+        </div>
+
 
         <div class="story-section" >
             {{ component('heading', { children: 'Tabs', level: 2 }) }}
             {{ component('tabs', { tabs: [
                 {'title': 'Text', 'key': 'text', 'selected': true, "content": 'Hello world', "contentType": 'text'},
                 {'title': 'Disabled', 'key': 'disabled', "content": 3,  "contentType": 'text', "disabled": true},
-                {'title': 'Component', 'key': 'importer', "content": component('button', 
+                {'title': 'Component', 'key': 'importer', "content": component('button',
                     {
                         variant: 'primary',
                         children: 'Primary',
                         disabled: false,
                         icon: 'star',
                     }), "contentType": 'html'},
-                {'title': 'Components', 'key': 'component', "content": [component('radio', {}), "<hr />", component('button', 
+                {'title': 'Components', 'key': 'component', "content": [component('radio', {}), "<hr />", component('button',
                     {
                         variant: 'primary',
                         children: 'Submit',
@@ -214,6 +230,6 @@
                 {'title': 'HTML', 'key': 'html', "content": "<h2>This is a free html</h2><input type='text' placeholder='tab html content test'/>",  "contentType": 'html'},
             ]} )}}
         </div>
-        
+
     </div>
 {% endblock %}
