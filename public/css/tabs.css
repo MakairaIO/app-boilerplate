@@ -5,6 +5,7 @@
   gap: 2.4rem;
   align-items: baseline;
   min-height: 400px;
+  background-color: inherit;
 }
 .tabs::before {
   content: "";
@@ -16,6 +17,7 @@
 }
 .tab-item {
   height: 75px;
+  background-color: inherit;
 }
 .tab-item > input[type=radio].tab-selector {
   position: absolute;
@@ -62,8 +64,8 @@
   left: 0;
   width: 100%;
   opacity: 0;
-  padding: 1rem;
-  background: var(--white);;
+  padding: 16px 2rem;
+  background-color: inherit;
   transition: opacity 0.4s;
   z-index: 1;
 }
