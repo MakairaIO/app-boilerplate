@@ -53,14 +53,12 @@
     flex-direction: column;
     border-left: 1px solid var(--neutral-10);
 }
-.number-input__panel .number-input__control-panel--disabled .number-input__button {
-    cursor: not-allowed;
-}
 .number-input__panel .number-input__control-panel .number-input__button {
     width: 2.4rem;
     height: 1.5rem;
     border: none;
     background: var(--neutral-00);
+    padding: 0;
 }
 .number-input__panel .number-input__control-panel .number-input__button:hover {
     cursor: pointer;
