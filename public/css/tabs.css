@@ -6,6 +6,7 @@
   align-items: baseline;
   min-height: 400px;
   background-color: inherit;
+  /*padding: 16px 32px 32px 23rem;*/
 }
 .tabs::before {
   content: "";
@@ -36,7 +37,6 @@
   font-size: 24px;
   padding: 2rem 0;
   font-weight: var(--font-weight-medium);
-  max-width: 15rem;
   min-width: 3rem;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -58,7 +58,6 @@
 }
 .content {
   position: absolute;
-  overflow: hidden;
   top: 75px;
   bottom: 0;
   left: 0;
@@ -68,6 +67,10 @@
   background-color: inherit;
   transition: opacity 0.4s;
   z-index: 1;
+}
+
+.content > .heading:first-child {
+  margin-top: 0;
 }
 
 .tab-item > input[type=radio].tab-selector:checked ~ .content,

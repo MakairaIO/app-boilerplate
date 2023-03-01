@@ -121,7 +121,13 @@ html {
     line-height: 1.2rem;
 }
 
+a {
+    color: inherit;
+    font-weight: var(--font-weight-bold);
+}
+
 p,
+ul, ol,
 .text--bravo {
     font-size: 1.3rem;
     letter-spacing: 0.02rem;
@@ -154,6 +160,7 @@ h2, h3 {
 }
 
 p,
+ul, ol,
 h1, h2, h3 {
     color: var(--aubergine);
 }
@@ -176,11 +183,25 @@ p {
 }
 
 .makaira-app__wrapper {
+    width: 965px;
+    margin: 0 auto;
+    padding: 48px 0;
+}
+
+.makaira-app__logo {
+    display: block;
+    margin-bottom: 32px;
+}
+
+.makaira-app__intro {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+}
+
+.makaira-app__intro-tabs-wrapper {
+    margin-top: 32px;
 }
 
 .container {
