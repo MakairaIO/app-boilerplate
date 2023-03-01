@@ -4,6 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    CLIENT_SECRET: '%env(resolve:MAKAIRA_SHARED_SECRET)%'
 
 services:
     # default configuration for services in *this* file
@@ -22,11 +23,24 @@ services:
 
     App\Service\CommunicationService:
         arguments:
-            $clientSecret: '%env(resolve:CLIENT_SECRET)%'
+            $clientSecret: '%CLIENT_SECRET%'
+            $url: '%env(resolve:MAKAIRA_API_URL)%'
+            $instance: '%env(resolve:MAKAIRA_INSTANCE)%'
 
     App\Security\SignedRequestAuthenticator:
         arguments:
-            $clientSecret: '%env(resolve:CLIENT_SECRET)%'
+            $clientSecret: '%CLIENT_SECRET%'
+
+    Makaira\HttpClient\Curl:
+        public: false
+        arguments:
+            $timeout: 0
+
+    Makaira\HttpClient:
+        class: Makaira\HttpClient\Signing
+        arguments:
+            $aggregate: '@Makaira\HttpClient\Curl'
+            $sharedSecret: '%CLIENT_SECRET%'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

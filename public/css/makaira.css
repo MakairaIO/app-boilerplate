@@ -1,12 +1,49 @@
+@import url(story.css);
+@import url(icon.css);
+@import url(text.css);
+@import url(checkbox.css);
+@import url(buttons.css);
+@import url(table.css);
+@import url(textarea.css);
+@import url(select.css);
+@import url(radio.css);
+@import url(textinput.css);
+@import url(page-title.css);
+@import url(dashboard-app.css);
+@import url(range.css);
+@import url(numberinput.css);
+@import url(tabs.css);
+
 :root {
+    --white: #fff;
+    --dark: #4f5967;
     --aubergine: #61304d;
-    --aubergine-hovered: #4e273e;
     --misty: #ecf2f3;
-    --sunny: #F5BF33;
+    --sunny: #f5bf33;
     --fire: #eb6e68;
     --teal: #63b6c8;
-
-    --neutral-00: #FFFFFF;
+    --table-aubergine: #fff4fb;
+    --table-misty: #f8fbfc;
+    --table-sunny: #fffaed;
+    --table-fire: #fff2f1;
+    --table-teal: #f0f8fa;
+    --text-white: #fff;
+    --text-aubergine: #61304d;
+    --text-teal: #63b6c8;
+    --errorBackground: #b71c1c;
+    --activeColor: #43a047;
+    --brand-aubergine: #61304D;
+    --brand-aubergine-inactive: #9C8B95;
+    --brand-aubergine-hover: #4E273E;
+    --brand-aubergine-light: lighten(#61304D, 15%);
+    --brand-aubergine-lightest: lighten(#61304D, 60%);
+    --brand-aubergine-dark: darken(#61304D, 15%);
+    --brand-coral: #EB6E68;
+    --brand-coral-hover: #E54139;
+    --brand-coral-inactive: #C98D8A;
+    --brand-cyan: #63B6C8;
+    --brand-sun: #F5BF33;
+    --neutral-00: #fff;
     --neutral-10: #ECF2F3;
     --neutral-20: #DEE7E8;
     --neutral-40: #BDD2D6;
@@ -15,9 +52,27 @@
     --neutral-70: #537074;
     --neutral-80: #334548;
     --neutral-90: #192224;
-    --neutral-100: #000000;
+    --neutral-100: #000;
+    --legende: #84A400;
+    --divider: #DDE7E9;
+    --font-family-regular: 'FuturaBT';
+    --font-weight-light: 100;
+    --font-weight-medium: 400;
+    --font-weight-book: 300;
+    --font-weight-bold: 700;
+    --font-weight-heavy: 900;
+    --transition-regular: .3s ease;
+    --outline: 2px solid #f5bf33;
+    --elevation-00: 0 1px 5px -3px rgba(0, 0, 0, 0.3);
+    --elevation-02: 0 1px 7px -3px rgba(0, 0, 0, 0.2);
+    --elevation-05: 0 2px 5px -3px rgba(0, 0, 0, 0.5), 0 1px 7px -3px rgba(0, 0, 0, 0.2);
+    --elevation-10: 0 3px 10px -5px rgba(0, 0, 0, 0.3);
+    --elevation-15: 0 2px 4px -1px rgba(0, 0, 0, 0.15), 0 3px 10px -5px rgba(0, 0, 0, 0.3);
+    --elevation-30: 0 4px 8px -1px rgba(0, 0, 0, 0.05), 0 8px 10px -3px rgba(0, 0, 0, 0.05), 0 8px 30px -4px rgba(0, 0, 0, 0.08);
+    --elevation-50: 0 4px 8px -1px rgba(0, 0, 0, 0.05), 0 13px 21px -3px rgba(0, 0, 0, 0.05), 0 18px 50px 4px rgba(0, 0, 0, 0.08);
+    --rounded: 4px;
+    --rounded-full: 100vh;
 }
-
 
 @font-face {
     font-display: fallback;
@@ -66,7 +121,13 @@ html {
     line-height: 1.2rem;
 }
 
+a {
+    color: inherit;
+    font-weight: var(--font-weight-bold);
+}
+
 p,
+ul, ol,
 .text--bravo {
     font-size: 1.3rem;
     letter-spacing: 0.02rem;
@@ -99,12 +160,17 @@ h2, h3 {
 }
 
 p,
+ul, ol,
 h1, h2, h3 {
     color: var(--aubergine);
 }
 
 p {
     font-weight: 400;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 .error-screen__wrapper {
@@ -117,11 +183,25 @@ p {
 }
 
 .makaira-app__wrapper {
+    width: 965px;
+    margin: 0 auto;
+    padding: 48px 0;
+}
+
+.makaira-app__logo {
+    display: block;
+    margin-bottom: 32px;
+}
+
+.makaira-app__intro {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+}
+
+.makaira-app__intro-tabs-wrapper {
+    margin-top: 32px;
 }
 
 .container {
@@ -158,39 +238,93 @@ p {
     margin-right: 0.4rem;
 }
 
-.button {
-    font-size: 1.5rem;
-    letter-spacing: 0;
-    text-align: center;
-    line-height: 3rem;
-    display: inline-block;
-    position: relative;
-    border: 1px solid var(--neutral-40);
-    border-radius: 100vh;
-    height: 3.2rem;
-    padding: 0 16px;
-    transition: background 200ms ease-out,padding .2s cubic-bezier(.175,.885,.32,1.275);
-    color: var(--neutral-50);
-    background: var(--neutral-10);
-    font-family: FuturaBT, sans-serif;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.button:focus {
-    outline: solid 2px var(--sunny);
-}
-
-.button--primary {
-    background: var(--aubergine);
-    border-color: var(--neutral-40);
-    color: var(--neutral-00);
-}
-
-.button--primary:hover {
-    background: var(--aubergine-hovered);
-}
 
 #example-button {
     margin-top: 25px;
+}
+
+/* common CSS */
+.icon {
+    display: inline-block
+}
+
+.icon:focus {
+    outline: var(--outline)
+}
+
+.icon svg {
+    display: block;
+    fill: currentColor;
+    max-height: 100%;
+    max-width: 100%
+}
+
+.spinner {
+    -webkit-animation: fade-in .3s cubic-bezier(.25, .46, .45, .94) both;
+    animation: fade-in .3s cubic-bezier(.25, .46, .45, .94) both;
+    color: var(--brand-aubergine)
+}
+
+.spinner--small {
+    width: 1.6rem;
+    height: 1.6rem
+}
+
+.spinner--normal {
+    width: 2.4rem;
+    height: 2.4rem
+}
+
+.spinner--large {
+    width: 5rem;
+    height: 5rem
+}
+
+.spinner svg {
+    -webkit-animation: rotate-center 1.3s infinite ease-in-out;
+    animation: rotate-center 1.3s infinite ease-in-out
+}
+
+@-webkit-keyframes fade-in {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes rotate-center {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes rotate-center {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
 }

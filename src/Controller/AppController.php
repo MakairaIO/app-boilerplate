@@ -24,6 +24,7 @@ class AppController extends AbstractController
         $nonce = $this->communicationService->getNonce();
         $hmac  = $this->communicationService->getHMAC($instance, $domain, $makairaHmac);
 
+
         return $this->render('app/index.html.twig', [
             'hmac'        => $hmac,
             'makairaHmac' => $makairaHmac,
@@ -49,6 +50,42 @@ class AppController extends AbstractController
             'nonce'       => $nonce,
             'domain'      => $domain,
             'instance'    => $instance,
+        ]);
+    }
+
+    #[Route('/story', name: 'app_story')]
+    public function story(Request $request): Response
+    {
+        $listData = [
+            [
+                "id" => 12,
+                "identifier" => "fancy-teaser",
+                "name" => "Fancy Teaser",
+            ],
+            [
+                "id" => 12,
+                "identifier" => "contact-form",
+                "name" => "Contact Form",
+            ],
+            [
+                "id" => 8,
+                "identifier" => "teaser-grid",
+                "name" => "Teaser (Grid)",
+            ],
+        ];
+
+        return $this->render('app/story.html.twig', [
+            'listData'  => $listData,
+        ]);
+    }
+
+    #[Route('/component-list', name: 'component_list')]
+    public function componentList(Request $request): Response
+    {
+        $components = $this->communicationService->fetchComponents();
+
+        return $this->render('app/component-list.html.twig', [
+            'components'  => $components,
         ]);
     }
 

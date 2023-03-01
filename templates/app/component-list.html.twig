@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Makaira App Boilerplate{% endblock %}
+
+{% block body %}
+    <div class="makaira-app__wrapper" style="height: auto;">
+        <h1>Components</h1>
+
+        {{
+        component('table', {
+            columns: [
+                {'title' : 'ID', 'dataIndex' : 'id'},
+                {'title' : 'Name', 'dataIndex' : 'name', 'width': 250},
+                {'title' : 'Identifier', 'dataIndex' : 'identifier', 'width': 200},
+            ],
+            data: components,
+            loading: false
+        })
+        }}
+    </div>
+{% endblock %}

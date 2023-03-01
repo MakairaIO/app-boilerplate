@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use Exception;
+use Makaira\HttpClient;
 
 class CommunicationService
 {
@@ -11,7 +12,7 @@ class CommunicationService
     /**
      * @throws Exception
      */
-    public function __construct(private readonly string $clientSecret)
+    public function __construct(private readonly string $clientSecret, private readonly HttpClient $httpClient, private readonly string $url, private readonly string $instance)
     {
         $this->nonce = bin2hex(random_bytes(16));
     }
@@ -40,5 +41,28 @@ class CommunicationService
     public function getNonce(): string
     {
         return $this->nonce;
+    }
+
+    /**
+     * @return array
+     */
+    public function fetchComponents(): array {
+        $request = "{$this->url}/component/";
+        $headers = [
+            "X-Makaira-Instance: {$this->instance}",
+            "Content-Type: application/json; charset=UTF-8",
+        ];
+
+        try {
+            $response = $this->httpClient->request('GET', $request, null, $headers);
+
+            if ($response->status !== 200) {
+                throw new Exception();
+            }
+
+            return json_decode($response->body, true);
+        } catch (Exception $e) {
+            return [];
+        }
     }
 }

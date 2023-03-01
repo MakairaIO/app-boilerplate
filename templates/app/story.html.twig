@@ -1,0 +1,225 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Makaira Story{% endblock %}
+
+{% block body %}
+    <div class="makaira-app__story">
+        <div class="story-section">
+            {{ component('heading', { children: 'Page Title', level: 2 }) }}
+
+            <div class="story-item">
+                {{ component('page-title', { prefix: '', suffix: ''}) }}
+            </div>
+
+            <div class="story-item">
+                {{ component('page-title') }}
+            </div>
+        </div>
+
+        <div class="story-section">
+            {{ component('heading', { children: 'Navigation Items', level: 2 }) }}
+
+            <div class="story-item story-item--with-col-grid story-item--with-col-grid--5-column">
+                <div class="story-item">
+                    {{ component('dashboard-app') }}
+                </div>
+
+                <div class="story-item">
+                    {{ component('dashboard-app', { text: 'Components', icon: 'toolbox', badge: 'Sale'}) }}
+                </div>
+
+                <div class="story-item">
+                    {{ component('dashboard-app', { text: 'Bundles', icon: 'box-open-full', badge: ''}) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="story-section">
+            {{ component('heading', { children: 'Buttons', level: 2 }) }}
+
+            <div class="story-item story-item--with-col-grid story-item--with-col-grid--3-column">
+                <div class="story-item">
+                    {{ component('button', {
+                        variant: 'primary',
+                        children: 'Primary',
+                        disabled: false,
+                        icon: 'star',
+                    }) }}
+                </div>
+
+                <div class="story-item">
+                    {{ component('button', {
+                        variant: 'primary',
+                        children: 'External Link',
+                        disabled: false,
+                        href: 'https://www.example.com',
+                        isExternalLink: true,
+                    }) }}
+                </div>
+
+                <div class="story-item">
+                    {{ component('button', {
+                        variant: 'primary',
+                        children: 'Internal Link',
+                        disabled: false,
+                        href: 'component_list',
+                        isExternalLink: false
+                    }) }}
+                </div>
+
+                <div class="story-item">
+                    {{ component('button', {
+                        variant: 'primary',
+                        children: 'Primary disable',
+                        onClick: '',
+                        disabled: true,
+                        icon: 'star',
+                    }) }}
+                </div>
+
+                <div class="story-item">
+                    {{ component('button', {
+                        variant: 'secondary',
+                        children: 'Secondary',
+                        onClick: '',
+                        disabled: false,
+                        icon: 'star',
+                    }) }}
+                </div>
+
+                <div class="story-item">
+                    {{ component('button', {
+                        variant: 'primary-blocker',
+                        children: 'Primary blocker',
+                        onClick: '',
+                        disabled: true,
+                        icon: 'xmark',
+                    }) }}
+                </div>
+
+                <div class="story-item">
+                    {{ component('button', {
+                        variant: 'secondary-blocker',
+                        children: 'Secondary Blocker',
+                        onClick: '',
+                        disabled: false,
+                        icon: 'xmark',
+                    }) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="story-section">
+            {{ component('heading', { children: 'Form Elements', level: 2 }) }}
+
+            <div class="story-item story-item--with-col">
+                <div class="story-item__col">
+                    {{ component('textarea', {}) }}
+                </div>
+
+                <div class="story-item__col">
+                    {{ component('textarea', { disabled: true, title: 'Title disabled' }) }}
+                </div>
+
+                <div class="story-item__col">
+                    {{ component('textarea', { error: 'Textarea error now' }) }}
+                </div>
+            </div>
+
+            <div class="story-item story-item--with-col-grid story-item--with-col-grid--5-column">
+                <div class="story-item">
+                    {{ component('select', {}) }}
+                </div>
+
+                <div class="story-item">
+                    {{ component('select', {title: "Select disabled",disabled: true}) }}
+                </div>
+
+                <div class="story-item" style="padding-top: 2.6rem">
+                    {{ component('checkbox', {}) }}
+                </div>
+
+                <div class="story-item" style="padding-top: 2.6rem">
+                    {{ component('checkbox', {
+                        name: 'chk_2',
+                        disabled: true
+                    }) }}
+                </div>
+            </div>
+
+            <div class="story-item story-item--with-col-grid story-item--with-col-grid--5-column">
+                <div class="story-item">
+                    {{ component('textinput', {}) }}
+                </div>
+
+                <div class="story-item">
+                    {{ component('textinput', { title: "Input disabled", disabled: true }) }}
+                </div>
+
+                <div class="story-item">
+                   {{ component('numberinput', { title: "Number title", placeholder:'I am a number....'}) }}
+                </div>
+
+                <div class="story-item">
+                   {{ component('numberinput', { title: "Number disabled", placeholder: 'I am a number....', disabled: true }) }}
+                </div>
+            </div>
+
+            <div class="story-item story-item--with-col-grid story-item--with-col-grid--5-column">
+                <div class="story-item">
+                    {{ component('radio', {size: 'large'}) }}
+                </div>
+
+                <div class="story-item">
+                    {{ component('radio', {}) }}
+                </div>
+            </div>
+
+            <div class="story-item story-item--with-col-grid story-item--with-col-grid--3-column">
+                {{ component('range',  { minValue: 4, maxValue: 15, value: 3, title: 'Range with invalid: min, max, val' }) }}
+                {{ component('range', { showNumber: false }) }}
+                {{ component('range', { maxValue: 15, title: '' }) }}
+                {{ component('range', { showNumber: false, title: '' }) }}
+            </div>
+        </div>
+
+        <div class="story-section">
+            {{ component('heading', { children: 'Data Table', level: 2 }) }}
+
+            {{ component('table', {
+                columns: [
+                    {'title' : 'ID', 'dataIndex' : 'id', width: 100},
+                    {'title' : 'Name', 'dataIndex' : 'name', 'width': 250},
+                    {'title' : 'Identifier', 'dataIndex' : 'identifier', 'width': 200},
+                    {'title' : '', 'dataIndex' : 'componentData', 'width': 200, 'isComponent': true, 'componentData': {component: 'button', variant: 'primary', children: 'Remove' }},
+                ],
+                data: listData,
+                loading: false
+            }) }}
+        </div>
+
+        <div class="story-section" >
+            {{ component('heading', { children: 'Tabs', level: 2 }) }}
+            {{ component('tabs', { tabs: [
+                {'title': 'Text', 'key': 'text', 'selected': true, "content": 'Hello world', "contentType": 'text'},
+                {'title': 'Disabled', 'key': 'disabled', "content": 3,  "contentType": 'text', "disabled": true},
+                {'title': 'Component', 'key': 'importer', "content": component('button',
+                    {
+                        variant: 'primary',
+                        children: 'Primary',
+                        disabled: false,
+                        icon: 'star',
+                    }), "contentType": 'html'},
+                {'title': 'Components', 'key': 'component', "content": [component('radio', {}), "<hr />", component('button',
+                    {
+                        variant: 'primary',
+                        children: 'Submit',
+                        disabled: false,
+                        icon: 'star',
+                    })], "contentType": 'html' },
+                {'title': 'HTML', 'key': 'html', "content": "<h2>This is a free html</h2><input type='text' placeholder='tab html content test'/>",  "contentType": 'html'},
+            ]} )}}
+        </div>
+
+    </div>
+{% endblock %}

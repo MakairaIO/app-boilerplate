@@ -1,0 +1,7 @@
+{# templates/components/textinput.html.twig #}
+<div class="text-input__wrapper {% if disabled %} text-input__disabled {% endif %}">
+    <div class="text-input__label">{{ title }}</div>
+    <div class="text-input__input-panel">
+        <input class="text-input__input" placeholder="{{ placeholder }}" type="text" name="{{ name }}" value="{{ value }}" {% if disabled == true %} disabled {% endif %}>
+    </div>
+</div>    

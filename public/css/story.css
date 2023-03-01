@@ -1,0 +1,39 @@
+.makaira-app__story {
+    padding: 50px 50px 200px 50px;
+}
+
+.story-item {
+    margin-bottom: 2rem;
+}
+
+.story-item.story-item--with-col {
+    display: flex;
+    gap: 1rem;
+}
+
+.story-item--with-col-grid {
+    max-width: 965px;
+    display: grid;
+    grid-gap: 24px;
+    padding-bottom: 24px;
+}
+
+.story-item--with-col-grid--3-column {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.story-item--with-col-grid--4-column {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.story-item--with-col-grid--5-column {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.story-item__col {
+    flex: 1
+}
+
+.story-section + .story-section {
+    padding-top: 3.6rem;
+}

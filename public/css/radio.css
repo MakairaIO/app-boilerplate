@@ -1,0 +1,95 @@
+.radio-group .radio-button {
+    margin-bottom: 1rem;
+}
+
+.radio-button {
+    font-size: 1.3rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.8rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-aubergine);
+}
+
+.radio-button > input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-button__checkmark {
+    flex: 0 0 1.8rem;
+    height: 1.8rem;
+    background-color: var(--neutral-00);
+    border-radius: 50%;
+    position: relative;
+    border: 1px solid var(--neutral-40);
+    margin-right: 8px;
+    transition: background 0.3s ease;
+}
+
+.radio-button__checkmark:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) scale(0);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--brand-aubergine);
+    transition: all 0.2s ease;
+}
+
+.radio-button:hover input:not(:disabled) ~ .radio-button__checkmark {
+    background-color: var(--neutral-10);
+}
+
+.radio-button input:checked ~ .radio-button__checkmark:after {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.radio-button--large {
+    font-size: 1.8rem;
+    letter-spacing: 0;
+    line-height: 2.6rem;
+}
+
+.radio-button--large .radio-button__checkmark {
+    margin-right: 12px;
+    flex: 0 0 2.6rem;
+    height: 2.6rem;
+}
+
+.radio-button--large .radio-button__checkmark:after {
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.radio-button--vertical {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.radio-button--vertical .radio-button__checkmark {
+    width: 1.8rem;
+    margin: 0;
+}
+
+.radio-button--vertical.radio-button--large .radio-button__checkmark {
+    width: 2.6rem;
+}
+
+.radio-button--disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
