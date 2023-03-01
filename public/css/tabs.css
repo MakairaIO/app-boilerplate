@@ -64,7 +64,7 @@
   left: 0;
   width: 100%;
   opacity: 0;
-  padding: 16px 2rem;
+  padding: 16px 2rem 16px 0;
   background-color: inherit;
   transition: opacity 0.4s;
   z-index: 1;
