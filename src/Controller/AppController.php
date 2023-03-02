@@ -17,9 +17,9 @@ class AppController extends AbstractController
     #[Route('/', name: 'app_app')]
     public function index(Request $request): Response
     {
-        $domain      = $request->query->get("domain");
-        $instance    = $request->query->get("instance");
-        $makairaHmac = $request->query->get("hmac");
+        $domain      = $request->query->get("domain") ?? '';
+        $instance    = $request->query->get("instance") ?? '';
+        $makairaHmac = $request->query->get("hmac") ?? '';
 
         $nonce = $this->communicationService->getNonce();
         $hmac  = $this->communicationService->getHMAC($instance, $domain, $makairaHmac);
@@ -37,9 +37,9 @@ class AppController extends AbstractController
     #[Route('/example', name: 'app_example')]
     public function example(Request $request): Response
     {
-        $domain      = $request->query->get("domain");
-        $instance    = $request->query->get("instance");
-        $makairaHmac = $request->query->get("hmac");
+        $domain      = $request->query->get("domain") ?? '';
+        $instance    = $request->query->get("instance") ?? '';
+        $makairaHmac = $request->query->get("hmac") ?? '';
 
         $nonce = $this->communicationService->getNonce();
         $hmac  = $this->communicationService->getHMAC($instance, $domain, $makairaHmac);
