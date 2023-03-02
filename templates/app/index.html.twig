@@ -38,7 +38,7 @@
             {{ component('tabs', { tabs: [
                 {'title': 'Functionality', 'key': 'functionality', 'selected': true,
                     "content": [
-                        component('heading', { children: 'Welcome to the Makaira App Boilerplate repository!', level: 3 }),
+                        "<p><strong>Welcome to the Makaira App Boilerplate repository!</strong></p>",
                         "<p>This boilerplate is built using the Symfony framework and native JavaScript, and is designed to serve as a starting point for developers looking to build their own applications on top of the Makaira platform.</p>",
                         "<p>With this boilerplate, you can quickly set up a new project with all the necessary configuration and dependencies already in place, and leverage the latest versions of popular frameworks and tools. We've also included a set of UI components out-of-the-box to ensure that the UI of your app is consistent with the Makaira backend where the apps are displayed.</p>",
                         "<p>Whether you're building a new app from scratch or adding functionality to an existing one, this boilerplate provides a solid foundation for your project.</p>",
@@ -47,16 +47,17 @@
 
                 {'title': 'Getting Started', 'key': 'getting-started',
                     "content": [
-                        component('heading', { children: 'Setting up your local development environment', level: 3 }),
+                        "<p><strong>Setting up your local development environment</strong></p>",
                         "<p>To get started, simply clone the repository and follow the instructions in the README file. If you have any questions or feedback, please don't hesitate to reach out to our team. We look forward to seeing what you build with the Makaira App Boilerplate!</p>",
-                        "<p>You will also need to provide the following variables in your .env.local file in order to request data from the Makaira-API:
-                            <ul>
-                                <li>MAKAIRA_API_URL</li>
-                                <li>MAKAIRA_INSTANCE</li>
-                                <li>MAKAIRA_SHARED_SECRET</li>
-                            </ul>
-                        </p>",
-                        component('heading', { children: 'Documentation', level: 3 }),
+                        "<p>You will also need to provide the following variables in your .env.local file in order to request data from the Makaira-API:</p>",
+                        "
+                        <ul>
+                            <li>MAKAIRA_API_URL</li>
+                            <li>MAKAIRA_INSTANCE</li>
+                            <li>MAKAIRA_SHARED_SECRET</li>
+                        </ul>
+                        ",
+                        "<p><strong>Documentation</strong></p>",
                         "<p>If you want to read more about how to register the app you are building within Makaira or need more insights into the necessary tokens, how they are generated and validated, please refer to the documentation about app development.</p>",
                         component('button', {
                             variant: 'secondary',
@@ -65,7 +66,7 @@
                             href: 'https://docs.makaira.io/docs/apps',
                             isExternalLink: true,
                         }),
-                        component('heading', { children: 'Utilities', level: 3 }),
+                        "<p><strong>Utilities</strong></p>",
                         "<p>This boilerplate offers a few utilities out of the box.</p>",
                         "<p>For one, there is a CommunicationService class that allows you do query data from protected routes in Makaira.</p>",
                         "<p>If you need to access Makaira specific data in the frontend like the current instance, user or role of the user, this can also be made available as shown above.</p>",
