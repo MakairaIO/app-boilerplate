@@ -1,0 +1,19 @@
+{# templates/components/statistic.html.twig #}
+{% if href  is not empty %}
+    {% set wrapper = "a" %}
+{% else %}
+    {% set wrapper = "div" %}
+{% endif %}
+
+<{{wrapper}} class="statistic {{type}}" {% if href is not empty %} href={{href}} {% endif %}>
+    <div class="statistic__value">
+        <span class="text text--echo text--medium text--regular">{{value}}</span>
+        {% if status is not empty %}
+           <span class="icon icon--caret-down-solid statistic__caret-{{status}}">
+                <svg role="img" width="15" height="15"><use xlink:href="#caret-{{status}}-solid"></use></svg>
+            </span>
+        {% endif %}
+    </div>
+    <span class="statistic__title text text--charlie text--medium text--regular">{{title}}</span>
+    <span class="statistic__text text--bravo text--medium text--regular">{{text}}</span>
+</{{wrapper}}>
