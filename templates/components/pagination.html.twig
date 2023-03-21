@@ -1,0 +1,75 @@
+{% set query_params = app.request.query.all %}
+{% set query_params = query_params|merge({'page': currentPage - 1}) %}
+
+{% set finalMaxPage = totalPages %}
+{% if finalMaxPage < 1 %}
+    {% set finalMaxPage = 1 %}
+{% endif %}
+
+{% set startPage = 2 %}
+{% set endPage = finalMaxPage - 1 %}
+
+{% if finalMaxPage > 9 %}
+    {% if currentPage < 5 %}
+        {% set endPage = 6 %}
+    {% else %}
+        {% set endPage = currentPage + 2 %}
+        {% set startPage = currentPage - 2 %}
+    {% endif %}
+
+    {% if currentPage > (finalMaxPage - 4) %}
+        {% set endPage = finalMaxPage - 1 %}
+    {% endif %}
+
+    {% if currentPage > (finalMaxPage - 3) %}
+        {% set startPage = finalMaxPage - 5 %}
+    {% endif %}
+{% endif %}
+
+<div class="pagination text--charlie">
+    <a class="pagination__nav-button {% if currentPage <= 1 %} pagination__nav-button--disabled {% endif %}" href="{{ path(route, query_params|merge({'page': currentPage - 1})) }}">
+        <span class="icon icon--chevron-left">
+            <svg role="img"><use xlink:href="#chevron-left"></use></svg>
+        </span>
+    </a>
+
+    <div class="pagination__pages">
+        {% if 1 == currentPage %}
+            <span class="pagination__page pagination__page--active">{{ 1 }}</span>
+        {% else %}
+            <a class="pagination__page" href="{{ path(route, query_params|merge({'page': 1})) }}">{{ 1 }}</a>
+        {% endif %}
+
+        {% if currentPage > 4 and finalMaxPage > 9 %}
+            <span class="pagination__dots">…</span>
+        {% endif %}
+
+        {% if endPage >= startPage %}
+            {% for i in startPage..endPage %}
+                {% if i == currentPage %}
+                    <span class="pagination__page pagination__page--active">{{ i }}</span>
+                {% else %}
+                    <a class="pagination__page" href="{{ path(route, query_params|merge({'page': i})) }}">{{ i }}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {% if currentPage < (finalMaxPage - 3) and finalMaxPage > 9 %}
+            <span class="pagination__dots">…</span>
+        {% endif %}
+
+        {% if finalMaxPage > 1 %}
+            {% if finalMaxPage == currentPage %}
+                <span class="pagination__page pagination__page--active">{{ finalMaxPage }}</span>
+            {% else %}
+                <a class="pagination__page" href="{{ path(route, query_params|merge({'page': finalMaxPage})) }}">{{ finalMaxPage }}</a>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <a class="pagination__nav-button {% if currentPage >= totalPages %} pagination__nav-button--disabled {% endif %}" href="{{ path(route, query_params|merge({'page': currentPage + 1})) }}">
+        <span class="icon icon--chevron-right">
+            <svg role="img"><use xlink:href="#chevron-right"></use></svg>
+        </span>
+    </a>
+</div>

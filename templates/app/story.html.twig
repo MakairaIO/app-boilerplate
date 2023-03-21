@@ -196,6 +196,8 @@
                 data: listData,
                 loading: false
             }) }}
+
+            {{component('pagination', {totalPages: 15, currentPage: 1, route: 'app_app'})}}
         </div>
 
         <div class="story-section" >
@@ -221,22 +223,28 @@
             ]} )}}
         </div>
 
+        <div class="story-section">
+            {{ component('heading', { children: 'Pagination', level: 2 }) }}
+
+            {{component('pagination', {totalPages: 15, currentPage: 7, route: 'app_app'})}}
+        </div>
+
          <div class="story-section" >
             {{ component('heading', { children: 'Statistic', level: 2 }) }}
             <div style="display: flex; flexWrap: wrap; gap: 30px">
-                {{ component('statistic', { 
-                    value: '940', 
+                {{ component('statistic', {
+                    value: '940',
                     status:"down",
                     title: "Orders",
-                    text: "in the last 7 days" 
+                    text: "in the last 7 days"
                 }) }}
-                {{ component('statistic', { 
+                {{ component('statistic', {
                     value: "€ 450.2",
                     status: "up",
                     title: "Conversion fee",
                     text:"in the last 10 days"
                 }) }}
-                {{ component('statistic', { 
+                {{ component('statistic', {
                     value: "34.45 %",
                     status: "up",
                     type: "secondary",
