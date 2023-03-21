@@ -1,0 +1,59 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .pagination .pagination__page {
+    color: var(--brand-aubergine);
+    height: 3.2rem;
+    width: 3.2rem;
+    cursor: pointer;
+    font-weight: var(--font-weight-bold);
+    border-radius: 1.6rem;
+    margin: 0 4px;
+    transition: background 200ms ease-out, padding 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .pagination .pagination__page:focus {
+    outline: var(--outline);
+  }
+  .pagination .pagination__page:last-child {
+    margin-right: 0;
+  }
+  .pagination .pagination__page:hover {
+    background: var(--neutral-60);
+    color: var(--neutral-00);
+  }
+  .pagination .pagination__page--active {
+    color: var(--neutral-00);
+    background: var(--neutral-60);
+  }
+  .pagination .pagination__dots {
+    font-weight: var(--font-weight-book);
+    color: var(--neutral-60);
+    margin: 0 4px;
+  }
+  .pagination .pagination__nav-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    margin: 0 4px;
+  }
+  .pagination .pagination__nav-button:focus {
+    outline: var(--outline);
+  }
+  .pagination .pagination__nav-button--disabled {
+    cursor: not-allowed;
+  }
+  .pagination .pagination__nav-button .icon {
+    color: var(--neutral-60);
+    height: 1.6rem;
+    width: 1.6rem;
+  }
