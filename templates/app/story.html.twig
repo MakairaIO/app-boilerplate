@@ -231,7 +231,32 @@
 
          <div class="story-section" >
             {{ component('heading', { children: 'Statistic', level: 2 }) }}
-            <div style="display: flex; flexWrap: wrap; gap: 30px">
+            <div style="display: flex; flexWrap: wrap; gap: 30px; margin-bottom: 30px">
+                {{ component('statistic', {
+                    value: '940',
+                    status:"down",
+                    title: "Orders",
+                    text: "in the last 7 days",
+                    size: "small"
+                }) }}
+                {{ component('statistic', {
+                    value: "€ 450.2",
+                    status: "up",
+                    title: "Conversion fee",
+                    text:"in the last 10 days",
+                    size: "small"
+                }) }}
+                {{ component('statistic', {
+                    value: "34.45 %",
+                    status: "up",
+                    type: "secondary",
+                    title: "A/B Performance",
+                    text: "more revenue",
+                    href: '/#abc',
+                    size: "small"
+                }) }}
+            </div>
+            <div style="display: flex; flexWrap: wrap; gap: 30px; margin-bottom: 30px">
                 {{ component('statistic', {
                     value: '940',
                     status:"down",
@@ -251,6 +276,31 @@
                     title: "A/B Performance",
                     text: "more revenue",
                     href: '/#abc'
+                }) }}
+            </div>
+            <div style="display: flex; flexWrap: wrap; gap: 30px">
+                {{ component('statistic', {
+                    value: '940',
+                    status:"down",
+                    title: "Orders",
+                    text: "in the last 7 days",
+                    size: "large"
+                }) }}
+                {{ component('statistic', {
+                    value: "€ 450.2",
+                    status: "up",
+                    title: "Conversion fee",
+                    text:"in the last 10 days",
+                    size: "large"
+                }) }}
+                {{ component('statistic', {
+                    value: "34.45 %",
+                    status: "up",
+                    type: "secondary",
+                    title: "A/B Performance",
+                    text: "more revenue",
+                    href: '/#abc',
+                    size: "large"
                 }) }}
             </div>
         </div>

@@ -5,8 +5,6 @@
     justify-content: center;
     padding: 16px;
     border-radius: 4px;
-    height: 142px;
-    width: 174px;
     color: var(--white);
     text-decoration: none;
 }
@@ -19,6 +17,29 @@
     background-color: var(--legende);
 }
 
+.statistic.small {
+    width: 150px;
+    height: 125px;
+}
+
+.statistic.small .value {
+    margin-bottom: 18px;
+}
+
+.statistic.medium {
+    width: 175px;
+    height: 145px;
+} 
+
+.statistic.large {
+    width: 220px;
+    height: 200px; 
+}
+
+.statistic.large .value {
+    margin-bottom: 36px;
+}
+
 .statistic.secondary .statistic__caret-up svg,
 .statistic.secondary .statistic__caret-down svg {
   fill: var(--white) !important;
@@ -27,6 +48,7 @@
 .statistic__value {
     margin-top: 8px;
     margin-bottom: 24px;
+    margin-left: 5px;
     display: flex;
     align-items: center;
 }
