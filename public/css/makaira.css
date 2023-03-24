@@ -14,6 +14,7 @@
 @import url(numberinput.css);
 @import url(tabs.css);
 @import url(pagination.css);
+@import url(statistic.css);
 
 :root {
     --white: #fff;
@@ -203,6 +204,11 @@ p {
 
 .makaira-app__intro-tabs-wrapper {
     margin-top: 32px;
+}
+
+.makaira-app__intro-tabs-wrapper a + p,
+.makaira-app__intro-tabs-wrapper ul + p {
+    margin-top: 48px;
 }
 
 .container {

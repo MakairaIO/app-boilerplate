@@ -1,0 +1,33 @@
+{# templates/components/statistic.html.twig #}
+{% if href  is not empty %}
+    {% set wrapper = "a" %}
+{% else %}
+    {% set wrapper = "div" %}
+{% endif %}
+
+{% if size == 'small' %}
+    {% set valueTextSize = 'delta' %}
+    {% set titleTextSize = 'bravo' %}
+    {% set textSize = 'alpha' %}
+{% elseif size == 'medium' %}
+    {% set valueTextSize = 'echo' %}
+    {% set titleTextSize = 'charlie' %}
+    {% set textSize = 'bravo' %}
+{% else %}
+    {% set valueTextSize = 'foxtrot' %}
+    {% set titleTextSize = 'delta' %}
+    {% set textSize = 'charlie' %}
+{% endif %}
+
+<{{wrapper}} class="statistic {{type}} {{size}}" {% if href is not empty %} href={{href}} {% endif %}>
+    <div class="statistic__value">
+        <span class="text text--{{valueTextSize}} text--medium text--regular">{{value}}</span>
+        {% if status is not empty %}
+           <span class="icon icon--caret-down-solid statistic__caret-{{status}}">
+                <svg role="img" width="15" height="15"><use xlink:href="#caret-{{status}}-solid"></use></svg>
+            </span>
+        {% endif %}
+    </div>
+    <span class="statistic__title text text--{{titleTextSize}} text--medium text--regular">{{title}}</span>
+    <span class="statistic__text text--{{textSize}} text--medium text--regular">{{text}}</span>
+</{{wrapper}}>
