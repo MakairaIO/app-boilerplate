@@ -4,6 +4,7 @@
     border: 1px solid var(--neutral-40);
     border-radius: 4px;
     min-width: 20rem;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -34,6 +35,10 @@
     margin-left: 1px;
     border: none;
     border-radius: 4px;
+}
+
+.text-input__input-panel textarea.text-input__input {
+    min-height: 5rem;
 }
 
 .text-input__input-panel .text-input__input::-webkit-input-placeholder {

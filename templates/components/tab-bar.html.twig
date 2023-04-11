@@ -1,0 +1,9 @@
+{# templates/components/tab-bar.html.twig #}
+<section class="tab-bar">
+    {% for tab in tabs %}
+        <a href="{{ tab.href }}" class="tab-bar-item {% if tab.selected is defined and tab.selected == true %}tab-bar-item--active{% endif %}">
+            {{ tab.title }}
+        </a>
+    {% endfor %}
+</section>
+

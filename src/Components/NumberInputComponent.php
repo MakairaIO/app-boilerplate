@@ -19,4 +19,6 @@ class NumberInputComponent
     public int $value = 5;
     public string $placeholder;
     public bool $disabled = false;
+    public string $customLabel = '';
+    public string $customInput = '';
 }

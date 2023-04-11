@@ -303,6 +303,60 @@
                     size: "large"
                 }) }}
             </div>
+
+            <div style="margin-bottom: 30px">   
+                {{ component('heading', { children: 'Modal Popup', level: 2 }) }}
+                <div class="modal-open__demoModal">
+                    {{ component('button', {
+                        variant: 'primary',
+                        children: 'Open popup',
+                    }) }}
+                </div>
+                {{ component('modal', { 
+                    title: 'Sample modal', 
+                    id: 'demoModal', 
+                    content: '<div class="info"><label class="info-label">Description</label><p class="info-content">Some of the Twig functions mentioned in the previous section allow to pass variables to configure their behavior. For example, the form_label function lets you define a custom label to override the one defined in the form</p> </div>' 
+                }) }}
+
+                <div class="modal-open__demoModalForm">
+                    {{ component('button', {
+                        variant: 'primary',
+                        children: 'Open popup form',
+                    }) }}
+                </div>
+               {{ component('modal', { 
+                        id: 'demoModalForm', 
+                        title: 'Sample modal with form', 
+                        content: '
+                            <form action="/">
+                                <div class="info"><label class="info-label">Description</label><p class="info-content">Am Standort Magdeburg erstreckt sich unser Büro auf ca. 400 qm im siebten Stock. Dort sitzen wir (30 Mitarbeiter), die marmalade GmbH (OXID eShop & E-Commerce Plattformen), gemeinsam mit den Kollegen von der webvariants GmbH (Shopware, TYPO3, Symfony) als Töchter der marmalade Group GmbH (Sitz in Heidelberg).</p></div>
+                                <div class="info"><label class="info-label">Screenshot</label><p class="info-content"><img src="https://www.marmalade.de/images/m-buero-Magdeburg-2.webp" height="200" /></p></div>
+                                <div class="info"><label class="info-label">Pricing</label><p class="info-content">Only $8 per month</p></div>
+                                <input type="hidden" name="app_id" required="required" value="123">
+                                <div class="modal-footer">${submitBtn}</div>
+                            </form>
+                        '|replace({ 
+                            "${submitBtn}": component('button', {
+                                variant: 'secondary-blocker',
+                                children: 'Submit',
+                            }) 
+                        })
+                    } )}}
+            </div>
+
+            <div style="margin-bottom: 30px">
+                <div class="navigation">
+                    {{ component('page-title', { children: 'Tabs Bar', prefix: 'You are looking at' }) }}
+
+                    {{ component('tab-bar', { tabs: [
+                        {'title': 'Home', href: '/story'},
+                        {'title': 'Active', 'selected': true, href: '/story' },
+                        {'title': 'Feature', href: '/story' },
+                        {'title': 'Contack', href: '/story' },
+                        {'title': 'FAQ', href: '/story'},
+                    ]} )}}
+                </div>
+            </div>
         </div>
 
     </div>
