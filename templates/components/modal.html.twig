@@ -1,0 +1,24 @@
+{# templates/components/modal.html.twig #}
+<section class="modal modal__{{id}} hidden">
+    <div class="modal-header">
+        <div class="modal-title">{{title}}</div>
+        <span class="modal-icon modal-close__{{id}}">
+            <svg role="img"><use xlink:href="#xmark"></use></svg>
+        </span>
+    </div>
+    <div class="modal-content">
+        {{ content | raw }}
+    </div>
+    {% if footer is defined and footer is not empty %}
+        <div class="modal-footer">
+            {{ footer | raw }}
+        </div>
+    {% endif %}
+</section>
+<div class="modal-overlay modal-overlay__{{id}} hidden"></div>
+
+<script type="text/javascript">
+   document.addEventListener("DOMContentLoaded", () => {
+        initModal('{{ id }}')
+   })
+</script>

@@ -37,3 +37,8 @@
 .story-section + .story-section {
     padding-top: 3.6rem;
 }
+
+.navigation {
+    display: flex;
+    margin-bottom: 2rem;
+}

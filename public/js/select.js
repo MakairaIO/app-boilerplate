@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".select-input").forEach((el) => {
-        const input = el.querySelector('.rc-select__input');
-        const dropdown = el.querySelector('.rc-select-dropdown');
+        const input = el.querySelector('.select__input');
+        const valueText = el.querySelector('.select-text');
+        const placeholder = el.querySelector('.select-placeholder');
+        const dropdown = el.querySelector('.select-dropdown');
         const viewportHeight = window.innerHeight;
 
         const hideDropdown = () => {
@@ -28,10 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         })
 
-        const items = dropdown.querySelectorAll('.rc-select-dropdown__item');
+        const items = dropdown.querySelectorAll('.select-dropdown__item');
         items.forEach((itemEl) => {
             itemEl.addEventListener('click', () => {
                 input.value = itemEl.dataset.value;
+                valueText.classList.remove('hidden');
+                valueText.innerHTML = itemEl.dataset.label;
+                placeholder && placeholder.remove()
                 items.forEach((i) => {
                     i.classList.remove('selected');
                 })

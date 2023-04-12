@@ -12,4 +12,6 @@ class TextInputComponent
     public string $value = '';
     public string $placeholder = 'input...';
     public bool $disabled = false;
+    public string $customLabel = '';
+    public string $customInput = '';
 }

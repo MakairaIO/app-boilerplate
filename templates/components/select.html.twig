@@ -1,9 +1,38 @@
 {# templates/components/select.html.twig #}
 <div class="select-input {% if disabled == true %} select-input__disabled {% endif %} {% if borderless == true %} select-input__borderless {% endif %}" tabindex="1">
-    <div class="select-input__label">{{ title }}</div>
-    <div class="rc-select">
-        <input autocomplete="off" type="text" name="{{ name }}" placeholder="{{ placeholder }}" class="rc-select__input" {% if disabled == true %} disabled {% endif %} />
-        <span class="rc-select-arrow" unselectable="on" aria-hidden="true" style="user-select: none;">
+
+    {% if customLabel is defined and customLabel is not empty %}
+        <div class="select-input__label">{{ customLabel | raw }}</div>
+    {% elseif title is defined and title is not empty %}
+        <div class="select-input__label">{{ title }}</div>
+    {% endif %}
+
+    <div class="select">
+        {% if customInput is defined and customInput is not empty %}
+            {{ customInput | raw }}
+        {% else %}
+            <input autocomplete="off" 
+                type="hidden" 
+                name="{{ name }}" 
+                class="select__input"
+                {% if disabled == true %} disabled {% endif %} 
+                {% if selectedValue is defined and selectedValue is not empty %} value="{{ selectedValue }}" {% endif %} 
+            />
+        {% endif %}
+        
+
+        {% if selectedValue is defined and selectedValue is not empty %} 
+            {% for option in options %}
+                {% if option.value == selectedValue %} 
+                    <span class="select-text">{{ option.label }}</span>
+                {% endif %} 
+            {% endfor %}
+        {% else %}
+            <span class="select-text hidden"></span>
+            <span class="select-placeholder">{{ placeholder }}</span>
+        {% endif %}
+
+        <span class="select-arrow" unselectable="on" aria-hidden="true" style="user-select: none;">
          <span class="icon icon--angle-down">
             <svg role="img">
                <use xlink:href="#angle-down"></use>
@@ -11,9 +40,14 @@
          </span>
       </span>
     </div>
-    <div class="rc-select-dropdown">
+    <div class="select-dropdown">
         {% for option in options %}
-            <span class="rc-select-dropdown__item" data-value="{{ option.value }}">{{ option.label }}</span>
+            <span class="select-dropdown__item {% if selectedValue is defined and selectedValue == option.value %} selected {% endif %}" 
+                data-value="{{ option.value }}" 
+                data-label="{{ option.label }}"
+            >
+                {{ option.label }}
+            </span>
         {% endfor %}
     </div>
 </div>

@@ -8,6 +8,6 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 class PageTitleComponent
 {
     public string $children = 'Willkommen bei Makaira, Jan!';
-    public string $prefix = 'Title prefix';
-    public string $suffix = 'Title suffix';
+    public string $prefix = '';
+    public string $suffix = '';
 }

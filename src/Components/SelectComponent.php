@@ -12,6 +12,9 @@ class SelectComponent
     public string $placeholder = 'placeholder';
     public bool $disabled = false;
     public bool $borderless = false;
+    public string $selectedValue = '';
+    public string $customLabel = '';
+    public string $customInput = '';
     public array $options = [
         ['label' => 'Banana', 'value' => 'Banana'],
         ['label' => 'Pineapple', 'value' => 'Pineapple'],
