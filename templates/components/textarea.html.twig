@@ -9,7 +9,14 @@
         {% endif %}
     </div>
 
-    <textarea {% if disabled == true %} disabled {% endif %} placeholder="{{ placeholder }}" maxlength="{{ maxlength }}">{{ value }}</textarea>
+    <textarea
+        {% if disabled == true %} disabled {% endif %}
+        placeholder="{{ placeholder }}"
+        {% if maxlength %} maxlength="{{ maxlength }}" {% endif %}
+        name="{{ name }}"
+    >
+        {{ value }}
+    </textarea>
 
     <div class="textarea-input__description">
         {% if error == '' %} {{ description }} {% else %} {{ error }} {% endif %}

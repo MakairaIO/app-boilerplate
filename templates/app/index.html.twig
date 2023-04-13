@@ -2,108 +2,40 @@
 
 {% block title %}Makaira App Boilerplate{% endblock %}
 
-{% block javascripts %}
-    <script type="text/javascript">
-        const HMAC = {{ hmac|json_encode|raw }};
-        const NONCE = {{ nonce|json_encode|raw }};
-        const MAKAIRA_HMAC = {{ makairaHmac|json_encode|raw }};
-    </script>
-    <script src="{{ asset('js/makaira.js') }}" type="text/javascript"></script>
-{% endblock %}
-
 {% block body %}
     <div class="makaira-app__wrapper">
         <div class="makaira-app__intro">
             <img src="{{ asset('images/makaira-logo.svg') }}" height="130px" alt="Makaira Logo" class="makaira-app__logo"/>
+        </div>
 
-            <div class="container container--level-1 makaira-app__information-container">
-                <div>
-                    <span class="text--bravo">Instance:</span><code>{{ instance }}</code>
-                </div>
-                <div>
-                    <span class="text--bravo">Domain:</span><code>{{ domain }}</code>
-                </div>
-                <div>
-                    <span class="text--bravo">Makaira User:</span>
-                    <code id="makaira-user">Requesting data from Makaira-Backend...</code>
-                </div>
-                <div>
-                    <span class="text--bravo">Makaira Role:</span>
-                    <code id="makaira-role">Requesting data from Makaira-Backend...</code>
-                </div>
+        {% if state %}
+           <p class="form__state">{{ state }}</p>
+        {% endif %}
+
+        <form method="POST" action="{{ path("app_request", app.request.query.all) }}">
+            <div>
+                {{ component('textinput', { title: "Name", name: "name", required: true }) }}
             </div>
-        </div>
 
-        <div class="makaira-app__intro-tabs-wrapper">
-            {{ component('tabs', { tabs: [
-                {'title': 'Functionality', 'key': 'functionality', 'selected': true,
-                    "content": [
-                        "<p><strong>Welcome to the Makaira App Boilerplate repository!</strong></p>",
-                        "<p>This boilerplate is built using the Symfony framework and native JavaScript, and is designed to serve as a starting point for developers looking to build their own applications on top of the Makaira platform.</p>",
-                        "<p>With this boilerplate, you can quickly set up a new project with all the necessary configuration and dependencies already in place, and leverage the latest versions of popular frameworks and tools. We've also included a set of UI components out-of-the-box to ensure that the UI of your app is consistent with the Makaira backend where the apps are displayed.</p>",
-                        "<p>Whether you're building a new app from scratch or adding functionality to an existing one, this boilerplate provides a solid foundation for your project.</p>",
-                    ]
-                },
+            <div>
+                {{ component('textinput', { title: "E-Mail", name: "email", type: "email", required: true }) }}
+            </div>
 
-                {'title': 'Getting Started', 'key': 'getting-started',
-                    "content": [
-                        "<p><strong>Setting up your local development environment</strong></p>",
-                        "<p>To get started, simply clone the repository and follow the instructions in the README file. If you have any questions or feedback, please don't hesitate to reach out to our team. We look forward to seeing what you build with the Makaira App Boilerplate!</p>",
-                        "<p>You will also need to provide the following variables in your .env.local file in order to request data from the Makaira-API:</p>",
-                        "
-                        <ul>
-                            <li>MAKAIRA_API_URL</li>
-                            <li>MAKAIRA_INSTANCE</li>
-                            <li>MAKAIRA_SHARED_SECRET</li>
-                        </ul>
-                        ",
-                        "<p><strong>Documentation</strong></p>",
-                        "<p>If you want to read more about how to register the app you are building within Makaira or need more insights into the necessary tokens, how they are generated and validated, please refer to the documentation about app development.</p>",
-                        component('button', {
-                            variant: 'secondary',
-                            children: 'Checkout The Documentation',
-                            disabled: false,
-                            href: 'https://docs.makaira.io/docs/apps',
-                            isExternalLink: true,
-                        }),
-                        "<p><strong>Utilities</strong></p>",
-                        "<p>This boilerplate offers a few utilities out of the box.</p>",
-                        "<p>For one, there is a CommunicationService class that allows you do query data from protected routes in Makaira.</p>",
-                        "<p>If you need to access Makaira specific data in the frontend like the current instance, user or role of the user, this can also be made available as shown above.</p>",
-                        "<p>The repository also includes UI components that you can use and extend to build your app's interace.</p>",
-                        component('button', {
-                            variant: 'secondary',
-                            children: 'See All Components',
-                            disabled: false,
-                            href: 'app_story',
-                            isExternalLink: false
-                        })
-                    ]
-                },
+            <div>
+                {{ component('textinput', { title: "Link to Data-Feed (e.g. Google-Feed)", name: "feed", placeholder:'https://www.my-website.com/google-feed.csv'}) }}
+            </div>
 
-                {'title': 'Contact Us', 'key': 'contact-us',
-                    "content": [
-                        "<p>Do you have questions about this repository?</p>",
-                        "<p>Do you need help implementing a feature?</p>",
-                        "<p>Contact us at <a href=\"mailto:support@makaira.io\">support@makaira.io</a>.</p>",
-                    ]
-                },
-            ]} )}}
-        </div>
+            <div>
+                {{ component('textarea', { title: "What Makaira features would you like to use?", name: "message", required: true, description: "Tell us about your requirements.", maxlength: false }) }}
+            </div>
 
-{#        <div class="makaira-app__links">#}
-{#            <a href="https://docs.makaira.io/docs/apps" target="_blank" rel="noreferrer" class="button button--primary">#}
-{#                <span>Checkout Documentation</span>#}
-{#            </a>#}
-{#            #}{##}
-{#                To link inside of the application you need to keep the query-string so that authentication#}
-{#                will still work after the redirect.#}
-{#                To do this you can simply pass "app.request.query.all" to the path-function as second parameter#}
-{#                with the name of the route as first parameter.#}
-{#            #}
-{#            <a href="{{ path('app_example', app.request.query.all) }}" class="button button--primary">#}
-{#                <span>Go to example page</span>#}
-{#            </a>#}
-{#        </div>#}
+            <div>
+                {{ component('button', {
+                    variant: 'primary',
+                    children: 'Submit Request',
+                }) }}
+            </div>
+        </form>
+
     </div>
 {% endblock %}

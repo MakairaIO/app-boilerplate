@@ -13,6 +13,8 @@ class TextareaComponent
 
     public string $title = 'Title';
 
+    public bool $required = false;
+
     public bool $disabled = false;
 
     public int $maxlength = 20;

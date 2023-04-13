@@ -294,6 +294,20 @@ p {
     animation: rotate-center 1.3s infinite ease-in-out
 }
 
+form > div + div {
+    margin-top: 1.6rem
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form__state {
+    text-align: center;
+    margin-bottom: 1.6rem
+}
+
 @-webkit-keyframes fade-in {
     0% {
         opacity: 0

@@ -11,9 +11,10 @@
         {% else %}
             <input class="text-input__input" 
                 placeholder="{{ placeholder }}" 
-                type="text" 
-                name="{{ name }}" 
-                value="{{ value }}" 
+                type="{{ type }}"
+                name="{{ name }}"
+                value="{{ value }}"
+                {% if required == true %} required {% endif %}
                 {% if disabled == true %} disabled {% endif %}
             />
         {% endif %}
