@@ -1,0 +1,30 @@
+{
+  "name": "quickstart-app",
+  "version": "1.0.0",
+  "source": "assets/scripts/app.ts",
+  "targets": {
+    "main": false
+  },
+  "browserslist": "> 0.25%",
+  "scripts": {
+    "dev:files": "parcel watch --dist-dir ./public/js",
+    "dev:server": "browser-sync start --server --index 'index_dev.html' --files './public/js/app.js, index_dev.html'",
+    "dev": "npm-run-all --parallel dev:*",
+    "build": "parcel build"
+  },
+  "author": "René Mäkeler",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.2",
+    "@types/react": "^18.2.5",
+    "@types/react-dom": "^18.2.3",
+    "browser-sync": "^2.29.1",
+    "npm-run-all": "^4.1.5",
+    "parcel": "^2.8.3",
+    "prettier": "^2.8.7",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

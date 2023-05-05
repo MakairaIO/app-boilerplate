@@ -19,3 +19,9 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+### frontend
+node_modules
+.parcel-cache
+public/js/app.js
+public/js/app.js.map

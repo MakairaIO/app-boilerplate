@@ -59,6 +59,26 @@ $message
         ]);
     }
 
+    #[Route('/test', name: 'app_test')]
+    public function test(Request $request): Response
+    {
+        /**
+         * 1. Read public/js/quickstart.js
+         * 2. Replace the values in the "data-makaira" attribute with the values from the query string
+         * 3. Return the quickstart.js file with the updated values
+         */
+        $domain   = $request->query->get("domain") ?? '';
+        $instance = $request->query->get("instance") ?? '';
+
+        $content = file_get_contents(__DIR__ . '/../../public/js/quickstart.js');
+        $content = str_replace('{{domain}}', $domain, $content);
+        $content = str_replace('{{instance}}', $instance, $content);
+
+        return new Response($content, 200, [
+            'Content-Type' => 'application/javascript',
+        ]);
+    }
+
     #[Route('/', name: 'app_app')]
     public function index(Request $request): Response
     {
