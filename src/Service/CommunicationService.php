@@ -3,21 +3,21 @@
 namespace App\Service;
 
 use Exception;
-use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\AppInfo;
+use App\Repository\AppInfoRepository;
 
 class CommunicationService
 {
     private string $nonce;
-    private ManagerRegistry $doctrine;
+    private AppInfoRepository $appInfoRepository;
 
     /**
      * @throws Exception
      */
-    public function __construct(ManagerRegistry $doctrine)
+    public function __construct(AppInfoRepository $appInfoRepository)
     {
         $this->nonce = bin2hex(random_bytes(16));
-        $this->doctrine = $doctrine;
+        $this->appInfoRepository = $appInfoRepository;
     }
 
     /**
@@ -31,7 +31,7 @@ class CommunicationService
      */
     public function getHMAC(string $instance, string $domain, string $makairaHmac): string
     {
-        $appInfo = $this->doctrine->getRepository(AppInfo::class)->findOneBySome($domain, $instance);
+        $appInfo = $this->appInfoRepository->findOneByDomainAndInstance($domain, $instance);
         return hash_hmac(
             'sha256',
             sprintf('%s:%s:%s:%s', $this->getNonce(), $domain, $instance, $makairaHmac),

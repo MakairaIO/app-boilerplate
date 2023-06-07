@@ -54,7 +54,7 @@ class AppInfoRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-   public function findOneBySome(string $domain, string $instance): ?AppInfo
+   public function findOneByDomainAndInstance(string $domain, string $instance): ?AppInfo
    {
        return $this->createQueryBuilder('a')
            ->andWhere('a.makairaDomain = :val1')

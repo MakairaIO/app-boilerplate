@@ -15,18 +15,18 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 use App\Entity\AppInfo;
-use Doctrine\Persistence\ManagerRegistry;
+use App\Repository\AppInfoRepository;
 
 class SignedRequestAuthenticator extends AbstractAuthenticator
 {
 
     private Environment $twig;
-    private ManagerRegistry $doctrine;
+    private AppInfoRepository $appInfoRepository;
 
-    public function __construct(Environment $twig, ManagerRegistry $doctrine)
+    public function __construct(Environment $twig, AppInfoRepository $appInfoRepository)
     {
         $this->twig = $twig;
-        $this->doctrine = $doctrine;
+        $this->appInfoRepository = $appInfoRepository;
     }
 
     /**
@@ -59,7 +59,7 @@ class SignedRequestAuthenticator extends AbstractAuthenticator
             throw new AuthenticationException();
         }
 
-        $appInfo = $this->doctrine->getRepository(AppInfo::class)->findOneBySome($domain, $instance);
+        $appInfo = $this->appInfoRepository->findOneByDomainAndInstance($domain, $instance);
 
         $expected = hash_hmac(
             'sha256',
