@@ -5,6 +5,7 @@ namespace App\Service;
 use Exception;
 use App\Entity\AppInfo;
 use App\Repository\AppInfoRepository;
+use Symfony\Component\Security\Core\Exception\AuthenticationException;
 
 class CommunicationService
 {
@@ -32,10 +33,12 @@ class CommunicationService
     public function getHMAC(string $instance, string $domain, string $makairaHmac): string
     {
         $appInfo = $this->appInfoRepository->findOneByDomainAndInstance($domain, $instance);
+        $appSecret = $appInfo ? $appInfo->getAppSecret() : '';
+
         return hash_hmac(
             'sha256',
             sprintf('%s:%s:%s:%s', $this->getNonce(), $domain, $instance, $makairaHmac),
-            $appInfo->getAppSecret()
+            $appSecret
         );
     }
 
