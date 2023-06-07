@@ -14,19 +14,19 @@ class AppInfo
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: false)]
-    private ?string $makairaDomain = null;
+    private string $makairaDomain = '';
 
     #[ORM\Column(length: 255, nullable: false)]
-    private ?string $makairaInstance = null;
+    private string $makairaInstance = '';
 
     #[ORM\Column(length: 255, nullable: false)]
-    private ?string $appSlug = null;
+    private string $appSlug = '';
 
     #[ORM\Column(length: 255, nullable: false)]
-    private ?string $appSecret = null;
+    private string $appSecret = '';
 
     #[ORM\Column(type: 'json', nullable: true)]
-    private ?string $appConfig = null;
+    private string $appConfig = '';
 
     public function getId(): ?int
     {

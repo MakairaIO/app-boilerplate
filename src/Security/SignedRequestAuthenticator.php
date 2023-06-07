@@ -55,9 +55,13 @@ class SignedRequestAuthenticator extends AbstractAuthenticator
         $instance = $request->query->get("instance");
         $hmac = $request->query->get("hmac");
 
-        $appInfo = $this->appInfoRepository->findOneByDomainAndInstance($domain, $instance);
+        if (null === $nonce || null === $domain || null === $instance || null === $hmac) {
+            throw new AuthenticationException();
+        }
 
-        if (null === $nonce || null === $domain || null === $instance || null === $hmac || null === $appInfo) {
+        $appInfo = $this->appInfoRepository->findOneByDomainAndInstance($domain, $instance);
+        
+        if (!$appInfo) {
             throw new AuthenticationException();
         }
 
