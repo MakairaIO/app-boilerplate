@@ -14,17 +14,19 @@ use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+use App\Entity\AppInfo;
+use Doctrine\Persistence\ManagerRegistry;
 
 class SignedRequestAuthenticator extends AbstractAuthenticator
 {
 
     private Environment $twig;
-    private string $clientSecret;
+    private ManagerRegistry $doctrine;
 
-    public function __construct(Environment $twig, string $clientSecret)
+    public function __construct(Environment $twig, ManagerRegistry $doctrine)
     {
         $this->twig = $twig;
-        $this->clientSecret = $clientSecret;
+        $this->doctrine = $doctrine;
     }
 
     /**
@@ -57,10 +59,12 @@ class SignedRequestAuthenticator extends AbstractAuthenticator
             throw new AuthenticationException();
         }
 
+        $appInfo = $this->doctrine->getRepository(AppInfo::class)->findOneBySome($domain, $instance);
+
         $expected = hash_hmac(
             'sha256',
             sprintf('%s:%s:%s', $nonce, $domain, $instance),
-            $this->clientSecret
+            $appInfo->getAppSecret()
         );
 
         return new Passport(new UserBadge("signed_request"), new CustomCredentials(

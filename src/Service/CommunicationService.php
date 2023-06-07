@@ -3,18 +3,21 @@
 namespace App\Service;
 
 use Exception;
-use Makaira\HttpClient;
+use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\AppInfo;
 
 class CommunicationService
 {
     private string $nonce;
+    private ManagerRegistry $doctrine;
 
     /**
      * @throws Exception
      */
-    public function __construct(private readonly string $clientSecret, private readonly HttpClient $httpClient, private readonly string $url, private readonly string $instance)
+    public function __construct(ManagerRegistry $doctrine)
     {
         $this->nonce = bin2hex(random_bytes(16));
+        $this->doctrine = $doctrine;
     }
 
     /**
@@ -28,10 +31,11 @@ class CommunicationService
      */
     public function getHMAC(string $instance, string $domain, string $makairaHmac): string
     {
+        $appInfo = $this->doctrine->getRepository(AppInfo::class)->findOneBySome($domain, $instance);
         return hash_hmac(
             'sha256',
             sprintf('%s:%s:%s:%s', $this->getNonce(), $domain, $instance, $makairaHmac),
-            $this->clientSecret
+            $appInfo->getAppSecret()
         );
     }
 
@@ -41,28 +45,5 @@ class CommunicationService
     public function getNonce(): string
     {
         return $this->nonce;
-    }
-
-    /**
-     * @return array
-     */
-    public function fetchComponents(): array {
-        $request = "{$this->url}/component/";
-        $headers = [
-            "X-Makaira-Instance: {$this->instance}",
-            "Content-Type: application/json; charset=UTF-8",
-        ];
-
-        try {
-            $response = $this->httpClient->request('GET', $request, null, $headers);
-
-            if ($response->status !== 200) {
-                throw new Exception();
-            }
-
-            return json_decode($response->body, true);
-        } catch (Exception $e) {
-            return [];
-        }
     }
 }

@@ -22,15 +22,15 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    App\Service\CommunicationService:
-        arguments:
-            $clientSecret: '%CLIENT_SECRET%'
-            $url: '%env(resolve:MAKAIRA_API_URL)%'
-            $instance: '%env(resolve:MAKAIRA_INSTANCE)%'
+    # App\Service\CommunicationService:
+    #     arguments:
+    #         $clientSecret: '%CLIENT_SECRET%'
+    #         $url: '%env(resolve:MAKAIRA_API_URL)%'
+    #         $instance: '%env(resolve:MAKAIRA_INSTANCE)%'
 
-    App\Security\SignedRequestAuthenticator:
-        arguments:
-            $clientSecret: '%CLIENT_SECRET%'
+    # App\Security\SignedRequestAuthenticator:
+    #     arguments:
+    #         $clientSecret: '%CLIENT_SECRET%'
 
     Makaira\HttpClient\Curl:
         public: false
