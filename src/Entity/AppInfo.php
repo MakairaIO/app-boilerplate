@@ -25,9 +25,6 @@ class AppInfo
     #[ORM\Column(length: 255, nullable: false)]
     private string $appSecret = '';
 
-    #[ORM\Column(type: 'json', nullable: true)]
-    private ?string $appConfig = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -77,18 +74,6 @@ class AppInfo
     public function setAppSecret(string $appSecret): self
     {
         $this->appSecret = $appSecret;
-
-        return $this;
-    }
-
-    public function getAppConfig(): ?string
-    {
-        return $this->appConfig;
-    }
-
-    public function setAppConfig(string $appConfig): self
-    {
-        $this->appConfig = $appConfig;
 
         return $this;
     }
