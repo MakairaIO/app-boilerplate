@@ -26,7 +26,7 @@ class AppInfo
     private string $appSecret = '';
 
     #[ORM\Column(type: 'json', nullable: true)]
-    private string $appConfig = '';
+    private ?string $appConfig = null;
 
     public function getId(): ?int
     {
