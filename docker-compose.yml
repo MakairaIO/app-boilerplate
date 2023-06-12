@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  mysql:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    volumes:
+      - ./data/mysql/lib:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=app-boilerplate
