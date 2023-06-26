@@ -1,4 +1,9 @@
 version: '3.9'
+networks:
+  proxy:
+    name: dev_proxy
+    external: true
+
 services:
   mysql:
     image: mysql:latest
@@ -9,3 +14,44 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=app-boilerplate
+  app:
+    image: marmaladegmbh/php:${PHP_VERSION:-8.1}
+    volumes:
+      - "./:/app/"
+    depends_on:
+      - mysql
+    networks:
+      default: ~
+      proxy:
+        aliases:
+          - app.${DOMAIN:-project_name.localhost}
+    labels:
+      proxy.config: app.${DOMAIN:-project_name.localhost}:80
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    logging: { driver: json-file, options: { max-file: '3', max-size: 512k } }
+    restart: unless-stopped
+    environment:
+      PHP_IMAGE_VERSION: 2
+      WEB_PORT: 80
+      WEB_ROOT: "/public"
+      PHPINI_DATE__TIMEZONE: Europe/Berlin
+      PHPINI_DISPLAY_ERRORS: "true"
+      PHP_ZEND_EXTENSIONS: "xdebug.so"
+      PHPINI_MEMORY_LIMIT: "512M"
+      PHPINI_XDEBUG__DISCOVER_CLIENT_HOST: "false"
+      PHPINI_XDEBUG__CLIENT_HOST: host.docker.internal
+      PHPINI_XDEBUG__START_WITH_REQUEST: "trigger"
+      PHPINI_XDEBUG__TRIGGER_VALUE: ""
+      PHPINI_XDEBUG__MODE: "debug"
+      PHPINI_XDEBUG__MAX_NESTING_LEVEL: 512
+      PHPINI_XDEBUG__VAR_DISPLAY_MAX_CHILDREN: 1024
+      PHPINI_XDEBUG__VAR_DISPLAY_MAX_DATA: 2048
+      PHPINI_XDEBUG__VAR_DISPLAY_MAX_DEPTH: 12
+      PHPINI_MAX_EXECUTION_TIME: 86400
+      PHPINI_MAX_INPUT_VARS: 2000
+      PHPINI_ERROR_LOG: /app/source/var/log/php-errors.log
+      PHPINI_LOG_ERRORS: "On"
+      PHP_IDE_CONFIG: serverName=app.${DOMAIN:-project_name.localhost}
+    working_dir: "/app/"
+

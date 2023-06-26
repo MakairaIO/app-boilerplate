@@ -1,0 +1,56 @@
+#!/bin/bash -e
+
+if [ $EUID -eq 0 ]; then
+  echo "Don't run this script as root!"
+  exit 255;
+fi
+
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." >/dev/null 2>&1 && pwd)"
+ENV="$PROJECT_ROOT"/.env
+
+if [ -z "$PROJECT_ROOT" ]; then
+  echo "Can't detect project root!"
+  exit 1
+fi
+
+if [ -z "$UID" ]; then
+  UID=$(id -u)
+fi
+
+if [ -z "$GID" ]; then
+  GID=$(id -g)
+fi
+
+function add_env_default () {
+  if [ ! -e "$ENV" ] || ! grep -qE "^$1=" "$ENV"; then
+    echo "$1=$2" >> "$ENV"
+    echo "Added \"$1=$2\" to $ENV"
+  fi
+}
+
+add_env_default COMPOSE_PROJECT_NAME project_name
+add_env_default DOMAIN project_name.localhost
+add_env_default MYSQL_VERSION 8.0
+add_env_default PHP_VERSION 8.1
+
+_os="$(uname -s | tr '[:upper:]' '[:lower:]')"
+case "$_os" in
+  linux*)
+    add_env_default USER_UID "$UID"
+    add_env_default USER_GID "$GID"
+    add_env_default WWW_USER "$(id -un)"
+    add_env_default WWW_GROUP "$(id -gn)"
+  ;;
+  darwin*)
+    echo "MacOS support is experimental!"
+    add_env_default FILE_SYSTEM_CONSISTENCY cached
+  ;;
+  *)
+    echo "Unknown: $OSTYPE"
+    exit 1
+  ;;
+esac
+
+if ! [ -e "docker-compose.override.yml" ]; then
+  cp "$PROJECT_ROOT"/docker-compose."$_os".yml "$PROJECT_ROOT"/docker-compose.override.yml
+fi
