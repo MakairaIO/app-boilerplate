@@ -14,7 +14,7 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         bind:
             $creditChargeUrl: '%env(resolve:CREDIT_CHARGE_URL)%'
-            $contentGenerationAppUrl: '%env(resolve:APP_URL)%'
+            $appUrl: '%env(resolve:APP_URL)%'
             $billingToken: '%env(resolve:BILLING_TOKEN)%'
             $appName: '%env(resolve:APP_NAME)%'
 
